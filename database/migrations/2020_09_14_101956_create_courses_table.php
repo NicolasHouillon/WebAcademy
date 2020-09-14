@@ -19,7 +19,6 @@ class CreateCoursesTable extends Migration
             $table->string('content')->nullable(false);
             $table->float('price')->nullable(false);
             $table->unsignedBigInteger('material_id')->nullable(false);
-            $table->unsignedBigInteger('level_id')->nullable(false);
             $table->unsignedBigInteger('group_id')->nullable(false);
             $table->unsignedBigInteger('user_id')->nullable(false);
             $table->timestamps();
@@ -28,12 +27,6 @@ class CreateCoursesTable extends Migration
                 ->foreign('material_id')
                 ->references('id')
                 ->on('materials')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
-            $table
-                ->foreign('level_id')
-                ->references('id')
-                ->on('levels')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
             $table

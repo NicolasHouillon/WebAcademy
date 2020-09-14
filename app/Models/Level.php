@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Level extends Model
 {
     use HasFactory;
+
+    public function materials() {
+        return $this->hasMany(Material::class);
+    }
+
+    public function courses() {
+        return $this->hasMany(Course::class);
+    }
+
 }
