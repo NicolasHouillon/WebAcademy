@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Models\Fichier;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
@@ -15,8 +14,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        User::factory(10)->create();
-        Fichier::factory(10)->create();
+        $this->call([
+            GroupSeeder::class,
+            LevelSeeder::class,
+            MaterialSeeder::class
+        ]);
 
     }
 }

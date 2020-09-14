@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFichiersTable extends Migration
+class CreateLevelsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class CreateFichiersTable extends Migration
      */
     public function up()
     {
-        Schema::create('fichiers', function (Blueprint $table) {
+        Schema::create('levels', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('name')->nullable(false);
+            $table->string('school_level')->nullable(false);
             $table->timestamps();
         });
     }
@@ -27,6 +28,6 @@ class CreateFichiersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('fichiers');
+        Schema::dropIfExists('levels');
     }
 }

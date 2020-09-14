@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Fichier;
+use App\Models\Course;
 use Illuminate\Http\Request;
 
-class FichierController extends Controller
+class CourseController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class FichierController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Fichier  $fichier
+     * @param  \App\Models\Course  $course
      * @return \Illuminate\Http\Response
      */
-    public function show(Fichier $fichier)
+    public function show(Course $course)
     {
         //
     }
@@ -52,10 +52,10 @@ class FichierController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Fichier  $fichier
+     * @param  \App\Models\Course  $course
      * @return \Illuminate\Http\Response
      */
-    public function edit(Fichier $fichier)
+    public function edit(Course $course)
     {
         //
     }
@@ -64,10 +64,10 @@ class FichierController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Fichier  $fichier
+     * @param  \App\Models\Course  $course
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Fichier $fichier)
+    public function update(Request $request, Course $course)
     {
         //
     }
@@ -75,10 +75,10 @@ class FichierController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Fichier  $fichier
+     * @param  \App\Models\Course  $course
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Fichier $fichier)
+    public function destroy(Course $course)
     {
         //
     }
