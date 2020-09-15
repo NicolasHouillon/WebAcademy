@@ -16,6 +16,10 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
-Route::get('/feed', [App\Http\Controllers\HomeController::class, 'feed'])->name('feed');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::prefix('/courses')->group(function () {
+    Route::get('/', [App\Http\Controllers\CourseController::class, 'index'])->name('courses_index');
+    Route::get('/{id}', [App\Http\Controllers\CourseController::class, 'show'])->name('courses_show');
+});
+
+Route::get('/user/@{name}', [App\Http\Controllers\UserController::class, 'show'])->name('user_profile');
