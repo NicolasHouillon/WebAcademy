@@ -13,9 +13,13 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
 
-Auth::routes();
+Route::prefix('/courses')->group(function () {
+    Route::get('/', [App\Http\Controllers\CourseController::class, 'index'])->name('courses_index');
+    Route::get('/{id}', [App\Http\Controllers\CourseController::class, 'show'])->name('courses_show');
+});
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/user/@{name}', [App\Http\Controllers\UserController::class, 'show'])->name('user_profile');
