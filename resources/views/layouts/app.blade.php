@@ -22,17 +22,12 @@
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
                 <div class="navbar">
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        <img src="image/logo.png" width="68" height="51">
-                    </a>
+                    <!-- Left Side Of Navbar -->
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <!-- Left Side Of Navbar -->
-                        <ul class="navbar-nav mr-auto">
-
-                        </ul>
-
+                        <a class="navbar-brand" href="{{ url('/') }}">
+                            <img src="image/logo-2 (1).png" width="68" height="51">
+                        </a>
                         <!-- Right Side Of Navbar -->
                         <ul class="navbar-nav ml-auto">
                             <!-- Authentication Links -->
@@ -67,7 +62,6 @@
                         </ul>
                     </div>
                 </div>
-            </div>
         </nav>
 
         <main class="py-4">
