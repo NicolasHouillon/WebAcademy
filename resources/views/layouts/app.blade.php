@@ -33,12 +33,98 @@
                             <!-- Authentication Links -->
                             @guest
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                    <button class="nav-link" onclick="document.getElementById('id01').style.display='block'" style="width:auto;" >Login</button>
                                 </li>
+                                <div id="id01" class="modal">
+
+                                    <form class="modal-content animate" action="/action_page.php" method="post">
+                                        <div class="imgcontainer">
+                                            <h1>LOGIN</h1>
+                                            <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+                                        </div>
+
+                                        <div class="container-login">
+                                            <label for="email" ><b>{{ __('E-Mail Address') }}</b></label>
+                                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                            @error('email')
+                                                <span class="invalid-feedback" role="alert">
+                                                     <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+
+                                            <label for="password"><b>{{ __('Password') }}</b></label>
+                                            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+
+                                            @error('password')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+
+                                            <button class="button-submit" type="submit">Login</button>
+                                            <label>
+                                                <input type="checkbox" checked="checked" name="remember"> Remember me
+                                            </label>
+                                        </div>
+
+                                        <div class="container-login" style="background-color:#f1f1f1">
+                                            <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+                                            <span class="psw">Forgot <a href="#">password?</a></span>
+                                        </div>
+                                    </form>
+                                </div>
                                 @if (Route::has('register'))
                                     <li class="nav-item">
-                                        <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                        <button class="nav-link" onclick="document.getElementById('id02').style.display='block'" style="width:auto;" >Register</button>
                                     </li>
+                                    <div id="id02" class="modal">
+
+                                        <form class="modal-content animate" action="/action_page.php" method="post">
+                                            <div class="imgcontainer">
+                                                <h1>REGISTER</h1>
+                                                <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+                                            </div>
+
+                                            <div class="container-login">
+
+                                                <!-- Name -->
+                                                <label for="name" ><b>{{ __('Name') }}</b></label>
+                                                <input id="name" type="name" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                                @error('name')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+
+                                                <!-- Email -->
+                                                <label for="email" ><b>{{ __('E-Mail Address') }}</b></label>
+                                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                                @error('email')
+                                                    <span class="invalid-feedback" role="alert">
+                                                         <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+
+                                                <!-- PSWD -->
+                                                <label for="password"><b>{{ __('Password') }}</b></label>
+                                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+
+                                                @error('password')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+
+                                                <label for="password-confirm" class="col-md-4 col-form-label text-md-right"><b>{{ __('Confirm Password') }}</b></label>
+                                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+
+                                                <button class="button-submit" type="submit">Register</button>
+                                                <label>
+                                                    <input type="checkbox" checked="checked" name="remember"> Remember me
+                                                </label>
+                                            </div>
+                                        </form>
+                                    </div>
                                 @endif
                             @else
                                 <li class="nav-item dropdown">
@@ -68,5 +154,20 @@
             @yield('content')
         </main>
     </div>
+    <script>
+        // Get the modal
+        var modal = document.getElementById('id01');
+        var modal2 = document.getElementById('id02');
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+            if (event.target === modal2) {
+                modal2.style.display = "none";
+            }
+        };
+    </script>
 </body>
 </html>
