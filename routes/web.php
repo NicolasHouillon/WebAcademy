@@ -22,4 +22,4 @@ Route::prefix('/courses')->group(function () {
     Route::get('/{id}', [App\Http\Controllers\CourseController::class, 'show'])->name('courses_show');
 });
 
-Route::get('/user/@{name}', [App\Http\Controllers\UserController::class, 'show'])->name('user_profile');
+Route::get('/@{name}', [App\Http\Controllers\UserController::class, 'show'])->name('user_profile');
