@@ -37,7 +37,8 @@
                                 </li>
                                 <div id="id01" class="modal">
 
-                                    <form class="modal-content animate" action="/action_page.php" method="post">
+                                    <form class="modal-content animate" action="{{ route('login') }}" method="post">
+                                        @csrf
                                         <div class="imgcontainer">
                                             <h1>LOGIN</h1>
                                             <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
@@ -79,7 +80,8 @@
                                     </li>
                                     <div id="id02" class="modal">
 
-                                        <form class="modal-content animate" action="/action_page.php" method="post">
+                                        <form class="modal-content animate" action="{{ route('register') }}" method="post">
+                                            @csrf
                                             <div class="imgcontainer">
                                                 <h1>REGISTER</h1>
                                                 <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
