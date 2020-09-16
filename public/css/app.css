@@ -90,7 +90,7 @@ button {
     margin: 8px 0;
     border: none;
     cursor: pointer;
-    width: 100%;
+    width: 10%;
 }
 
 button:hover {
@@ -198,3 +198,57 @@ span.psw {
 /*
     fin Login
 */
+
+ .overlayL {
+    position: fixed;
+    left: 0px;
+    top:0px;
+    background-color: rgba(0,0 ,0 , 0.5);
+    width: 100%;
+    height: 100%;
+    z-index:1;
+    display:none;
+}
+
+.overlayL .popup {
+    margin: 10% auto;
+    width : 70%;
+    background-color: rgb(243, 243, 243);
+    padding: 1em;
+    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+}
+
+.overlayL .popup .btnClose {
+    float: right;
+    font-size:16pt;
+    cursor: pointer;
+    color: rgba(255, 0, 0, 0.67);
+}
+
+.overlayR {
+    position: fixed;
+    left: 0px;
+    top:0px;
+    background-color: rgba(0,0 ,0 , 0.5);
+    width: 100%;
+    height: 100%;
+    z-index:1;
+    display:none;
+}
+
+.overlayR .popup {
+    margin: 10% auto;
+    width : 70%;
+    background-color: rgb(243, 243, 243);
+    padding: 1em;
+    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+}
+
+.overlayR .popup .btnClose {
+    float: right;
+    font-size:16pt;
+    cursor: pointer;
+    color: rgba(255, 0, 0, 0.67);
+}
