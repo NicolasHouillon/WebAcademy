@@ -2,8 +2,8 @@
 
 @section('content')
 
-<div class="container">
-    <div class="row justify-content-center">
+<div class="container loginPage">
+    <div class="row justify-content-center loginHead">
         <button id="popupLogin" class="popupLogin" onclick="document.getElementById('overlayL').style.display='block'">Login</button>
         <div id="overlayL" class="overlayL">
             <div class="popup">

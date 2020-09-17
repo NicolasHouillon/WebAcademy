@@ -5,40 +5,96 @@ body{
     position: relative;
 }
 
+#app .navbar-toggler{
+    font-size: 12px;
+    padding: 13px;
+    text-transform: uppercase;
+    color: white;
+    border: 0;
+    width: 25%;
+    position: absolute;
+    right: 5%;
+    top: 7px;
+}
+
 /*
     Navbar
 */
-.navbar-nav{
+#app .navbar-nav{
     list-style-type: none;
     padding-right: 20px;
     width: 100%;
     text-align: right;
     display: table-cell;
     vertical-align: middle;
+    background-color: rgb(255, 0, 8);
+    visibility: hidden;
+
 }
 
-.nav-link{
+#app .nav-link{
     font-family: OpenSans, sans-serif;
     text-decoration: none;
     text-align: center;
-    padding: 12px 20px;
-    font-weight: 600;
-    font-size: large;
+    padding: 6px 10px;
+    font-weight: bold;
+    font-size: small;
     margin: 5px;
     border-radius: 30px;
     border:none;
-    display: inline-block;
+    display: block;
     color: white;
-    background-color: rgba(0,0,0,0.2);
+    background-color: rgba(0,0,0,0);
+    position: absolute;
+    right: 4%;
 }
 
-.nav-link:hover{
-    background-color: rgba(0,0,0,0.8);
+#app .linkLogin {
+    top: 60px;
+    right: 7%;
 }
 
-.nav-item{
+#app .linkRegister {
+    top: 85px;
+}
+
+#app .nav-link:hover{
+    background-color: rgba(0,0,0,0);
+}
+
+#app .nav-item{
     text-align: center;
-    display: inline-block;
+    display: block;
+}
+
+@media (min-width: 768px) {
+    #app .navbar-nav {
+        background-color: rgba(0,0,0,0);
+        visibility: visible;
+
+    }
+
+    #app .navbar-toggler {
+        visibility: hidden;
+    }
+
+    #app .nav-item {
+        display: inline-block;
+    }
+
+    #app .nav-link{
+        padding: 12px 20px;
+        font-weight: 600;
+        font-size: large;
+        display: inline-block;
+        background-color: rgba(0,0,0,0.2);
+        visibility: visible;
+        position: relative;
+        top: 50%;
+    }
+    #app .nav-link:hover{
+        background-color: rgba(0,0,0,0.8);
+    }
 }
 
 .navbar-collapse{
@@ -50,7 +106,7 @@ body{
 }
 
 .navbar{
-    /*position: absolute;*/
+    position: absolute;
     background-color: unset;
     top: 0;
     right: 0;
@@ -198,6 +254,27 @@ span.psw {
 /*
     fin Login
 */
+
+.loginHead {
+    text-align: center;
+    background-image: url("../image/etudes.jpg");
+    background-size: cover;
+    height: 100vh;
+}
+
+.loginHead .popupLogin {
+    position: relative;
+    top: 40%;
+    margin: 20px;
+    padding: 10px;
+    font-size: 40px;
+    font-weight: bold;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 3px solid #ffffff;
+    color: #ffffff;
+    width: 230px;
+    box-shadow: #1a202c;
+}
 
  .overlayL {
     position: fixed;

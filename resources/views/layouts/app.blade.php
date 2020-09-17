@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" xmlns:https="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,22 +18,27 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-                <div class="navbar">
+        <div class="container navbar">
                     <!-- Left Side Of Navbar -->
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <a class="navbar-brand" href="{{ url('/') }}">
                             <img src="image/logo-2 (1).png" width="68" height="51">
                         </a>
                         <!-- Right Side Of Navbar -->
-                        <ul class="navbar-nav ml-auto">
+                        <button class="navbar-toggler navbar-toggler-right" id="linkMenu">
+                            Menu
+                            <i class="fas fa-bars"></i>
+                        </button>
+
+                        <ul class="navbar-nav ml-auto" id="linkboutons">
                             <!-- Authentication Links -->
                             @guest
                                 <li class="nav-item">
-                                    <button class="nav-link" onclick="document.getElementById('id01').style.display='block'" style="width:auto;" >Login</button>
+                                    <button class="nav-link linkLogin" id="linkLogin" onclick="document.getElementById('id01').style.display='block'" style="width:auto;" >Login</button>
                                 </li>
                                 <div id="id01" class="modal">
 
@@ -76,7 +81,7 @@
                                 </div>
                                 @if (Route::has('register'))
                                     <li class="nav-item">
-                                        <button class="nav-link" onclick="document.getElementById('id02').style.display='block'" style="width:auto;" >Register</button>
+                                        <button class="nav-link linkRegister" id="linkRegister" onclick="document.getElementById('id02').style.display='block'" style="width:auto;" >Register</button>
                                     </li>
                                     <div id="id02" class="modal">
 
@@ -150,7 +155,6 @@
                         </ul>
                     </div>
                 </div>
-        </nav>
 
         <main class="py-4">
             @yield('content')
@@ -170,6 +174,25 @@
                 modal2.style.display = "none";
             }
         };
+
+        var linkMenu = document.getElementById('linkMenu');
+        var linkLogin = document.getElementById('linkLogin');
+        var linkRegister = document.getElementById('linkRegister');
+        var linkboutons = document.getElementById('linkboutons');
+        let flag = false;
+
+        window.onclick = function(event) {
+            if (event.target === linkMenu) {
+                if(flag) {
+                    linkboutons.style.visibility = "hidden";
+                    flag = false;
+                }
+                if(!flag) {
+                    linkboutons.style.visibility = "visible";
+                    flag = true;
+                }
+            }
+        }
     </script>
 </body>
 </html>
