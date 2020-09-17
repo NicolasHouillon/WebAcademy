@@ -22,4 +22,7 @@ class UserController extends Controller
         return view('users.show', $return);
     }
 
+    public function tableauBord() {
+        return view('tableauBord');
+    }
 }
