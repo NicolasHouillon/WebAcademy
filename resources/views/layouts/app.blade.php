@@ -21,39 +21,35 @@
 
 </head>
 <body>
-<div id="app">
-    <div class="container navbar">
-        <!-- Left Side Of Navbar -->
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <a class="navbar-brand" href="{{ url('/') }}">
-                <img src="image/logo-2 (1).png" width="68" height="51">
-            </a>
-            <!-- Right Side Of Navbar -->
-            <button class="navbar-toggler navbar-toggler-right" id="linkMenu">
-                Menu
-                <i class="fas fa-bars"></i>
-            </button>
+    <div id="app">
+        <div class="container navbar">
+                    <!-- Left Side Of Navbar -->
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <a class="navbar-brand" href="{{ url('/') }}">
+                            <img src="image/logo-2 (1).png" width="68" height="51">
+                        </a>
+                        <!-- Right Side Of Navbar -->
 
-            <ul class="navbar-nav ml-auto" id="linkboutons">
-                <!-- Authentication Links -->
-                @guest
-                    <li class="nav-item">
-                        <button class="nav-link linkLogin" id="linkLogin" onclick="document.getElementById('id01').style.display='block'" style="width:auto;" >Login</button>
-                    </li>
-                    <div id="id01" class="modal">
+                        <ul class="navbar-nav ml-auto" id="linkboutons">
+                            <!-- Authentication Links -->
+                            @guest
+                                <li class="nav-item">
+                                    <button class="nav-link linkLogin" id="linkLogin" onclick="document.getElementById('id01').style.display='block'" style="width:auto;" >Login</button>
+                                </li>
+                                <div id="id01" class="modal">
 
-                        <form class="modal-content animate" action="{{ route('login') }}" method="post">
-                            @csrf
-                            <div class="imgcontainer">
-                                <h1>LOGIN</h1>
-                                <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-                            </div>
+                                    <form class="modal-content animate" action="{{ route('login') }}" method="post">
+                                        @csrf
+                                        <div class="imgcontainer">
+                                            <h1>LOGIN</h1>
+                                            <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+                                        </div>
 
-                            <div class="container-login">
-                                <label for="email" ><b>{{ __('E-Mail Address') }}</b></label>
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-                                @error('email')
-                                <span class="invalid-feedback" role="alert">
+                                        <div class="container-login">
+                                            <label for="email" ><b>{{ __('E-Mail Address') }}</b></label>
+                                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                            @error('email')
+                                                <span class="invalid-feedback" role="alert">
                                                      <strong>{{ $message }}</strong>
                                                 </span>
                                 @enderror
@@ -187,6 +183,7 @@
                 linkboutons.style.visibility = "hidden";
                 flag = false;
             }
+
             if(!flag) {
                 linkboutons.style.visibility = "visible";
                 flag = true;
