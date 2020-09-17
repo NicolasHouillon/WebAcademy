@@ -5,18 +5,6 @@ body{
     position: relative;
 }
 
-#app .navbar-toggler{
-    font-size: 12px;
-    padding: 13px;
-    text-transform: uppercase;
-    color: white;
-    border: 0;
-    width: 25%;
-    position: absolute;
-    right: 5%;
-    top: 7px;
-}
-
 /*
     Navbar
 */
@@ -27,9 +15,6 @@ body{
     text-align: right;
     display: table-cell;
     vertical-align: middle;
-    background-color: rgb(255, 0, 8);
-    visibility: hidden;
-
 }
 
 #app .nav-link{
@@ -42,58 +27,49 @@ body{
     margin: 5px;
     border-radius: 30px;
     border:none;
-    display: block;
+    display: inline-block;
     color: white;
-    background-color: rgba(0,0,0,0);
-    position: absolute;
-    right: 4%;
-}
-
-#app .linkLogin {
-    top: 60px;
-    right: 7%;
-}
-
-#app .linkRegister {
-    top: 85px;
+    background-color: rgba(0,0,0,0.4);
 }
 
 #app .nav-link:hover{
-    background-color: rgba(0,0,0,0);
+    background-color: rgba(0,0,0,0.8);
 }
 
 #app .nav-item{
     text-align: center;
-    display: block;
+    display: inline-block;
+}
+
+@media (min-width: 400px) {
+    #app .nav-link {
+        padding: 9px 15px;
+        font-size: medium;
+    }
 }
 
 @media (min-width: 768px) {
-    #app .navbar-nav {
-        background-color: rgba(0,0,0,0);
-        visibility: visible;
-
-    }
-
-    #app .navbar-toggler {
-        visibility: hidden;
-    }
-
-    #app .nav-item {
-        display: inline-block;
-    }
-
     #app .nav-link{
         padding: 12px 20px;
         font-weight: 600;
         font-size: large;
-        display: inline-block;
-        background-color: rgba(0,0,0,0.2);
-        visibility: visible;
-        position: relative;
-        top: 50%;
     }
-    #app .nav-link:hover{
-        background-color: rgba(0,0,0,0.8);
+}
+
+@media (min-width: 1900px) {
+    #app .nav-link{
+        padding: 18px 30px;
+        font-weight: 600;
+        font-size: 25px;
+    }
+
+    #app .navbar {
+        height: 12%;
+    }
+
+    #app .navbar-brand img {
+        width: 110px;
+        height: 82px;
     }
 }
 
@@ -259,6 +235,7 @@ span.psw {
     text-align: center;
     background-image: url("../image/etudes.jpg");
     background-size: cover;
+    background-position: center;
     height: 100vh;
 }
 
@@ -267,13 +244,27 @@ span.psw {
     top: 40%;
     margin: 20px;
     padding: 10px;
-    font-size: 40px;
+    font-size: 28px;
     font-weight: bold;
     background-color: rgba(0, 0, 0, 0.5);
     border: 3px solid #ffffff;
     color: #ffffff;
-    width: 230px;
-    box-shadow: #1a202c;
+    width: 180px;
+    box-shadow: 5px 5px 5px #1a202c;
+}
+
+@media (min-width: 768px) {
+    .loginHead .popupLogin {
+        font-size: 40px;
+        width: 230px;
+    }
+}
+
+@media (min-width: 1900px) {
+    .loginHead .popupLogin {
+        font-size: 60px;
+        width: 310px;
+    }
 }
 
  .overlayL {

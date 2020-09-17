@@ -29,10 +29,6 @@
                             <img src="image/logo-2 (1).png" width="68" height="51">
                         </a>
                         <!-- Right Side Of Navbar -->
-                        <button class="navbar-toggler navbar-toggler-right" id="linkMenu">
-                            Menu
-                            <i class="fas fa-bars"></i>
-                        </button>
 
                         <ul class="navbar-nav ml-auto" id="linkboutons">
                             <!-- Authentication Links -->
@@ -174,25 +170,6 @@
                 modal2.style.display = "none";
             }
         };
-
-        var linkMenu = document.getElementById('linkMenu');
-        var linkLogin = document.getElementById('linkLogin');
-        var linkRegister = document.getElementById('linkRegister');
-        var linkboutons = document.getElementById('linkboutons');
-        let flag = false;
-
-        window.onclick = function(event) {
-            if (event.target === linkMenu) {
-                if(flag) {
-                    linkboutons.style.visibility = "hidden";
-                    flag = false;
-                }
-                if(!flag) {
-                    linkboutons.style.visibility = "visible";
-                    flag = true;
-                }
-            }
-        }
     </script>
 </body>
 </html>
