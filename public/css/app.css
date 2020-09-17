@@ -71,7 +71,6 @@ body{
     #app .navbar-nav {
         background-color: rgba(0,0,0,0);
         visibility: visible;
-
     }
 
     #app .navbar-toggler {
@@ -329,3 +328,13 @@ span.psw {
     cursor: pointer;
     color: rgba(255, 0, 0, 0.67);
 }
+
+/*
+     TableauBord
+*/
+
+
+
+/*
+    fin TableauBord
+*/
