@@ -23,4 +23,3 @@ Route::prefix('/courses')->group(function () {
 });
 
 Route::get('/@{name}', [App\Http\Controllers\UserController::class, 'show'])->name('user_profile');
-Route::get('/tableauBord',[App\Http\Controllers\UserController::class, 'tableauBord'])->name('tableauBord');

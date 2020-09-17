@@ -5,6 +5,10 @@ body{
     position: relative;
 }
 
+.container{
+
+}
+
 /*
     Navbar
 */
@@ -339,6 +343,31 @@ span.psw {
      TableauBord
 */
 
+#app .col-sm-4 {
+    text-align: center;
+    height: 100vh;
+    display: inline-block;
+    width: 40%;
+}
+#app .col-sm-8 {
+    text-align: center;
+    height: 100vh;
+    display: inline-block;
+    width: 50%;
+}
+
+#app .card{
+    position: relative;
+    top: 20%;
+    margin-left: 20px;
+    margin-right: 0;
+    padding: 10px;
+    font-size: 28px;
+    font-weight: bold;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 3px solid #ffffff;
+    color: #ffffff;
+}
 
 
 /*

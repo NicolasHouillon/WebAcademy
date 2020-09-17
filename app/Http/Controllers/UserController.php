@@ -21,8 +21,4 @@ class UserController extends Controller
         $return = $user ? [$user] : ['error' => "L'utilisateur n'existe pas."];
         return view('users.show', $return);
     }
-
-    public function tableauBord() {
-        return view('tableauBord');
-    }
 }

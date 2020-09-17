@@ -22,7 +22,7 @@
 </head>
 <body>
     <div id="app">
-        <div class="container navbar">
+        <div class="navbar">
                     <!-- Left Side Of Navbar -->
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <a class="navbar-brand" href="{{ url('/') }}">
@@ -131,7 +131,7 @@
                     @endif
                 @else
                     <li class="nav-item">
-                        <a id="navbarDropdown" class="nav-link" href="tableauBord">
+                        <a id="navbarDropdown" class="nav-link" href="{{route('user_profile',['name'=>Auth::user()->name])}}">
                             {{ Auth::user()->name }}
                         </a>
 
@@ -152,7 +152,7 @@
         </div>
     </div>
 
-    <main class="py-4">
+    <main>
         @yield('content')
     </main>
 </div>
