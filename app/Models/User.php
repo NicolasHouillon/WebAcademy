@@ -2,8 +2,11 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\Pivot\UsersCourses;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -43,19 +46,69 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function group() {
+    /**
+     * Le groupe de l'utilisateur
+     * @return HasOne
+     */
+    public function group()
+    {
         return $this->hasOne(Group::class);
     }
 
-    public function courses() {
+    /**
+     * La liste des cours que l'utilisateur a créer
+     * @return HasMany
+     */
+    public function courses()
+    {
         return $this->hasMany(Course::class);
     }
 
-    public function fullName(): string {
+    /**
+     * Retourne la liste des cours que l'utilisateur suit
+     * @return BelongsToMany
+     */
+    public function followed()
+    {
+        return $this
+            ->belongsToMany(Course::class)
+            ->using(UsersCourses::class)
+            ->withPivot('course_id');
+    }
+
+    /**
+     * Retourne la liste des messages que l'utilisateur a envoyé
+     * @return BelongsToMany
+     */
+    public function sendedMessages()
+    {
+        return $this->belongsToMany(Message::class, 'messages', 'sender_id', 'id');
+    }
+
+    /**
+     * Retourne la liste des messages que l'utilisateur a reçuu
+     * @return BelongsToMany
+     */
+    public function reveivedMessages()
+    {
+        return $this->belongsToMany(Message::class, 'messages', 'receiver_id', 'id');
+    }
+
+    /**
+     * Retourne le nom complet de l'utilisateur
+     * @return string
+     */
+    public function fullName(): string
+    {
         return $this->firstname . " " . $this->lastname;
     }
 
-    public function slugFullName(): string {
+    /**
+     * Retourne le nom complet de l'utilisateur sous forme de slug
+     * @return string
+     */
+    public function slugFullName(): string
+    {
         return str_replace(" ", "_", strtolower($this->firstname . " " . $this->lastname));
     }
 
