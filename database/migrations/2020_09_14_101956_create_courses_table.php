@@ -16,23 +16,23 @@ class CreateCoursesTable extends Migration
         Schema::create('courses', function (Blueprint $table) {
             $table->id();
             $table->string('name')->nullable(false);
-            $table->string('content')->nullable(false);
+            $table->string('description')->nullable(false);
             $table->float('price')->nullable(false);
-            $table->unsignedBigInteger('material_id')->nullable(false);
-            $table->unsignedBigInteger('group_id')->nullable(false);
             $table->unsignedBigInteger('user_id')->nullable(false);
+            $table->unsignedBigInteger('subject_id')->nullable(false);
+            $table->unsignedBigInteger('level_id')->nullable(false);
             $table->timestamps();
 
             $table
-                ->foreign('material_id')
+                ->foreign('subject_id')
                 ->references('id')
-                ->on('materials')
+                ->on('subjects')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
             $table
-                ->foreign('group_id')
+                ->foreign('level_id')
                 ->references('id')
-                ->on('groups')
+                ->on('levels')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
             $table

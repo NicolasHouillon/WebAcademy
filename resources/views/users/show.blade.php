@@ -2,7 +2,7 @@
 
 @section('content')
 
-    @if($error)
+    @if(isset($error))
         <h1>{{ $error }}</h1>
     @else
         <div class="container">
@@ -16,12 +16,14 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-8">
-                <div class="card">
-                    Message
-                    <br><br><br><br><br><br><br><br><br><br><br><br><br>
+            @if(Auth::user()->name == $user->name)
+                <div class="col-sm-8">
+                    <div class="card">
+                        Message
+                        <br><br><br><br><br><br><br><br><br><br><br><br><br>
+                    </div>
                 </div>
-            </div>
+            @endif
         </div>
     @endif
 

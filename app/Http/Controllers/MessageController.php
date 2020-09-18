@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Subject;
+use App\Models\Message;
 use Illuminate\Http\Request;
 
-class MaterialController extends Controller
+class MessageController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class MaterialController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Subject  $material
+     * @param  \App\Models\Message  $message
      * @return \Illuminate\Http\Response
      */
-    public function show(Subject $material)
+    public function show(Message $message)
     {
         //
     }
@@ -52,10 +52,10 @@ class MaterialController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Subject  $material
+     * @param  \App\Models\Message  $message
      * @return \Illuminate\Http\Response
      */
-    public function edit(Subject $material)
+    public function edit(Message $message)
     {
         //
     }
@@ -64,10 +64,10 @@ class MaterialController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Subject  $material
+     * @param  \App\Models\Message  $message
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Subject $material)
+    public function update(Request $request, Message $message)
     {
         //
     }
@@ -75,10 +75,10 @@ class MaterialController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Subject  $material
+     * @param  \App\Models\Message  $message
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Subject $material)
+    public function destroy(Message $message)
     {
         //
     }

@@ -19,10 +19,14 @@ class UserController extends Controller
 
     public function show(string $name)
     {
-        if (Auth::user()->name == $name) {
+        if (Auth::user()->slugFullName() == $name) {
             $user = Auth::user();
         } else {
-            $user = User::where('name', $name)->first();
+            $data = explode("_", $name);
+            $user = User::where([
+                'firstname' => $data[0],
+                'lastname' => $data[1]
+            ])->first();
         }
 
         $return = $user ? ['user' => $user] : ['error' => "L'utilisateur n'existe pas."];

@@ -17,7 +17,12 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'group_id',
+        'firstname',
+        'lastname',
+        'email',
+        'password',
+        'group_id',
+        'avatar'
     ];
 
     /**
@@ -38,16 +43,20 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function user() {
-        return $this->hasOne(User::class);
-    }
-
     public function group() {
         return $this->hasOne(Group::class);
     }
 
     public function courses() {
         return $this->hasMany(Course::class);
+    }
+
+    public function fullName(): string {
+        return $this->firstname . " " . $this->lastname;
+    }
+
+    public function slugFullName(): string {
+        return str_replace(" ", "_", strtolower($this->firstname . " " . $this->lastname));
     }
 
 }

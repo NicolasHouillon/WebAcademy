@@ -14,7 +14,7 @@ class Course extends Model
     }
 
     public function material() {
-        return $this->hasOne(Material::class);
+        return $this->hasOne(Subject::class);
     }
 
     public function groups() {

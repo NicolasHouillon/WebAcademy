@@ -10,7 +10,7 @@ class Level extends Model
     use HasFactory;
 
     public function materials() {
-        return $this->hasMany(Material::class);
+        return $this->hasMany(Subject::class);
     }
 
     public function courses() {
