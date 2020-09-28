@@ -59,8 +59,8 @@
 
                                 @error('password')
                                 <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
+                                    <strong>{{ $message }}</strong>
+                                </span>
                                 @enderror
 
                                 <button class="button-submit" type="submit">Login</button>
@@ -92,7 +92,7 @@
 
                                     <!-- Firstname -->
                                     <label for="firstname" ><b>{{ __('Firstname') }}</b></label>
-                                    <input id="firstname" type="name" class="form-control @error('firstname') is-invalid @enderror" name="firstname" value="{{ old('firstname') }}" required autocomplete="firstname" autofocus>
+                                    <input id="firstname" type="firstname" class="form-control @error('firstname') is-invalid @enderror" name="firstname" value="{{ old('firstname') }}" required autocomplete="firstname" autofocus>
                                     @error('firstname')
                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
@@ -100,11 +100,12 @@
                                     @enderror
 
                                     <!-- Lastname -->
-                                    <input id="lastname" type="name" class="form-control @error('lastname') is-invalid @enderror" name="lastname" value="{{ old('lastname') }}" required autocomplete="lastname" autofocus>
+                                    <label for="lastname" ><b>{{ __('Lastname') }}</b></label>
+                                    <input id="lastname" type="lastname" class="form-control @error('lastname') is-invalid @enderror" name="lastname" value="{{ old('lastname') }}" required autocomplete="lastname" autofocus>
                                     @error('lastname')
                                     <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
+                                        <strong>{{ $message }}</strong>
+                                    </span>
                                     @enderror
 
                                 <!-- Email -->
