@@ -2,14 +2,12 @@
 
 namespace App\Models;
 
-use App\Models\Pivot\UsersCourses;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Support\Facades\App;
 
 class User extends Authenticatable
 {
@@ -53,7 +51,7 @@ class User extends Authenticatable
      */
     public function group()
     {
-        return $this->hasOne(Group::class);
+        return $this->hasOne(Group::class, 'id', 'group_id');
     }
 
     /**

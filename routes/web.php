@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -28,6 +29,7 @@ Route::resource('courses', CourseController::class);
 //    Route::get('/{id}', [App\Http\Controllers\CourseController::class, 'show'])->name('courses_show');
 //});
 
+Route::resource('users', UserController::class);
 Route::get('/@{name}', [App\Http\Controllers\UserController::class, 'show'])->name('user_profile');
 Route::get('/@{name}/edit', [App\Http\Controllers\UserController::class, 'edit'])->name('edit_profile');
 Route::get('/@{name}/updtate', [App\Http\Controllers\UserController::class, 'update'])->name('update_profile');
