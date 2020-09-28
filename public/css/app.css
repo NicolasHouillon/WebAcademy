@@ -365,7 +365,9 @@ span.psw {
     color: #ffffff;
 }
 
-
+#app .card-title{
+    font-weight: bold;
+}
 /*
     fin TableauBord
 */
