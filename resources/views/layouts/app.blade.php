@@ -95,8 +95,8 @@
                                     <input id="firstname" type="firstname" class="form-control @error('firstname') is-invalid @enderror" name="firstname" value="{{ old('firstname') }}" required autocomplete="firstname" autofocus>
                                     @error('firstname')
                                     <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
+                                        <strong>{{ $message }}</strong>
+                                    </span>
                                     @enderror
 
                                     <!-- Lastname -->

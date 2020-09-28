@@ -370,6 +370,9 @@ span.psw {
     top: 5em;
 }
 
+#app .card-title{
+    font-weight: bold;
+}
 /*
     fin TableauBord
 */
