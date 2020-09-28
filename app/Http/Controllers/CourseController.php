@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
 
 class CourseController extends Controller
@@ -59,7 +60,16 @@ class CourseController extends Controller
         $course->user_id = Auth::id();
         $course->save();
 
-        return redirect('courses.index');
+        if($request->hasFile('uploads')) {
+            foreach ($request->uploads as $file) {
+                dd($file);
+                $name = uniqid() . '_' . time(). '.' . $file->getClientOriginalExtension();
+                $path = public_path() . '/uploads';
+                $file->save($path, $name);
+            }
+        }
+
+        return redirect()->route('courses_index');
     }
 
     /**

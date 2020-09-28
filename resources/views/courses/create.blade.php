@@ -3,7 +3,7 @@
 @section('content')
     <h1>Créer un cours</h1>
 
-    <form method="post" action="{{ route('courses_store') }}">
+    <form method="post" action="{{ route('courses_store') }}" enctype="multipart/form-data">
         @csrf
         @method('POST')
 
@@ -53,6 +53,12 @@
                             <option value="{{ $level->id }}">{{ $level->name }}</option>
                         @endforeach
                     </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="uploads">Pièces jointes au cours</label></td>
+                <td>
+                    <input type="file" name="uploads[]" id="uploads" multiple="multiple" accept=".doc,.docx,.pages,.ppt,.pptx,.key,.pdf,.jpg,.jpeg,.png">
                 </td>
             </tr>
         </table>
