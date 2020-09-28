@@ -90,10 +90,18 @@
 
                                 <div class="container-login">
 
-                                    <!-- Name -->
-                                    <label for="name" ><b>{{ __('Name') }}</b></label>
-                                    <input id="name" type="name" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-                                    @error('name')
+                                    <!-- Firstname -->
+                                    <label for="firstname" ><b>{{ __('Firstname') }}</b></label>
+                                    <input id="firstname" type="name" class="form-control @error('firstname') is-invalid @enderror" name="firstname" value="{{ old('firstname') }}" required autocomplete="firstname" autofocus>
+                                    @error('firstname')
+                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                    @enderror
+
+                                    <!-- Lastname -->
+                                    <input id="lastname" type="name" class="form-control @error('lastname') is-invalid @enderror" name="lastname" value="{{ old('lastname') }}" required autocomplete="lastname" autofocus>
+                                    @error('lastname')
                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
                                                     </span>
@@ -131,8 +139,8 @@
                     @endif
                 @else
                     <li class="nav-item">
-                        <a id="navbarDropdown" class="nav-link" href="{{route('user_profile',['name'=>Auth::user()->name])}}">
-                            {{ Auth::user()->name }}
+                        <a id="navbarDropdown" class="nav-link" href="{{route('user_profile', ['name' => Auth::user()->slugFullName()])}}">
+                            {{ Auth::user()->fullName() }}
                         </a>
 
                         <div class="nav-item">

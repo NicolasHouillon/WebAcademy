@@ -6,12 +6,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Level extends Model
+class Subject extends Model
 {
     use HasFactory;
 
     /**
-     * Retourne la liste des cours qui sont pour cette classe
+     * Retourne la liste des cours qui appartiennent à cette matière
      * @return HasMany
      */
     public function courses()
