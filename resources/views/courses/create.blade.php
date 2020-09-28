@@ -3,7 +3,7 @@
 @section('content')
     <h1>Créer un cours</h1>
 
-    <form method="post" action="{{ route('courses_store') }}" enctype="multipart/form-data">
+    <form method="post" action="{{ route('courses.store') }}" enctype="multipart/form-data">
         @csrf
         @method('POST')
 

@@ -1,0 +1,83 @@
+@extends('layouts.app')
+
+@section('content')
+    <h1>Edition du cours {{ $course->name }}</h1>
+
+    @if(isset($error))
+        <h1>{{ $error }}</h1>
+    @else
+        <form method="post" action="{{ route('courses.update', $course->id) }}" enctype="multipart/form-data">
+            @csrf
+            @method('PUT')
+
+            <table>
+                <tr>
+                    @error('name')
+                        <td>{{ $message }}</td>
+                    @enderror
+                    <td><label for="name">Nom du cours</label></td>
+                    <td><input type="text" name="name" id="name" value="{{ $course->name }}"></td>
+                </tr>
+                <tr>
+                    @error('description')
+                        <td>{{ $message }}</td>
+                    @enderror
+                    <td><label for="description">Description du cours</label></td>
+                    <td><textarea name="description" id="description" cols="30" rows="10">
+                            {{ $course->description }}
+                        </textarea>
+                    </td>
+                </tr>
+                <tr>
+                    @error('price')
+                        <td>{{ $message }}</td>
+                    @enderror
+                    <td><label for="price">Prix du cours</label></td>
+                    <td><input type="number" name="price" id="price" value="{{ $course->price }}"></td>
+                </tr>
+                <tr>
+                    @error('subject_id')
+                        <td>{{ $message }}</td>
+                    @enderror
+                    <td><label for="subject_id">Matière du cours</label></td>
+                    <td>
+                        <select id="subject_id" name="subject_id">
+                            @foreach($subjects as $subject)
+                                @if($course->subject->id == $subject->id)
+                                        <option value="{{ $subject->id }}" selected>{{ $subject->name }}</option>
+                                @else
+                                    <option value="{{ $subject->id }}">{{ $subject->name }}</option>
+                                @endif
+                            @endforeach
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    @error('level_id')
+                        <td>{{ $message }}</td>
+                    @enderror
+                    <td><label for="level_id">Niveau scolaire du cours</label></td>
+                    <td>
+                        <select id="level_id" name="level_id">
+                            @foreach($levels as $level)
+                                @if($course->level->id == $level->id)
+                                    <option value="{{ $level->id }}" selected>{{ $level->name }}</option>
+                                @else
+                                    <option value="{{ $level->id }}">{{ $level->name }}</option>
+                                @endif
+                            @endforeach
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="uploads">Pièces jointes au cours</label></td>
+                    <td>
+                        <input type="file" name="uploads[]" id="uploads" multiple="multiple" accept=".doc,.docx,.pages,.ppt,.pptx,.key,.pdf,.jpg,.jpeg,.png">
+                    </td>
+                </tr>
+            </table>
+
+            <button type="submit">Modifier</button>
+        </form>
+    @endif
+@endsection

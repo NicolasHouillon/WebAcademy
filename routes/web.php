@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CourseController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -17,11 +18,14 @@ Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
 
-Route::prefix('/courses')->group(function () {
-    Route::get('/', [App\Http\Controllers\CourseController::class, 'index'])->name('courses_index');
-    Route::get('/create', [App\Http\Controllers\CourseController::class, 'create'])->name('courses_create');
-    Route::post('/store', [App\Http\Controllers\CourseController::class, 'store'])->name('courses_store');
-    Route::get('/{id}', [App\Http\Controllers\CourseController::class, 'show'])->name('courses_show');
-});
+Route::resource('courses', CourseController::class);
+//Route::prefix('/courses')->group(function () {
+//    Route::get('/', [App\Http\Controllers\CourseController::class, 'index'])->name('courses_index');
+//    Route::get('/create', [App\Http\Controllers\CourseController::class, 'create'])->name('courses_create');
+//    Route::post('/store', [App\Http\Controllers\CourseController::class, 'store'])->name('courses_store');Route::get('/create', [App\Http\Controllers\CourseController::class, 'create'])->name('courses_create');
+//    Route::get('/{course}/edit', [App\Http\Controllers\CourseController::class, 'edit'])->name('courses_edit');
+//    Route::patch('/course/update', [App\Http\Controllers\CourseController::class, 'update'])->name('courses_update');
+//    Route::get('/{id}', [App\Http\Controllers\CourseController::class, 'show'])->name('courses_show');
+//});
 
 Route::get('/@{name}', [App\Http\Controllers\UserController::class, 'show'])->name('user_profile');

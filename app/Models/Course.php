@@ -40,16 +40,16 @@ class Course extends Model
      */
     public function subject()
     {
-        return $this->hasOne(Subject::class);
+        return $this->hasOne(Subject::class, 'id', 'subject_id');
     }
 
     /**
      * Retourne le niveau scolaire de ce cours
-     * @return HasMany
+     * @return HasOne
      */
     public function level()
     {
-        return $this->hasMany(Level::class);
+        return $this->hasOne(Level::class, 'id', 'level_id');
     }
 
     /**

@@ -9,11 +9,9 @@ use App\Models\Subject;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
 
 class CourseController extends Controller
@@ -51,25 +49,8 @@ class CourseController extends Controller
      */
     public function store(CourseRequest $request)
     {
-        $course = new Course;
-        $course->name = $request->get('name');
-        $course->description = $request->get('description');
-        $course->price = $request->get('price');
-        $course->subject_id = $request->get('subject_id');
-        $course->level_id = $request->get('level_id');
-        $course->user_id = Auth::id();
-        $course->save();
-
-        if($request->hasFile('uploads')) {
-            foreach ($request->uploads as $file) {
-                dd($file);
-                $name = uniqid() . '_' . time(). '.' . $file->getClientOriginalExtension();
-                $path = public_path() . '/uploads';
-                $file->save($path, $name);
-            }
-        }
-
-        return redirect()->route('courses_index');
+        $this->storeCourse($request, new Course);
+        return redirect()->route('courses.index');
     }
 
     /**
@@ -89,23 +70,31 @@ class CourseController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param Course $course
-     * @return void
+     * @return Application|Factory|View
      */
     public function edit(Course $course)
     {
-        //
+        $return = $course ? [
+            'course' => $course,
+            'subjects' => Subject::all(),
+            'levels' => Level::all()
+        ] : [
+            'error' => "Le cours n'existe pas."
+        ];
+        return view('courses.edit', $return);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param Request $request
+     * @param CourseRequest $request
      * @param Course $course
-     * @return void
+     * @return RedirectResponse
      */
-    public function update(Request $request, Course $course)
+    public function update(CourseRequest $request, Course $course)
     {
-        //
+        $this->storeCourse($request, $course);
+        return redirect()->route('courses.index');
     }
 
     /**
@@ -118,4 +107,23 @@ class CourseController extends Controller
     {
         //
     }
+
+    private function storeCourse(CourseRequest $request, Course $course) {
+        $course->name = $request->get('name');
+        $course->description = $request->get('description');
+        $course->price = $request->get('price');
+        $course->subject_id = $request->get('subject_id');
+        $course->level_id = $request->get('level_id');
+        $course->user_id = Auth::id();
+        $course->save();
+
+        if($request->hasFile('uploads')) {
+            foreach ($request->uploads as $file) {
+                $name = uniqid() . '_' . time(). '.' . $file->getClientOriginalExtension();
+                $path = public_path() . '/uploads';
+                $file->save($path, $name);
+            }
+        }
+    }
+
 }
