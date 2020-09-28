@@ -25,3 +25,5 @@ Route::prefix('/courses')->group(function () {
 });
 
 Route::get('/@{name}', [App\Http\Controllers\UserController::class, 'show'])->name('user_profile');
+Route::get('/@{name}/edit', [App\Http\Controllers\UserController::class, 'edit'])->name('edit_profile');
+Route::get('/@{name}/updtate', [App\Http\Controllers\UserController::class, 'update'])->name('update_profile');

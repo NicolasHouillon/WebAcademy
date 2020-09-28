@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -21,6 +22,7 @@ class UserController extends Controller
     {
         $coursSuivis = [];
         $cours = [];
+        $messages = [];
 
         if (Auth::user()->slugFullName() == $name) {
             $user = Auth::user();
@@ -46,8 +48,41 @@ class UserController extends Controller
 
 
         return view('users.show', [
+            'messages' => $messages,
             'mesCours' => $cours,
             'coursSuivis' => $coursSuivis,
             'user' => $user]);
+    }
+
+    public function edit($id)
+    {
+        $user = User::find($id);
+        return view('users.edit', ['user' => $user]);
+    }
+
+    public function update(Request $request, $id){
+        $user = User::find($id);
+
+        $input = $request->only(['lastename','firstname', 'email', 'password', 'avatar']);
+        $user->firstname = $request->firstname;
+        $user->lastname = $request->lastname;
+        $user->email = $request->email;
+        $user->password = Hash::make($request['password']);
+        $user->avatar = $request->avatar;
+
+        $user->save();
+
+        return redirect()->route('user_profile',$user->slugFullName());
+    }
+
+    public function destroy(Request $request, $id)
+    {
+        $user = User::find($id);
+        if ($request->delete == 'valide') {
+            $user->delete();
+            return redirect()->route('index');
+        }
+        return redirect()->route('user_profile',$user->slugFullName());
+
     }
 }
