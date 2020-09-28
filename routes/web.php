@@ -19,6 +19,8 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('in
 
 Route::prefix('/courses')->group(function () {
     Route::get('/', [App\Http\Controllers\CourseController::class, 'index'])->name('courses_index');
+    Route::get('/create', [App\Http\Controllers\CourseController::class, 'create'])->name('courses_create');
+    Route::post('/store', [App\Http\Controllers\CourseController::class, 'store'])->name('courses_store');
     Route::get('/{id}', [App\Http\Controllers\CourseController::class, 'show'])->name('courses_show');
 });
 
