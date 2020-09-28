@@ -19,6 +19,9 @@ class UserController extends Controller
 
     public function show(string $name)
     {
+        $coursSuivis = [];
+        $cours = [];
+
         if (Auth::user()->slugFullName() == $name) {
             $user = Auth::user();
         } else {
@@ -29,7 +32,22 @@ class UserController extends Controller
             ])->first();
         }
 
-        $return = $user ? ['user' => $user] : ['error' => "L'utilisateur n'existe pas."];
-        return view('users.show', $return);
+        if (Auth::check() && $user->group_id==4){
+            foreach ($user->followed as $cours) {
+                array_push($coursSuivis,$cours);
+            }
+        }
+
+        if (Auth::check() && $user->group_id==2){
+            foreach ($user->courses as $c) {
+                array_push($cours,$c);
+            }
+        }
+
+
+        return view('users.show', [
+            'mesCours' => $cours,
+            'coursSuivis' => $coursSuivis,
+            'user' => $user]);
     }
 }
