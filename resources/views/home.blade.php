@@ -1,22 +1,24 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container home">
     <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    {{ __('You are logged in!') }}
-                </div>
-            </div>
+        <div class="card">
+            <img src="public/image/maths.jpg">
+            <a href="#">MATHEMATIQUES</a>
+        </div>
+        <div class="card">
+            <img src="public/image/langues.jpg">
+            <a href="#">LANGUES VIVANTES</a>
+        </div>
+        <div class="card">
+            <img src="public/image/histoire.jpg">
+            <a href="#">HISTOIRE</a>
+        </div>
+        <div class="card">
+            <img src="public/image/sciences.jpg">
+            <a href="#">SCIENCES</a>
         </div>
     </div>
 </div>
