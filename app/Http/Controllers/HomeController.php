@@ -32,7 +32,7 @@ class HomeController extends Controller
     public function index()
     {
         return view('home', [
-            'teachers' => $this->groupService->getUsersFromGroup("Professeur")
+            'teachers' => $this->groupService->getUsersForGroup("Professeur")
         ]);
     }
 

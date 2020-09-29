@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 Auth::routes();
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
+Route::get('/', [App\Http\Controllers\CourseController::class, 'index'])->name('index');
 
 Route::resource('courses', CourseController::class);
 //Route::prefix('/courses')->group(function () {

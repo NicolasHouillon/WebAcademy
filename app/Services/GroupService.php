@@ -12,7 +12,7 @@ class GroupService
      * @param string $name
      * @return array
      */
-    public function getUsersFromGroup(string $name)
+    public function getUsersForGroup(string $name)
     {
         return User::where('group_id', Group::where('name', $name)->pluck('id')->first())->get();
     }

@@ -6,10 +6,12 @@ use App\Http\Requests\CourseRequest;
 use App\Models\Course;
 use App\Models\Level;
 use App\Models\Subject;
+use App\Services\GroupService;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Auth;
@@ -18,25 +20,37 @@ use Illuminate\View\View;
 class CourseController extends Controller
 {
 
+    private $groupService;
+
     /**
      * CourseController constructor.
+     * @param GroupService $groupService
      */
-    public function __construct()
+    public function __construct(GroupService $groupService)
     {
         $this->middleware('auth');
+        $this->groupService = $groupService;
     }
 
     /**
      * Display a listing of the resource.
      *
+     * @param Request $request
      * @return Application|Factory|View
      * @throws AuthorizationException
      */
-    public function index()
+    public function index(Request $request)
     {
         $this->authorize('viewAny', Course::class);
+
+        $courses = Course::orderBy('id', 'desc');
+        $this->sortCourses($courses, $request);
+
         return view('courses.index', [
-            'courses' => Course::orderBy('id', 'desc')->get()
+            'courses' => $courses->get(),
+            'subjects' => Subject::all(),
+            'levels' => Level::all(),
+            'teachers' => $this->groupService->getUsersForGroup("Professeur")
         ]);
     }
 
@@ -147,6 +161,19 @@ class CourseController extends Controller
                 $path = public_path() . '/uploads';
                 $file->save($path, $name);
             }
+        }
+    }
+
+    private function sortCourses($courses, Request $request)
+    {
+        if ($request->query('teacher') != "") {
+            $courses->where('user_id', $request->get('teacher'));
+        }
+        if ($request->query('subject') != "") {
+            $courses->where('subject_id', $request->get('subject'));
+        }
+        if ($request->query('level') != "") {
+            $courses->where('level_id', $request->get('level'));
         }
     }
 
