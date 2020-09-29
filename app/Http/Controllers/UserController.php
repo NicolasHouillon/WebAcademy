@@ -15,7 +15,7 @@ class UserController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware(['auth']);
     }
 
     public function show(string $name)
@@ -36,11 +36,11 @@ class UserController extends Controller
             'reveived_messages' => $user->reveivedMessages()
         ];
 
-        if (Auth::check() && $user->group_id == 4) {
+        if (Auth::check() && $user->group_id == 2) {
             $return['mesCours'] = $user->courses();
         }
 
-        if (Auth::check() && $user->group_id == 2) {
+        if (Auth::check() && $user->group_id == 4) {
             $return['coursSuivis'] = $user->followed();
         }
 
@@ -57,7 +57,7 @@ class UserController extends Controller
     {
         $user = Auth::user();
 
-        $input = $request->only(['lastename', 'firstname', 'email', 'password', 'avatar']);
+        $input = $request->only(['lastename','firstname','email' ,'password', 'avatar']);
         $user->firstname = $request->firstname;
         $user->lastname = $request->lastname;
         $user->email = $request->email;
