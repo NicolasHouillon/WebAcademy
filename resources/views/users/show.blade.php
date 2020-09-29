@@ -13,16 +13,31 @@
                         <p class="card-text">{{ $user->firstname }}</p>
                         <p class="card-text">{{ $user->lastname }}</p>
                         <p class="card-text">{{ $user->email }}</p>
-                        <a href="#" class="btn btn-primary">Modifier le profil</a>
+                        @if(Auth::user()->firstname == $user->firstname)
+                        <a href="{{ route('user_profile',$user->slugFullName()) }}" class="btn btn-primary">Modifier le profil</a>
+                        @endif
                     </div>
                 </div>
             </div>
             @if(Auth::user()->firstname == $user->firstname)
+
                 <div class="col-sm-8">
                     <div class="card">
                         Message
                     </div>
                 </div>
+
+                <div class="col-sm-12">
+                    <div class="card">
+                        Cours Suivis
+                        <div class="card-body">
+                            @foreach($coursSuivis as $coursSuivi)
+                                <p>{{$coursSuivi->name}}</p>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+
             @endauth
             @endif
         </div>
