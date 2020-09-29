@@ -26,7 +26,7 @@
                         Message
                     </div>
                 </div>
-
+            @if()
                 <div class="col-sm-12">
                     <div class="card">
                         Cours Suivis
