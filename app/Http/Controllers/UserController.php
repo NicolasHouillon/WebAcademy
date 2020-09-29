@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Group;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -34,15 +35,15 @@ class UserController extends Controller
             ])->first();
         }
 
-        if (Auth::check() && $user->group_id==4){
+        if (Auth::check() && $user->group_id == 4) {
             foreach ($user->followed as $cours) {
-                array_push($coursSuivis,$cours);
+                array_push($coursSuivis, $cours);
             }
         }
 
-        if (Auth::check() && $user->group_id==2){
+        if (Auth::check() && $user->group_id == 2) {
             foreach ($user->courses as $c) {
-                array_push($cours,$c);
+                array_push($cours, $c);
             }
         }
 
@@ -60,10 +61,11 @@ class UserController extends Controller
         return view('users.edit', ['user' => $user]);
     }
 
-    public function update(Request $request, $id){
+    public function update(Request $request, $id)
+    {
         $user = User::find($id);
 
-        $input = $request->only(['lastename','firstname', 'email', 'password', 'avatar']);
+        $input = $request->only(['lastename', 'firstname', 'email', 'password', 'avatar']);
         $user->firstname = $request->firstname;
         $user->lastname = $request->lastname;
         $user->email = $request->email;
@@ -72,7 +74,7 @@ class UserController extends Controller
 
         $user->save();
 
-        return redirect()->route('user_profile',$user->slugFullName());
+        return redirect()->route('user_profile', $user->slugFullName());
     }
 
     public function destroy(Request $request, $id)
@@ -82,7 +84,13 @@ class UserController extends Controller
             $user->delete();
             return redirect()->route('index');
         }
-        return redirect()->route('user_profile',$user->slugFullName());
+        return redirect()->route('user_profile', $user->slugFullName());
 
     }
+
+    public function getTeachers()
+    {
+        return User::where('group_id', Group::where('name', 'Professeur')->pluck('id')->first())->get();
+    }
+
 }
