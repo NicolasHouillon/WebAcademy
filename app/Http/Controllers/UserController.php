@@ -37,11 +37,11 @@ class UserController extends Controller
         ];
 
         if (Auth::check() && $user->group_id == 2) {
-            $return['mesCours'] = $user->courses();
+            $return['mesCours'] = $user->courses;
         }
 
         if (Auth::check() && $user->group_id == 4) {
-            $return['coursSuivis'] = $user->followed();
+            $return['coursSuivis'] = $user->followed;
         }
 
         return view('users.show', $return);

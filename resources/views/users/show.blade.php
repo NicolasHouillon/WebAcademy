@@ -14,18 +14,40 @@
                         <p class="card-text">{{ $user->lastname }}</p>
                         <p class="card-text">{{ $user->email }}</p>
                         @if(Auth::user()->firstname == $user->firstname)
-                            <a href="{{route('edit_profile',$user->slugFullName())}}" class="btn btn-primary">Modifier le profil</a>
+                            <a href="{{route('edit_profile',$user->slugFullName())}}" class="btn btn-primary">Modifier
+                                le profil</a>
                         @endif
                     </div>
                 </div>
             </div>
             @if(Auth::user()->firstname == $user->firstname)
-
                 <div class="col-sm-8">
                     <div class="card">
                         Message
                     </div>
                 </div>
+                <div class="col-sm-12">
+                    <div class="card">
+                        Mes cours
+                        <div class="card-body">
+                            @foreach($mesCours as $cours)
+                                <p>{{$cours->name}}</p>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+            @elseif($user->group->name == "Professeur")
+                <div class="col-sm-12">
+                    <div class="card">
+                        Les cours qu'il a créer
+                        <div class="card-body">
+                            @foreach($mesCours as $cours)
+                                <p>{{$cours->name}}</p>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+            @else
                 <div class="col-sm-12">
                     <div class="card">
                         Cours Suivis
@@ -36,8 +58,7 @@
                         </div>
                     </div>
                 </div>
-
-            @endauth
             @endif
         </div>
+    @endif
 @endsection
