@@ -12,7 +12,7 @@
         </div>
     @endif
 
-    <form action="{{route('update_profile',$user->id)}}" method="PUT">
+    <form action="{{route('update_profile', $user->slugFullName())}}" method="PUT">
         @if ($errors->any())
             @foreach ($errors->all() as $error)
                 <div class="alert alert-dismissible alert-danger">
@@ -47,7 +47,7 @@
                    value="{{ $user->email}}">
         </div>
         <div>
-            {{-- le mot de passe  --}}
+            {{-- le mot de passe--}}
             <label for="password"><strong> Votre mot de passe: </strong></label>
             <input type="varchar" name="password" id="password">
         </div>

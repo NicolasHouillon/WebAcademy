@@ -14,7 +14,7 @@
                         <p class="card-text">{{ $user->lastname }}</p>
                         <p class="card-text">{{ $user->email }}</p>
                         @if(Auth::user()->firstname == $user->firstname)
-                        <a href="{{ route('user_profile',$user->slugFullName()) }}" class="btn btn-primary">Modifier le profil</a>
+                            <a href="{{route('edit_profile',$user->slugFullName())}}" class="btn btn-primary">Modifier le profil</a>
                         @endif
                     </div>
                 </div>
