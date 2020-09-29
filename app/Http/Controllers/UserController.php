@@ -15,15 +15,11 @@ class UserController extends Controller
      */
     public function __construct()
     {
-        $this->middleware(['auth']);
+        $this->middleware('auth');
     }
 
     public function show(string $name)
     {
-        $coursSuivis = [];
-        $cours = [];
-        $messages = [];
-
         if (Auth::user()->slugFullName() == $name) {
             $user = Auth::user();
         } else {
@@ -34,24 +30,20 @@ class UserController extends Controller
             ])->first();
         }
 
+        $return = [
+            'sended_messages' => $user->sendedMessages(),
+            'reveived_messages' => $user->reveivedMessages()
+        ];
+
         if (Auth::check() && $user->group_id == 4) {
-            foreach ($user->followed as $cours) {
-                array_push($coursSuivis, $cours);
-            }
+            $return['mesCours'] = $user->courses();
         }
 
         if (Auth::check() && $user->group_id == 2) {
-            foreach ($user->courses as $c) {
-                array_push($cours, $c);
-            }
+            $return['coursSuivis'] = $user->followed();
         }
 
-
-        return view('users.show', [
-            'messages' => $messages,
-            'mesCours' => $cours,
-            'coursSuivis' => $coursSuivis,
-            'user' => $user]);
+        return view('users.show', $return);
     }
 
     public function edit()
@@ -60,10 +52,11 @@ class UserController extends Controller
         return view('users.edit', ['user' => $user]);
     }
 
-    public function update(Request $request){
+    public function update(Request $request)
+    {
         $user = Auth::user();
 
-        $input = $request->only(['lastename','firstname','email' ,'password', 'avatar']);
+        $input = $request->only(['lastename', 'firstname', 'email', 'password', 'avatar']);
         $user->firstname = $request->firstname;
         $user->lastname = $request->lastname;
         $user->email = $request->email;

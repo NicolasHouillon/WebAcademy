@@ -22,4 +22,4 @@ Route::resource('courses', CourseController::class);
 
 Route::get('/@{name}', [App\Http\Controllers\UserController::class, 'show'])->name('user_profile');
 Route::get('/@{name}/edit', [App\Http\Controllers\UserController::class, 'edit'])->name('edit_profile');
-Route::get('/@{name}/updtate', [App\Http\Controllers\UserController::class, 'update'])->name('update_profile');
+Route::get('/@{name}/update', [App\Http\Controllers\UserController::class, 'update'])->name('update_profile');
