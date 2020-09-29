@@ -26,17 +26,30 @@
                         Message
                     </div>
                 </div>
-                <div class="col-sm-12">
-                    <div class="card">
-                        Cours Suivis
-                        <div class="card-body">
-                            @foreach($coursSuivis as $coursSuivi)
-                                <p>{{$coursSuivi->name}}</p>
-                            @endforeach
+                @if(Auth::user()->group_id == 4)
+                    <div class="col-sm-12">
+                        <div class="card">
+                            Cours Suivis
+                            <div class="card-body">
+                                @foreach($coursSuivis as $coursSuivi)
+                                    <p>{{$coursSuivi->name}}</p>
+                                @endforeach
+                            </div>
                         </div>
                     </div>
-                </div>
-
+                @endif
+                @if(Auth::user()->group_id == 2)
+                    <div class="col-sm-12">
+                        <div class="card">
+                            Mes Cours
+                            <div class="card-body">
+                                @foreach($mesCours as $cour)
+                                    <p>{{$cour->name}}</p>
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
+                @endif
             @endauth
             @endif
         </div>
