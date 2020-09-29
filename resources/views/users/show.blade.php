@@ -13,7 +13,10 @@
                         <p class="card-text">{{ $user->firstname }}</p>
                         <p class="card-text">{{ $user->lastname }}</p>
                         <p class="card-text">{{ $user->email }}</p>
-                        <a href="{{route('edit_profile',$user->slugFullName())}}" class="btn btn-primary">Modifier le profil</a>
+                        @if(Auth::user()->firstname == $user->firstname)
+                            <a href="{{route('edit_profile',$user->slugFullName())}}" class="btn btn-primary">Modifier
+                                le profil</a>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -23,8 +26,39 @@
                         Message
                     </div>
                 </div>
-            @endauth
+                <div class="col-sm-12">
+                    <div class="card">
+                        Mes cours
+                        <div class="card-body">
+                            @foreach($mesCours as $cours)
+                                <p>{{$cours->name}}</p>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+            @elseif($user->group->name == "Professeur")
+                <div class="col-sm-12">
+                    <div class="card">
+                        Les cours qu'il a créer
+                        <div class="card-body">
+                            @foreach($mesCours as $cours)
+                                <p>{{$cours->name}}</p>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+            @else
+                <div class="col-sm-12">
+                    <div class="card">
+                        Cours Suivis
+                        <div class="card-body">
+                            @foreach($coursSuivis as $coursSuivi)
+                                <p>{{$coursSuivi->name}}</p>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
             @endif
         </div>
-
+    @endif
 @endsection
