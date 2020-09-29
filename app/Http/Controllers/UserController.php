@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Group;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -85,11 +84,6 @@ class UserController extends Controller
         }
         return redirect()->route('user_profile', $user->slugFullName());
 
-    }
-
-    public function getTeachers()
-    {
-        return User::where('group_id', Group::where('name', 'Professeur')->pluck('id')->first())->get();
     }
 
 }
