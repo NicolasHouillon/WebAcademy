@@ -3,7 +3,7 @@
 @section('content')
     <h1>Liste des cours</h1>
 
-    <form action="{{ route('index') }}" method="get">
+    <form action="{{ route('courses.index') }}" method="get">
         <label for="teacher">Liste des profs</label>
         <select id="teacher" name="teacher">
             <option value=""></option>
