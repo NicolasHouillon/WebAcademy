@@ -20,13 +20,23 @@
                 </div>
             </div>
             @if(Auth::user()->firstname == $user->firstname)
-
                 <div class="col-sm-8">
                     <div class="card">
                         Message
                     </div>
                 </div>
-                @if(Auth::user()->group_id == 4)
+                @if($user->group->name == "Professeur")
+                    <div class="col-sm-12">
+                        <div class="card">
+                            Les cours qu'il a créer
+                            <div class="card-body">
+                                @foreach($mesCours as $cours)
+                                    <p>{{$cours->name}}</p>
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
+                @else
                     <div class="col-sm-12">
                         <div class="card">
                             Cours Suivis
@@ -38,19 +48,7 @@
                         </div>
                     </div>
                 @endif
-                @if(Auth::user()->group_id == 2)
-                    <div class="col-sm-12">
-                        <div class="card">
-                            Mes Cours
-                            <div class="card-body">
-                                @foreach($mesCours as $cour)
-                                    <p>{{$cour->name}}</p>
-                                @endforeach
-                            </div>
-                        </div>
-                    </div>
-                @endif
-            @endauth
             @endif
         </div>
+    @endif
 @endsection

@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container home">
-    <section class="cours">
+    <section class="tiles">
         <article class="style1">
                 <span class="image">
                     <img src="image/maths.jpg" height="150px" width="225px">
@@ -27,18 +27,6 @@
             </a>
         </article>
 
-        <article class="style3">
-            <span class="image">
-                <img src="image/histoire.jpg" height="150px" width="225px">
-            </span>
-            <a href="#">
-                <h2>HISTOIRE</h2>
-                <div class="content">
-                    <p>Découvre tous les secrets de l'histoire de France, et tu pourras te la péter en soirée !</p>
-                </div>
-            </a>
-        </article>
-
         <article class="style4">
             <span class="image">
                 <img src="image/mapMonde.jpg" height="150px" width="225px">
@@ -51,14 +39,14 @@
             </a>
         </article>
 
-        <article class="style5">
+        <article class="style3">
             <span class="image">
-                <img src="image/britannique.jpg" height="150px" width="225px">
+                <img src="image/histoire.jpg" height="150px" width="225px">
             </span>
             <a href="#">
-                <h2>ANGLAIS</h2>
+                <h2>HISTOIRE</h2>
                 <div class="content">
-                    <p>Of course and you ?</p>
+                    <p>Découvre tous les secrets de l'histoire de France, et tu pourras te la péter en soirée !</p>
                 </div>
             </a>
         </article>
@@ -71,6 +59,18 @@
                 <h2>ESPAGNOL</h2>
                 <div class="content">
                     <p>no habla español...</p>
+                </div>
+            </a>
+        </article>
+
+        <article class="style5">
+            <span class="image">
+                <img src="image/britannique.jpg" height="150px" width="225px">
+            </span>
+            <a href="#">
+                <h2>ANGLAIS</h2>
+                <div class="content">
+                    <p>Of course and you ?</p>
                 </div>
             </a>
         </article>
