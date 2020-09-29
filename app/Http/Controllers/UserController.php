@@ -61,11 +61,10 @@ class UserController extends Controller
         return view('users.edit', ['user' => $user]);
     }
 
-    public function update(Request $request, $id)
-    {
-        $user = User::find($id);
+    public function update(Request $request){
+        $user = Auth::user();
 
-        $input = $request->only(['lastename', 'firstname', 'email', 'password', 'avatar']);
+        $input = $request->only(['lastename','firstname','email' ,'password', 'avatar']);
         $user->firstname = $request->firstname;
         $user->lastname = $request->lastname;
         $user->email = $request->email;

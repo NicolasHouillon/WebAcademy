@@ -13,7 +13,7 @@
                         <p class="card-text">{{ $user->firstname }}</p>
                         <p class="card-text">{{ $user->lastname }}</p>
                         <p class="card-text">{{ $user->email }}</p>
-                        <a href="#" class="btn btn-primary">Modifier le profil</a>
+                        <a href="{{route('edit_profile',$user->slugFullName())}}" class="btn btn-primary">Modifier le profil</a>
                     </div>
                 </div>
             </div>
