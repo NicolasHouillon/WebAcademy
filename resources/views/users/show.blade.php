@@ -36,6 +36,22 @@
                         </div>
                     </div>
                 </div>
+
+                {{--        LES COURS ACHETES        --}}
+                @foreach($orders as $order)
+                    <div class="card">
+                        <div class="card-header">{{ $order["details"]->id }}</div>
+                        <div class="card-deck">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ $order["order"]->course->name }}</h5>
+                                <p>
+                                    Paiment de {{ $order["details"]->purchase_units[0]->amount->value }}€
+                                    le {{ date_format($order["order"]->course->created_at, "d/M/Y") }}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
             @elseif($user->group->name == "Professeur")
                 <div class="col-sm-12">
                     <div class="card">

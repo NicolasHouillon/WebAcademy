@@ -92,6 +92,15 @@ class User extends Authenticatable
     }
 
     /**
+     * Retourne la liste des paiments que l'utilisateur a réalisé
+     * @return HasMany
+     */
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
+
+    /**
      * Retourne le nom complet de l'utilisateur
      * @return string
      */

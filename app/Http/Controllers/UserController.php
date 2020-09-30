@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Services\PaypalService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -10,12 +11,16 @@ use Illuminate\Support\Facades\Hash;
 class UserController extends Controller
 {
 
+    private PaypalService $paypalService;
+
     /**
      * UserController constructor.
+     * @param PaypalService $service
      */
-    public function __construct()
+    public function __construct(PaypalService $service)
     {
         $this->middleware(['auth']);
+        $this->paypalService = $service;
     }
 
     public function show(string $name)
@@ -43,6 +48,13 @@ class UserController extends Controller
         if (Auth::check() && $user->group_id == 4) {
             $return['coursSuivis'] = $user->followed;
         }
+
+        $return['orders'] = collect(Auth::user()->orders)->map(function ($order) {
+            return [
+                'order' => $order,
+                'details' => $this->paypalService->getOrderDetails($order->paypal_order_id)->result
+            ];
+        });
 
         return view('users.show', $return);
     }
