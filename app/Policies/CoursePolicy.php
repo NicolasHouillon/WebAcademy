@@ -36,10 +36,10 @@ class CoursePolicy
      * Determine whether the user can view the model.
      *
      * @param User $user
-     * @param User $model
+     * @param Course $model
      * @return mixed
      */
-    public function view(User $user, User $model)
+    public function view(User $user, Course $model)
     {
         return Response::allow();
     }
