@@ -14,7 +14,8 @@
                         <p class="card-text">{{ $user->lastname }}</p>
                         <p class="card-text">{{ $user->email }}</p>
                         @if(Auth::user()->firstname == $user->firstname)
-                            <a href="{{route('edit_profile',$user->slugFullName())}}" class="btn btn-primary">Modifier le profil</a>
+                            <a href="{{route('edit_profile',$user->slugFullName())}}" class="btn btn-primary">Modifier
+                                le profil</a>
                         @endif
                     </div>
                 </div>
@@ -25,50 +26,31 @@
                         Message
                     </div>
                 </div>
-                <div class="col-sm-12">
-                    <div class="card">
-                        Mes cours
-                        <div class="card-body">
-                            @foreach($mesCours as $cours)
-                                <p>{{$cours->name}}</p>
-                            @endforeach
-                        </div>
-                    </div>
-                </div>
 
                 {{--        LES COURS ACHETES        --}}
-                @foreach($orders as $order)
-                    <div class="card">
-                        <div class="card-header">{{ $order["details"]->id }}</div>
-                        <div class="card-deck">
-                            <div class="card-body">
-                                <h5 class="card-title">{{ $order["order"]->course->name }}</h5>
-                                <p>
-                                    Paiment de {{ $order["details"]->purchase_units[0]->amount->value }}€
-                                    le {{ date_format($order["order"]->course->created_at, "d/M/Y") }}
-                                </p>
+                @if($user->group->name == "Etudiant")
+                    @foreach($orders as $order)
+                        <div class="card">
+                            <div class="card-header">{{ $order["details"]->id }}</div>
+                            <div class="card-deck">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ $order["order"]->course->name }}</h5>
+                                    <p>
+                                        Paiment de {{ $order["details"]->purchase_units[0]->amount->value }}€
+                                        le {{ date_format($order["order"]->course->created_at, "d/M/Y") }}
+                                    </p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                @endforeach
-            @elseif($user->group->name == "Professeur")
-                <div class="col-sm-12">
-                    <div class="card">
-                        Les cours qu'il a créer
-                        <div class="card-body">
-                            @foreach($mesCours as $cours)
-                                <p>{{$cours->name}}</p>
-                            @endforeach
-                        </div>
-                    </div>
-                </div>
-                @else
+                    @endforeach
+                @endif
+                @if($user->group->name == "Professeur")
                     <div class="col-sm-12">
                         <div class="card">
-                            Cours Suivis
+                            Les cours qu'il a créer
                             <div class="card-body">
-                                @foreach($coursSuivis as $coursSuivi)
-                                    <p>{{$coursSuivi->name}}</p>
+                                @foreach($mesCours as $cours)
+                                    <p>{{$cours->name}}</p>
                                 @endforeach
                             </div>
                         </div>
