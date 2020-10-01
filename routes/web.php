@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\PaypalController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -20,6 +22,11 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('in
 
 Route::resource('courses', CourseController::class);
 
-Route::get('/@{name}', [App\Http\Controllers\UserController::class, 'show'])->name('user_profile');
-Route::get('/@{name}/edit', [App\Http\Controllers\UserController::class, 'edit'])->name('edit_profile');
-Route::get('/@{name}/update', [App\Http\Controllers\UserController::class, 'update'])->name('update_profile');
+Route::get('/@{name}', [UserController::class, 'show'])->name('user_profile');
+Route::get('/@{name}/edit', [UserController::class, 'edit'])->name('edit_profile');
+Route::get('/@{name}/update', [UserController::class, 'update'])->name('update_profile');
+
+// Paypal - NE PAS TOUCHER !
+Route::get('/pay/{course}', [PaypalController::class, 'paymentHandle'])->name('make.payment');
+Route::get('cancel-payment', [PaypalController::class, 'paymentCancel'])->name('cancel.payment');
+Route::get('payment-success', [PaypalController::class, 'paymentSuccess'])->name('success.payment');

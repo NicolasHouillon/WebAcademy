@@ -180,6 +180,20 @@ img.avatar {
 
 .button-submit{
     font-size: 20px;
+    width: auto;
+}
+
+@media (max-width: 768px) {
+    .remember{
+        font-size: 13px;
+    }
+}
+
+@media (min-width: 667px) {
+    .radio {
+        font-size: 13px;
+        background-color: black;
+    }
 }
 
 span.psw {
