@@ -17,8 +17,6 @@
         @endforeach
     @endif
 
-    <a href="{{ route('admin.groups.create') }}" class="btn btn-primary">Ajouter</a>
-
     <table class="table table-striped table-bordered table-hover mt-4">
         <thead class="thead-dark">
         <tr>
