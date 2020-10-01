@@ -5,12 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\Subject;
 use Illuminate\Http\Request;
 
-class MaterialController extends Controller
+class SubjectController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return void
      */
     public function index()
     {
@@ -20,7 +20,7 @@ class MaterialController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return void
      */
     public function create()
     {
@@ -30,8 +30,8 @@ class MaterialController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return void
      */
     public function store(Request $request)
     {
@@ -41,8 +41,8 @@ class MaterialController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Subject  $material
-     * @return \Illuminate\Http\Response
+     * @param Subject $material
+     * @return void
      */
     public function show(Subject $material)
     {
@@ -52,8 +52,8 @@ class MaterialController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Subject  $material
-     * @return \Illuminate\Http\Response
+     * @param Subject $material
+     * @return void
      */
     public function edit(Subject $material)
     {
@@ -63,9 +63,9 @@ class MaterialController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Subject  $material
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @param Subject $material
+     * @return void
      */
     public function update(Request $request, Subject $material)
     {
@@ -75,8 +75,8 @@ class MaterialController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Subject  $material
-     * @return \Illuminate\Http\Response
+     * @param Subject $material
+     * @return void
      */
     public function destroy(Subject $material)
     {

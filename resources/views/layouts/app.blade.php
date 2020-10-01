@@ -123,15 +123,26 @@
 
                                     @error('password')
                                     <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
+                                        <strong>{{ $message }}</strong>
+                                    </span>
                                     @enderror
 
                                     <label for="password-confirm" class="col-md-4 col-form-label text-md-right"><b>{{ __('Confirm Password') }}</b></label>
                                     <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                                <!-- PROF/ETUDIANT -->
+                                    <div class="radio" style="display: flex;margin: 1em">
+                                        <div style="margin-right: 5em">
+                                            <input type="radio" id="group_id" name="group_id" value="4" checked>
+                                            <label for="group_id">Etudiant</label><br>
+                                        </div>
+                                        <div >
+                                            <input type="radio" id="group_id" name="group_id" value="2">
+                                            <label for="group_id">Prof</label><br>
+                                        </div>
+                                    </div>
 
                                     <button class="button-submit" type="submit">Register</button>
-                                    <label>
+                                    <label class="remember">
                                         <input type="checkbox" checked="checked" name="remember"> Remember me
                                     </label>
                                 </div>

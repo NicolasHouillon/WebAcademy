@@ -90,10 +90,9 @@ class CourseController extends Controller
      * @return Application|Factory|View
      * @throws AuthorizationException
      */
-    public function show(int $id)
+    public function show(Course $course)
     {
-        $this->authorize('view', Course::class);
-        $course = Course::where('id', $id)->first();
+        $this->authorize('view', $course);
         $return = $course ? ['course' => $course] : ['error' => "Le cours demandé n'existe pas."];
         return view('courses.show', $return);
     }

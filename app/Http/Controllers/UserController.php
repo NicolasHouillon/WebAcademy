@@ -45,10 +45,6 @@ class UserController extends Controller
             $return['mesCours'] = $user->courses;
         }
 
-        if (Auth::check() && $user->group_id == 4) {
-            $return['coursSuivis'] = $user->followed;
-        }
-
         $return['orders'] = collect(Auth::user()->orders)->map(function ($order) {
             return [
                 'order' => $order,
