@@ -86,7 +86,7 @@ class CourseController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param int $id
+     * @param Course $course
      * @return Application|Factory|View
      * @throws AuthorizationException
      */
