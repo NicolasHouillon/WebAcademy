@@ -42,3 +42,6 @@
     text-transform: uppercase;
 }
 
+form {
+    display: inline-block;
+}
