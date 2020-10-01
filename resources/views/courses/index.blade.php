@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+<head>
+    <link rel="stylesheet" href="{{ asset('css/courses.css') }}">
+</head>
+
 @section('content')
     <h1>Liste des cours</h1>
 
@@ -52,10 +56,16 @@
         </button>
     </form>
 
-    <ul>
+    <ul class="course">
         @foreach($courses as $course)
             <li>
-                <a href="{{ route('courses.show', $course->id) }}">{{ $course->name }}</a>
+                <span class="image">
+                    <img src="image/default_avatar.png" height="100px" width="100px">
+                </span>
+                <a href="{{ route('courses.show', $course->id) }}">
+                    PROFESSEUR : {{ $teachers[0]->firstname }} {{ $teachers[0]->lastname }} <br>
+                    COURS : {{ $course->name }}
+                </a>
             </li>
         @endforeach
     </ul>
