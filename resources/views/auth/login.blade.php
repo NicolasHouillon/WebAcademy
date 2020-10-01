@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-
 <div class="container loginPage">
     <div class="row justify-content-center loginHead">
         <button id="popupLogin" class="popupLogin" onclick="document.getElementById('overlayL').style.display='block'">Login</button>
