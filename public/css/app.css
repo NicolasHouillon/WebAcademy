@@ -1,8 +1,7 @@
 body{
     margin: 0;
     font-family: OpenSans, sans-serif;
-    background-color: #e2e8f0;
-    position: relative;
+    background-color: #d6d6d6;
 }
 
 /*
@@ -11,6 +10,13 @@ body{
 
 #app {
     position: absolute;
+    width: 100%;
+    background-image: url("../image/etudes.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 106vh;
+    top: 0;
 }
 
 @media (min-width: 1900px) {
@@ -114,6 +120,12 @@ body{
     left: 0;
     height: 65px;
     z-index: 101;
+}
+
+@media screen and (min-width: 1200px) {
+    .navbar {
+        height: 90px;
+    }
 }
 
 .navbar-brand{
@@ -272,9 +284,6 @@ span.psw {
 
 .loginHead {
     text-align: center;
-    background-image: url("../image/etudes.jpg");
-    background-size: cover;
-    background-position: center;
     height: 100vh;
 }
 
@@ -431,7 +440,7 @@ span.psw {
  */
 @media screen and (max-width: 1680px) {
 
-    body {
+    .home {
         font-size: 14pt;
     }
 
@@ -439,7 +448,7 @@ span.psw {
 
 @media screen and (max-width: 1280px) {
 
-    body {
+    .home {
         font-size: 12pt;
     }
 
@@ -452,15 +461,12 @@ span.psw {
     margin: 0 0 2em 0;
     text-transform: uppercase;
     letter-spacing: 0.35em;
-}
-
-h2 {
     font-size: 1.1em;
 }
 
 @media screen and (max-width: 980px) {
 
-    h2 br {
+    .home h2 br {
         display: none;
     }
 
@@ -468,7 +474,7 @@ h2 {
 
 @media screen and (max-width: 736px) {
 
-    h2 {
+    .home h2 {
         font-size: 1em;
     }
 }
@@ -519,7 +525,6 @@ h2 {
     left: 0;
     width: 100%;
     height: 100%;
-    opacity: 1.0;
     z-index: 1;
     opacity: 1;
 }
@@ -613,7 +618,7 @@ body:not(.is-touch) .tiles article:hover > .image {
 
 body:not(.is-touch) .tiles article:hover > .image:before {
     background-color: #333333;
-    opacity: 0.45;
+    opacity: 0.35;
 }
 
 body:not(.is-touch) .tiles article:hover > .image:after {
