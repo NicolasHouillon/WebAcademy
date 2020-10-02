@@ -25,6 +25,7 @@ Route::resource('courses', CourseController::class);
 Route::get('/@{name}', [UserController::class, 'show'])->name('user_profile');
 Route::get('/@{name}/edit', [UserController::class, 'edit'])->name('edit_profile');
 Route::get('/@{name}/update', [UserController::class, 'update'])->name('update_profile');
+Route::post('/@{name}/upload', [UserController::class, 'uploadImage'])->name('upload');
 
 // Paypal - NE PAS TOUCHER !
 Route::get('/pay/{course}', [PaypalController::class, 'paymentHandle'])->name('make.payment');
