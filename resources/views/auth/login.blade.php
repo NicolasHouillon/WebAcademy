@@ -1,7 +1,14 @@
 @extends('layouts.app')
 
+<head>
+    <link rel="stylesheet" href="{{ asset('css/login.css') }}">
+</head>
+
 @section('content')
 <div class="container loginPage">
+    <div class="image">
+        <img src="image/etudes.jpg" width="113%" height="100%">
+    </div>
     <div class="row justify-content-center loginHead">
         <button id="popupLogin" class="popupLogin" onclick="document.getElementById('overlayL').style.display='block'">Login</button>
         <div id="overlayL" class="overlayL">
@@ -156,6 +163,18 @@
 
                                     <div class="col-md-6">
                                         <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                                    </div>
+                                </div>
+
+                                <!-- PROF/ETUDIANT -->
+                                <div class="radio" style="display: flex;margin: 1em">
+                                    <div style="margin-right: 5em">
+                                        <input type="radio" id="group_id" name="group_id" value="4" checked>
+                                        <label for="group_id">Etudiant</label><br>
+                                    </div>
+                                    <div >
+                                        <input type="radio" id="group_id" name="group_id" value="2">
+                                        <label for="group_id">Prof</label><br>
                                     </div>
                                 </div>
 

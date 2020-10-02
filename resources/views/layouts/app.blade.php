@@ -22,6 +22,7 @@
 </head>
 <body>
     <div id="app">
+
         <div class="navbar">
                     <!-- Left Side Of Navbar -->
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -132,12 +133,12 @@
                                 <!-- PROF/ETUDIANT -->
                                     <div class="radio" style="display: flex;margin: 1em">
                                         <div style="margin-right: 5em">
-                                            <input type="radio" id="etudiant" value="etudiant">
-                                            <label for="etudiant">Etudiant</label><br>
+                                            <input type="radio" id="group_id" name="group_id" value="4" checked>
+                                            <label for="group_id">Etudiant</label><br>
                                         </div>
                                         <div >
-                                            <input type="radio" id="prof" value="prof">
-                                            <label for="prof">Prof</label><br>
+                                            <input type="radio" id="group_id" name="group_id" value="2">
+                                            <label for="group_id">Prof</label><br>
                                         </div>
                                     </div>
 
