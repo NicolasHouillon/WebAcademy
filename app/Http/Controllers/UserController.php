@@ -6,7 +6,10 @@ use App\Models\User;
 use App\Services\PaypalService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
+use League\CommonMark\Inline\Element\Image;
 
 class UserController extends Controller
 {
@@ -64,13 +67,13 @@ class UserController extends Controller
     public function update(Request $request)
     {
         $user = Auth::user();
-
-        $input = $request->only(['lastename','firstname','email' ,'password', 'avatar']);
         $user->firstname = $request->firstname;
         $user->lastname = $request->lastname;
         $user->email = $request->email;
         $user->password = Hash::make($request['password']);
-        $user->avatar = $request->avatar;
+
+
+        dd($request->all());
 
         $user->save();
 
@@ -88,4 +91,20 @@ class UserController extends Controller
 
     }
 
+    public function uploadImage(Request $request) {
+        $request->validate([
+            'avatar' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
+        ]);
+        $user = Auth::user();
+        if ($request->hasFile('avatar')){
+            $img = $request->file('avatar');
+            $extension = $img->getClientOriginalExtension();
+            Storage::disk('public')->put($img->getFilename().'.'.$extension,  File::get($img));
+            $user->avatar = $img->getFilename().'.'.$extension;
+            $user->save();
+        }
+
+        return redirect()->route('user_profile', $user->slugFullName());
+
+    }
 }
