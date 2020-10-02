@@ -2,6 +2,10 @@
     page Login
  */
 
+.loginPage .image {
+    position: absolute;
+}
+
 .loginHead {
     text-align: center;
     height: 100vh;

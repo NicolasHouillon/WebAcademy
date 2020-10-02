@@ -22,6 +22,7 @@
 </head>
 <body>
     <div id="app">
+
         <div class="navbar">
                     <!-- Left Side Of Navbar -->
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
