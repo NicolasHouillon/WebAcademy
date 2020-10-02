@@ -100,7 +100,7 @@ class UserController extends Controller
             $img = $request->file('avatar');
             $extension = $img->getClientOriginalExtension();
             Storage::disk('public')->put($img->getFilename().'.'.$extension,  File::get($img));
-            $user->avatar = $img->getFilename().'.'.$extension;
+            $user->avatar = 'storage/'.$img->getFilename().'.'.$extension;
             $user->save();
         }
 

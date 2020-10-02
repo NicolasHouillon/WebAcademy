@@ -8,7 +8,7 @@
         <div class="container">
             <div class="col-sm-4">
                 <div class="card" style="width:400px">
-                    <img class="card-img-top" src="{{asset('/storage/'.$user->avatar)}}" alt="Card image" style="width:50%">
+                    <img class="card-img-top" src="{{asset($user->avatar)}}" alt="Card image" style="width:50%">
                     <div class="card-body">
                         <p class="card-text">{{ $user->firstname }}</p>
                         <p class="card-text">{{ $user->lastname }}</p>
