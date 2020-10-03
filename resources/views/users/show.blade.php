@@ -44,18 +44,18 @@
                         </div>
                     @endforeach
                 @endif
-                @if($user->group->name == "Professeur")
-                    <div class="col-sm-12">
-                        <div class="card">
-                            Les cours qu'il a créer
-                            <div class="card-body">
-                                @foreach($mesCours as $cours)
-                                    <p>{{$cours->name}}</p>
-                                @endforeach
-                            </div>
+            @endif
+            @if($user->group->name == "Professeur")
+                <div class="col-sm-12">
+                    <div class="card">
+                        Les cours qu'il a créer
+                        <div class="card-body">
+                            @foreach($mesCours as $cours)
+                                <p>{{$cours->name}}</p>
+                            @endforeach
                         </div>
                     </div>
-                @endif
+                </div>
             @endif
         </div>
     @endif
