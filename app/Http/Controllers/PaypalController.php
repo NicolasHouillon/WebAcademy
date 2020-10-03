@@ -29,10 +29,10 @@ class PaypalController extends Controller
             'user_id' => Auth::id(),
             'course_id' => $course->id
         ])->first();
-
         if ($find) {
             return back()->withErrors('Vous avez déjà acheté ce cours.');
         }
+
         $response = $this->service->createOrder($course);
         $id = $response->result->id;
 

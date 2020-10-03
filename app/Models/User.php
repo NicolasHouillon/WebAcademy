@@ -100,6 +100,16 @@ class User extends Authenticatable
         return $this->hasMany(Order::class);
     }
 
+    public function hasGroup(string $group): bool
+    {
+        return $this->group->name == $group;
+    }
+
+    public function isAdmin()
+    {
+        return $this->hasGroup("Administrateur");
+    }
+
     /**
      * Retourne le nom complet de l'utilisateur
      * @return string
