@@ -36,21 +36,27 @@ class CourseController extends Controller
      * Display a listing of the resource.
      *
      * @param Request $request
+     * @param string $slug
      * @return Application|Factory|View
      * @throws AuthorizationException
      */
-    public function index(Request $request)
+    public function index(Request $request, string $slug)
     {
         $this->authorize('viewAny', Course::class);
 
-        $courses = Course::orderBy('id', 'desc');
+        $courses = Course::join('subjects', 'courses.subject_id', '=', 'subjects.id')
+            ->where('subjects.slug', $slug)
+            ->orderBy('courses.id', 'desc')
+            ->select('courses.*');
+
         $this->sortCourses($courses, $request);
 
         return view('courses.index', [
             'courses' => $courses->get(),
             'subjects' => Subject::all(),
             'levels' => Level::all(),
-            'teachers' => $this->groupService->getUsersForGroup("Professeur")
+            'teachers' => $this->groupService->getUsersForGroup("Professeur"),
+            'slug' => $slug
         ]);
     }
 

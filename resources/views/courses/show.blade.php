@@ -11,7 +11,7 @@
             Le cours {{ $course->name }} publié par {{ $course->user->fullName() }}
 
             <p>
-                <a href="{{ route('courses.edit', $course) }}">Modifier</a>
+{{--                <a href="{{ route('courses.edit', $course) }}">Modifier</a>--}}
                 <a href="{{ route('make.payment', $course) }}">Payer {{ $course->price }}€</a>
             </p>
         </h1>
