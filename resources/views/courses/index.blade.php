@@ -13,7 +13,7 @@
         </div>
     @endif
 
-    <form action="{{ route('courses.index') }}" method="get">
+    <form action="{{ route('courses.index', $slug) }}" method="get">
         <label for="teacher">Liste des profs</label>
         <select id="teacher" name="teacher">
             <option value=""></option>
@@ -52,7 +52,7 @@
 
         <button type="submit">Filtrer</button>
         <button>
-            <a href="{{ route('index') }}">Réinitialiser les filtres</a>
+            <a href="{{ route('courses.index', $slug) }}">Réinitialiser les filtres</a>
         </button>
     </form>
 
@@ -60,10 +60,10 @@
         @foreach($courses as $course)
             <li>
                 <span class="image">
-                    <img src="image/default_avatar.png" height="100px" width="100px">
+                    <img src="{{ asset($course->user->avatar) }}" height="100px" width="100px">
                 </span>
                 <a href="{{ route('courses.show', $course->id) }}">
-                    PROFESSEUR : {{ $teachers[0]->firstname }} {{ $teachers[0]->lastname }} <br>
+                    PROFESSEUR : {{ $course->user->fullName() }}<br>
                     COURS : {{ $course->name }}
                 </a>
             </li>

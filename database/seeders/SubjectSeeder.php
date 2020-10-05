@@ -15,12 +15,30 @@ class SubjectSeeder extends Seeder
     public function run()
     {
         DB::table('subjects')->insert([
-            ['name' => 'Français'],
-            ['name' => 'Mathématiques'],
-            ['name' => 'Histoire'],
-            ['name' => 'Géopgraphie'],
-            ['name' => 'Anglais'],
-            ['name' => 'Espagnol'],
+            [
+                'name' => 'Français',
+                'slug' => 'francais'
+            ],
+            [
+                'name' => 'Mathématiques',
+                'slug' => 'mathematiques'
+            ],
+            [
+                'name' => 'Histoire',
+                'slug' => 'histoire'
+            ],
+            [
+                'name' => 'Géopgraphie',
+                'slug' => 'geographie'
+            ],
+            [
+                'name' => 'Anglais',
+                'slug' => 'anglais'
+            ],
+            [
+                'name' => 'Espagnol',
+                'slug' => 'espagnol'
+            ],
         ]);
     }
 }

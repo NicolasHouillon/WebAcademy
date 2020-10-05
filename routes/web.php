@@ -27,7 +27,9 @@ Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
 
-Route::resource('courses', CourseController::class);
+Route::get('/courses/{slug}', [CourseController::class, 'index'])->name('courses.index');
+Route::get('/courses/show/{course}', [CourseController::class, 'show'])->name('courses.show');
+//Route::resource('courses', CourseController::class);
 
 Route::get('/@{name}', [UserController::class, 'show'])->name('user_profile');
 Route::get('/@{name}/edit', [UserController::class, 'edit'])->name('edit_profile');
