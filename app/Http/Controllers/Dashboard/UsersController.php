@@ -6,7 +6,11 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\UserRequest;
 use App\Models\Group;
 use App\Models\User;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 
 class UsersController extends Controller
 {
@@ -41,8 +45,6 @@ class UsersController extends Controller
         $user->group_id = $request->get('group_id');
         $user->password = Hash::make($request->get('password'));
 
-        if ($user->avatar !== $request->get('avatar') && $request->has('avatar'))
-            $user->avatar = $request->get('avatar');
 
         $user->save();
 
@@ -74,5 +76,21 @@ class UsersController extends Controller
         $user->delete();
         return redirect()->route('admin.users.index')->with('success', "L'utilisateur a bien été supprimé.");
     }
+
+//    public function uploadImage(Request $request, $id) {
+//        $request->validate([
+//            'avatar' => 'image|mimes:jpeg,png,jpg,gif,svg',
+//        ]);
+//        $user = Auth::user();
+//        if ($request->hasFile('avatar')){
+//            $img = $request->file('avatar');
+//            $extension = $img->getClientOriginalExtension();
+//            Storage::disk('public')->put($img->getFilename().'.'.$extension,  File::get($img));
+//            $user->avatar = 'storage/'.$img->getFilename().'.'.$extension;
+//            $user->save();
+//        }
+//
+//        return redirect()->route('admin.users.index')->with('success', "L'avatar de l'urilisateur a bien été modifié.");
+//    }
 
 }

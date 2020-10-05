@@ -61,14 +61,20 @@
                 </div>
             </div>
         </div>
-        <div class="form-group">
-            <div class="custom-file">
-                <label class="custom-file-label" for="avatar">Avatar</label>
-                <input type="file" id="avatar" name="avatar" class="custom-file-input">
-            </div>
-        </div>
 
         <button type="submit" class="btn btn-primary">Valider</button>
+    </form>
+
+    <form enctype="multipart/form-data" action="{{route('admin.uploadAdmin', $user)}}" method="POST" >
+        <div>
+            @csrf
+            {{-- l'avatar  --}}
+            <label for="avatar"><strong> Choissisez un nouvel avatar :  </strong></label>
+            <input type="file" name="avatar" id="avatar" >
+        </div>
+        <div>
+            <button class="btn btn-success" type="submit" >Valider</button>
+        </div>
     </form>
 
 @endsection

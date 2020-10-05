@@ -27,7 +27,7 @@ class CourseFactory extends Factory
             'name' => $this->faker->firstNameMale . " " . $this->faker->lastName,
             'description' => $this->faker->realText(),
             'price' => $this->faker->randomFloat(null, 10, 100),
-            'user_id' => 1,
+            'user_id' => 21,
             'subject_id' => Subject::all()->random()->id,
             'level_id' => Level::all()->random()->id,
         ];
