@@ -84,6 +84,7 @@ class AttachmentController extends Controller
      */
     public function destroy(Attachment $attachment)
     {
+        Storage::delete($attachment->file);
         $attachment->delete();
         return back();
     }
