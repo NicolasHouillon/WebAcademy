@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CourseRequest;
+use App\Models\Attachment;
 use App\Models\Course;
 use App\Models\Level;
 use App\Models\Subject;
@@ -15,6 +16,8 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
 
 class CourseController extends Controller
@@ -174,6 +177,27 @@ class CourseController extends Controller
         if ($request->query('level') != "") {
             $courses->where('level_id', $request->get('level'));
         }
+    }
+
+    public function uploadFile(Request $request, $id) {
+
+        $user = Auth::user();
+        if ($request->hasFile('file')){
+            $files = $request->file('file');
+            foreach ($files as $file) {
+                $extension = $file->getClientOriginalExtension();
+                Storage::disk('public')->put("attachement/".$user->id."/".$file->getFilename().'.'.$extension,  File::get($file));
+                $attachement = new Attachment();
+                $attachement->name = $file->getClientOriginalName();
+                $attachement->file = "attachement/".$user->id."/".$file->getFilename().'.'.$extension;
+                $attachement->course_id =$id;
+                $attachement->save();
+            }
+
+        }
+
+        return back();
+
     }
 
 }

@@ -128,4 +128,9 @@ class User extends Authenticatable
         return str_replace(" ", "_", strtolower($this->firstname . " " . $this->lastname));
     }
 
+
+    public function payCourse($id) : bool {
+        return $this->orders->where('course_id', $id)->count() >0;
+    }
+
 }

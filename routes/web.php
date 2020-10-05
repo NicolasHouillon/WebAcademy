@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AttachmentController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\Dashboard\AttachmentsController;
 use App\Http\Controllers\Dashboard\CoursesController;
@@ -50,3 +51,7 @@ Route::name('admin.')->middleware('admin')->prefix('admin')->group(function () {
     Route::resource('users', UsersController::class);
     Route::post('users/{id}/edit', [UsersController::class, 'uploadImage'])->name('uploadAdmin');
 });
+
+
+Route::post('courses/{id}/upload', [CourseController::class, 'uploadFile'])->name('uploadFile');
+Route::delete('attachments/{attachment}', [AttachmentController::class, 'destroy'])->name('destroy_attachment');

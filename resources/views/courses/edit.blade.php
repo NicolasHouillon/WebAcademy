@@ -6,6 +6,7 @@
     @if(isset($error))
         <h1>{{ $error }}</h1>
     @else
+        <h2>À propos du cours : </h2>
         <form method="post" action="{{ route('courses.update', $course->id) }}" enctype="multipart/form-data">
             @csrf
             @method('PUT')
@@ -69,15 +70,42 @@
                         </select>
                     </td>
                 </tr>
-                <tr>
-                    <td><label for="uploads">Pièces jointes au cours</label></td>
-                    <td>
-                        <input type="file" name="uploads[]" id="uploads" multiple="multiple" accept=".doc,.docx,.pages,.ppt,.pptx,.key,.pdf,.jpg,.jpeg,.png">
-                    </td>
-                </tr>
             </table>
 
             <button type="submit">Modifier</button>
+        </form>
+
+        <h2>Liste des Fichiers : </h2>
+
+        <p>
+        <ul>
+            @foreach($course->attachments as $attachment)
+                <li>
+                    <a href="{{asset('storage/'.$attachment->file)}}">
+                        {{$attachment->name}}
+                    </a>
+                    <form action="{{route('destroy_attachment', $attachment)}}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit">Supprimer</button>
+                    </form>
+                </li>
+            @endforeach
+        </ul>
+        </p>
+
+        <h3>Ajouter des fichiers : </h3>
+
+
+        <form enctype="multipart/form-data" action="{{route('uploadFile', $course->id)}}" method="POST" >
+            <div>
+                @csrf
+                {{-- les fichiers  --}}
+                <input type="file" name="file[]" id="file" multiple >
+            </div>
+            <div>
+                <button class="btn btn-success" type="submit" >Valider</button>
+            </div>
         </form>
     @endif
 @endsection

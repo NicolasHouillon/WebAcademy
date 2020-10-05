@@ -55,12 +55,6 @@
                     </select>
                 </td>
             </tr>
-            <tr>
-                <td><label for="uploads">Pièces jointes au cours</label></td>
-                <td>
-                    <input type="file" name="uploads[]" id="uploads" multiple="multiple" accept=".doc,.docx,.pages,.ppt,.pptx,.key,.pdf,.jpg,.jpeg,.png">
-                </td>
-            </tr>
         </table>
 
         <button type="submit">Créer</button>
