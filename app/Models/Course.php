@@ -54,11 +54,11 @@ class Course extends Model
 
     /**
      * Retourne les pièces jointes de ce cours
-     * @return BelongsToMany
+     * @return HasMany
      */
     public function attachments()
     {
-        return $this->belongsToMany(Attachment::class);
+        return $this->hasMany(Attachment::class);
     }
 
 }

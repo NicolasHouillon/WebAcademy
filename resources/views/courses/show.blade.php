@@ -9,11 +9,34 @@
         @endif
         <h1>
             Le cours {{ $course->name }} publié par {{ $course->user->fullName() }}
+        </h1>
+
+        <p>
+            {{$course->description}}
+        </p>
+        @if(Auth::user()->payCourse($course->id) || (Auth::id()==$course->user_id && Auth::user()->group_id==2))
+        <p>
+           <ul>
+            @foreach($course->attachments as $attachment)
+                <li>
+                    <a href="{{asset('storage/'.$attachment->file)}}">
+                        {{$attachment->name}}
+                    </a>
+                </li>
+            @endforeach
+        </ul>
+        </p>
+        @endif
+
 
             <p>
+                @if(Auth::id()==$course->user_id && Auth::user()->group_id==2)
                 <a href="{{ route('courses.edit', $course) }}">Modifier</a>
+                @endif
+                @if((Auth::user()->group_id==3 || Auth::user()->group_id==4) && !Auth::user()->payCourse($course->id))
                 <a href="{{ route('make.payment', $course) }}">Payer {{ $course->price }}€</a>
+                @endif
             </p>
-        </h1>
+
     @endif
 @endsection

@@ -72,9 +72,6 @@ class UserController extends Controller
         $user->email = $request->email;
         $user->password = Hash::make($request['password']);
 
-
-        dd($request->all());
-
         $user->save();
 
         return redirect()->route('user_profile', $user->slugFullName());
@@ -93,14 +90,14 @@ class UserController extends Controller
 
     public function uploadImage(Request $request) {
         $request->validate([
-            'avatar' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
+            'avatar' => 'image|mimes:jpeg,png,jpg,gif,svg',
         ]);
         $user = Auth::user();
         if ($request->hasFile('avatar')){
             $img = $request->file('avatar');
             $extension = $img->getClientOriginalExtension();
-            Storage::disk('public')->put($img->getFilename().'.'.$extension,  File::get($img));
-            $user->avatar = 'storage/'.$img->getFilename().'.'.$extension;
+            Storage::disk('public')->put("avatar/".$user->id."/".$img->getFilename().'.'.$extension,  File::get($img));
+            $user->avatar = "storage/avatar/".$user->id."/".$img->getFilename().'.'.$extension;
             $user->save();
         }
 

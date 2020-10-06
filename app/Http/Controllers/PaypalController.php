@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Course;
 use App\Models\Order;
 use App\Services\PaypalService;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class PaypalController extends Controller
@@ -50,9 +51,10 @@ class PaypalController extends Controller
 
     }
 
-    public function paymentSuccess()
+    public function paymentSuccess(Request $request)
     {
-        return redirect()->route('courses.index')->with('success', 'Le paiment a été pris en compte.');
+        $order = Order::where('paypal_order_id', $request->query('token'))->first();
+        return redirect()->route('courses.show', $order->course->id)->with('success', 'Le paiment a été pris en compte.');
     }
 
 }

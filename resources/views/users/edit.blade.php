@@ -51,13 +51,6 @@
             <label for="password"><strong> Votre mot de passe: </strong></label>
             <input type="text" name="password" id="password">
         </div>
-{{--        <div>--}}
-{{--            --}}{{-- l'avatar  --}}
-{{--            <label for="avatar"><strong> Votre avatar : </strong></label>--}}
-{{--            <input type="hidden" name="MAX_FILE_SIZE" value="100000" />--}}
-{{--            <input type="file" name="avatar" id="avatar"--}}
-{{--                   value="{{ $user->avatar}}">--}}
-{{--        </div>--}}
         <div>
             <button class="btn btn-success" type="submit">Valider</button>
             <a href="{{route('user_profile',$user->slugFullName())}}" class="button">Retour</a>
@@ -68,6 +61,7 @@
         <div>
             @csrf
             {{-- l'avatar  --}}
+            <img src="{{asset($user->avatar)}}" style="max-width: 100px; height: auto" id="img"> <br>
             <label for="avatar"><strong> Choissisez un nouvel avatar :  </strong></label>
             <input type="file" name="avatar" id="avatar" >
         </div>
@@ -75,4 +69,22 @@
             <button class="btn btn-success" type="submit" >Valider</button>
         </div>
     </form>
+
+    <script>
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function(e) {
+                    document.getElementById('img').setAttribute('src', e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]); // convert to base64 string
+            }
+        }
+
+        document.getElementById('avatar').addEventListener('change', function () {
+            readURL(this)
+        });
+    </script>
 @endsection
