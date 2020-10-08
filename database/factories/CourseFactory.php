@@ -24,7 +24,7 @@ class CourseFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->firstNameMale . " " . $this->faker->lastName,
+            'name' => $this->faker->word,
             'description' => $this->faker->realText(),
             'price' => $this->faker->randomFloat(null, 10, 100),
             'user_id' => 21,
