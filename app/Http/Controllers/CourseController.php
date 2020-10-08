@@ -88,8 +88,8 @@ class CourseController extends Controller
     public function store(CourseRequest $request)
     {
         $this->authorize('create', Course::class);
-        $this->storeCourse($request, new Course);
-        return redirect()->route('courses.index');
+        $course = $this->storeCourse($request, new Course);
+        return redirect()->route('courses.index', $course->subject->slug);
     }
 
     /**
@@ -170,6 +170,8 @@ class CourseController extends Controller
                 $file->save($path, $name);
             }
         }
+
+        return $course;
     }
 
     private function sortCourses($courses, Request $request)
