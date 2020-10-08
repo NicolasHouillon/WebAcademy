@@ -7,7 +7,7 @@ use App\Models\Attachment;
 use App\Models\Course;
 use App\Models\Level;
 use App\Models\Subject;
-use App\Services\GroupService;
+use App\Models\User;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -23,16 +23,9 @@ use Illuminate\View\View;
 class CourseController extends Controller
 {
 
-    private $groupService;
-
-    /**
-     * CourseController constructor.
-     * @param GroupService $groupService
-     */
-    public function __construct(GroupService $groupService)
+    public function __construct()
     {
         $this->middleware('auth');
-        $this->groupService = $groupService;
     }
 
     /**
@@ -56,9 +49,8 @@ class CourseController extends Controller
 
         return view('courses.index', [
             'courses' => $courses->get(),
-            'subjects' => Subject::all(),
             'levels' => Level::all(),
-            'teachers' => $this->groupService->getUsersForGroup("Professeur"),
+            'teachers' => User::getTeachersForSubject($slug),
             'slug' => $slug
         ]);
     }
@@ -137,8 +129,8 @@ class CourseController extends Controller
     public function update(CourseRequest $request, Course $course)
     {
         $this->authorize('update', $course);
-        $this->storeCourse($request, $course);
-        return redirect()->route('courses.index');
+        $course = $this->storeCourse($request, $course);
+        return redirect()->route('courses.index', $course->subject->slug);
     }
 
     /**
@@ -178,9 +170,6 @@ class CourseController extends Controller
     {
         if ($request->query('teacher') != "") {
             $courses->where('user_id', $request->get('teacher'));
-        }
-        if ($request->query('subject') != "") {
-            $courses->where('subject_id', $request->get('subject'));
         }
         if ($request->query('level') != "") {
             $courses->where('level_id', $request->get('level'));
