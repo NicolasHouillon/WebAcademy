@@ -13,12 +13,7 @@ class CoursePolicy
 
     public function before(User $user, string $ability)
     {
-        if ($this->isTeacher($user)) return true;
-    }
-
-    private function isTeacher(User $user)
-    {
-        return $user->group->id == 2;
+        if ($user->hasGroup("Professeur")) return true;
     }
 
     /**
@@ -52,7 +47,7 @@ class CoursePolicy
      */
     public function create(User $user)
     {
-        return $this->isTeacher($user)
+        return $user->hasGroup("Professeur")
             ? Response::allow()
             : Response::deny("Vous devez être professeur pour créer un cours.");
     }
@@ -66,7 +61,7 @@ class CoursePolicy
      */
     public function update(User $user, Course $course)
     {
-        return $this->isTeacher($user) && $user->id == $course->user->id
+        return $user->hasGroup("Professeur") && $user->id == $course->user->id
             ? Response::allow()
             : Response::deny("Vous devez être professeur pour modifier un cours.");
     }
@@ -80,7 +75,7 @@ class CoursePolicy
      */
     public function delete(User $user, Course $course)
     {
-        return $this->isTeacher($user) && $user->id == $course->user->id;
+        return $user->hasGroup("Professeur") && $user->id == $course->user->id;
     }
 
     /**

@@ -23,18 +23,6 @@ class Course extends Model
     }
 
     /**
-     * Retourne la liste des utilisateurs qui suivent ce cours
-     * @return BelongsToMany
-     */
-    public function followed()
-    {
-        return $this
-            ->belongsToMany(User::class)
-            ->using(UsersCourses::class)
-            ->withPivot('user_id');
-    }
-
-    /**
      * Retourne la matière de ce cours
      * @return HasOne
      */

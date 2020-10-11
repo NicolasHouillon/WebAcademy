@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\DB;
 
 class User extends Authenticatable
 {
@@ -131,6 +132,23 @@ class User extends Authenticatable
 
     public function payCourse($id) : bool {
         return $this->orders->where('course_id', $id)->count() >0;
+    }
+
+    /**
+     * @param string $name
+     * @param string $slug
+     * @return array
+     */
+    public static function getTeachersForSubject(string $slug)
+    {
+        $results = DB::select("
+            SELECT DISTINCT u.*
+            FROM users u INNER JOIN courses c on u.id = c.user_id INNER JOIN subjects s on c.subject_id = s.id
+            WHERE s.slug like :slug AND u.group_id = (
+                select id from `groups` g where g.name like 'Professeur'
+            )
+        ", [$slug]);
+        return User::hydrate($results);
     }
 
 }

@@ -27,6 +27,28 @@
                     </div>
                 </div>
 
+                {{--        LES NOTIFICATIONS     --}}
+                @if($user->group->name == "Professeur")
+                    <div class="card">
+                        @if($user->unreadNotifications->isEmpty())
+                            <div class="card-header">Aucune notification</div>
+                        @else
+                            <div class="card-header">Vous avez {{ $user->unreadNotifications->count() }} notifications</div>
+                            <div class="card-body">
+                                <ul>
+                                    @foreach($user->unreadNotifications as $notif)
+                                        <li style="font-size: .9em">
+                                            {{ $notif->data['payer'] }} a acheté votre cours
+                                            <b><i>{{ $notif->data['course'] }}</i></b>
+                                            le {{ strftime("%A %e %B %Y", (new DateTime($notif->data['date']))->getTimestamp()) }}
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+                    </div>
+                @endif
+
                 {{--        LES COURS ACHETES        --}}
                 @if($user->group->name == "Etudiant")
                     @foreach($orders as $order)

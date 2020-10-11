@@ -26,18 +26,6 @@
             @endforeach
         </select>
 
-        <label for="subject">Liste des matères</label>
-        <select name="subject" id="subject">
-            <option value=""></option>
-            @foreach($subjects as $s)
-                @if(request()->subject == $s->id)
-                    <option value="{{ $s->id }}" selected>{{ $s->name }}</option>
-                @else
-                    <option value="{{ $s->id }}">{{ $s->name }}</option>
-                @endif
-            @endforeach
-        </select>
-
         <label for="level">Liste des niveaux scolaires</label>
         <select name="level" id="level">
             <option value=""></option>

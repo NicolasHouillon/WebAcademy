@@ -2,26 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Services\GroupService;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Routing\Controller;
 
 class HomeController extends Controller
 {
-    /**
-     * @var GroupService
-     */
-    private $groupService;
 
     /**
      * Create a new controller instance.
-     *
-     * @param GroupService $groupService
      */
-    public function __construct(GroupService $groupService)
+    public function __construct()
     {
         $this->middleware('auth');
-        $this->groupService = $groupService;
     }
 
     /**
@@ -31,9 +23,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home', [
-            'teachers' => $this->groupService->getUsersForGroup("Professeur")
-        ]);
+        return view('home');
     }
 
 }

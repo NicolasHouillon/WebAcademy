@@ -6,6 +6,9 @@
 
 @section('content')
 <div class="container home">
+    @if(Auth::user()->hasGroup("Professeur"))
+        <a href="{{ route('courses.create') }}">Ajouter un cours</a>
+    @endif
     <section class="tiles">
         <article class="style1">
                 <span class="image">
