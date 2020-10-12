@@ -28,4 +28,5 @@ class Message extends Model
         return $this->belongsTo(User::class, 'id', 'sender_id');
     }
 
+
 }

@@ -8,6 +8,7 @@ use App\Http\Controllers\Dashboard\GroupsController;
 use App\Http\Controllers\Dashboard\LevelsController;
 use App\Http\Controllers\Dashboard\SubjectsController;
 use App\Http\Controllers\Dashboard\UsersController;
+use App\Http\Controllers\MessageController;
 use App\Http\Controllers\PaypalController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
@@ -63,3 +64,13 @@ Route::name('admin.')->middleware('admin')->prefix('admin')->group(function () {
 
 Route::post('courses/{id}/upload', [CourseController::class, 'uploadFile'])->name('uploadFile');
 Route::delete('attachments/{attachment}', [AttachmentController::class, 'destroy'])->name('destroy_attachment');
+
+Route::get('professor', [UserController::class, 'listOfProf'])->name('prof');
+
+
+
+Route::get('messages', [MessageController::class, 'index'])->name('messages');
+Route::get('messages/{id}', [MessageController::class, 'show'])->name('messages.show');
+Route::get('messages/create/{id}', [MessageController::class, 'create'])->name('message.create');
+Route::post('messages/store/{id}', [MessageController::class, 'store'])->name('message.store');
+
