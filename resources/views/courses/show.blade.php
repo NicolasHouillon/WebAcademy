@@ -1,0 +1,42 @@
+@extends('layouts.app')
+
+@section('content')
+    @if(isset($error))
+        <h1>{{ $error }}</h1>
+    @else
+        @if($errors->any())
+            <p>{{ $errors->first() }}</p>
+        @endif
+        <h1>
+            Le cours {{ $course->name }} publié par {{ $course->user->fullName() }}
+        </h1>
+
+        <p>
+            {{$course->description}}
+        </p>
+        @if(Auth::user()->payCourse($course->id) || (Auth::id()==$course->user_id && Auth::user()->group_id==2))
+        <p>
+           <ul>
+            @foreach($course->attachments as $attachment)
+                <li>
+                    <a href="{{asset('storage/'.$attachment->file)}}">
+                        {{$attachment->name}}
+                    </a>
+                </li>
+            @endforeach
+        </ul>
+        </p>
+        @endif
+
+
+            <p>
+                @if(Auth::id()==$course->user_id && Auth::user()->group_id==2)
+                <a href="{{ route('courses.edit', $course) }}">Modifier</a>
+                @endif
+                @if((Auth::user()->group_id==3 || Auth::user()->group_id==4) && !Auth::user()->payCourse($course->id))
+                <a href="{{ route('make.payment', $course) }}">Payer {{ $course->price }}€</a>
+                @endif
+            </p>
+
+    @endif
+@endsection
