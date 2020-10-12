@@ -280,37 +280,152 @@ span.psw {
 /*
      TableauBord
 */
+a{
+    text-decoration: none;
+    color: white;
+
+}
+
+a:hover{
+    color: #bdc3cb;
+}
+
+#app .show{
+    position: absolute;
+    width: 100%;
+    top:10em;
+}
+
+#app .content{
+    margin-right: 8%;
+    margin-left: 8%;
+}
 
 #app .col-sm-4 {
-    text-align: center;
-    height: 100vh;
     display: inline-block;
-    width: 30%;
+    width: 29.5%;
+    vertical-align: top;
 }
 #app .col-sm-8 {
-    text-align: center;
-    height: 100vh;
     display: inline-block;
-    width: 50%;
+    vertical-align: top;
+    width: 70%;
+}
+
+#app .col-sm-12 {
+    display: inline-block;
+    width: 100%;
+    vertical-align: top;
 }
 
 #app .card{
-    position: relative;
-    top: 20%;
-    margin-left: 20px;
-    margin-right: 0;
+    text-align: center;
     padding: 10px;
+    margin-bottom: 50px;
+    font-size: 28px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #ffffff;
+}
+
+#app .card-img-top{
+    width: 50%;
+}
+
+#app .card-body{
+    text-align: center;
+}
+
+#app .message{
+    text-align: left;
+    padding: 15px;
     font-size: 28px;
     font-weight: bold;
     background-color: rgba(0, 0, 0, 0.5);
-    border: 3px solid #ffffff;
     color: #ffffff;
+    width: auto;
+    margin-left: 5%;
+}
+
+#app .message-title{
+    text-align: left;
+    padding: 40px;
+    font-size: 28px;
+    font-weight: bold;
+    width: auto;
+}
+
+#app .message-content{
+    border-top: 2px solid;
+    padding: 20px;
+    width: auto;
+    text-align: left;
 }
 
 #app .card-title{
     font-weight: bold;
+    text-align: center;
 }
+@media screen and (max-width: 1200px){
+    #app .col-sm-4 {
+        width: 100%;
+        vertical-align: top;
+        text-align: center;
+    }
 
+    #app .col-sm-8 {
+        display: block;
+        vertical-align: top;
+        width: 100%;
+    }
+
+    #app .message{
+        text-align: left;
+        padding: 15px;
+        font-size: 28px;
+        font-weight: bold;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: #ffffff;
+        width: auto;
+        margin-left: 0;
+    }
+
+    #app .content{
+        text-align: center;
+    }
+
+    #app .card-img-top{
+        width: 30%;
+    }
+
+    #app .card-body{
+        font-size: 5vw;
+    }
+
+    #app .card{
+        text-align: center;
+        padding: 10px;
+        margin-bottom: 50px;
+        font-size: 3vw;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: #ffffff;
+    }
+
+    #app .message-title{
+        text-align: left;
+        padding: 40px;
+        font-size: 4vw;
+        font-weight: bold;
+        width: auto;
+    }
+
+    #app .message-content{
+        border-top: 2px solid;
+        padding: 20px;
+        width: auto;
+        text-align: left;
+        font-size: 3vw;
+    }
+}
 /*
     fin TableauBord
 */
