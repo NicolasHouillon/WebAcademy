@@ -104,4 +104,11 @@ class UserController extends Controller
         return redirect()->route('user_profile', $user->slugFullName());
 
     }
+
+
+    public function listOfProf() {
+        return view('users.prof', [
+            'profs' => User::all()->where('group_id', '=',2)
+        ]);
+    }
 }

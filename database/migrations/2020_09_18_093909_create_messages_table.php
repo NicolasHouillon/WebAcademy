@@ -15,8 +15,8 @@ class CreateMessagesTable extends Migration
     {
         Schema::create('messages', function (Blueprint $table) {
             $table->unsignedBigInteger('sender_id');
-            $table->unsignedBigInteger('reveiver_id');
-            $table->string('content')->nullable(false);
+            $table->unsignedBigInteger('receiver_id');
+            $table->longText('content')->nullable(false);
             $table->timestamps();
 
             $table
@@ -26,7 +26,7 @@ class CreateMessagesTable extends Migration
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
             $table
-                ->foreign('reveiver_id')
+                ->foreign('receiver_id')
                 ->references('id')
                 ->on('users')
                 ->onUpdate('cascade')
