@@ -12,20 +12,20 @@ class Message extends Model
 
     /**
      * Retourne l'utilisateur qui a envoyé le message
-     * @return BelongsTo
+     * @return HasOne
      */
     public function senderUser()
     {
-        return $this->belongsTo(User::class, 'id', 'sender_id');
+        return $this->hasOne(User::class, 'id', 'sender_id');
     }
 
     /**
      * Retourne l'utilisateur qui a reçu le message
-     * @return BelongsTo
+     * @return HasOne
      */
     public function receiverUser()
     {
-        return $this->belongsTo(User::class, 'id', 'sender_id');
+        return $this->hasOne(User::class, 'id', 'sender_id');
     }
 
 
