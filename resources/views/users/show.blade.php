@@ -69,6 +69,7 @@
                         <div class="card">
                             <div class="message-title">
                             Cours achetés
+                            </div>
                             @foreach($orders as $order)
 
                                         <div class="message-content">
@@ -79,7 +80,6 @@
                                             </p>
                                         </div>
                             @endforeach
-                            </div>
                         </div>
                 @endif
             @endif

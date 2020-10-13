@@ -1,6 +1,11 @@
 @extends('layouts.app')
-
+<head>
+    <link rel="stylesheet" href="{{ asset('css/courses.css') }}">
+</head>
 @section('content')
+    <div class="course">
+
+
     @if(isset($error))
         <h1>{{ $error }}</h1>
     @else
@@ -8,7 +13,7 @@
             <p>{{ $errors->first() }}</p>
         @endif
         <h1>
-            Le cours {{ $course->name }} publié par {{ $course->user->fullName() }}
+            Le cours {{ $course->name }} publié par <a href="{{ url('/',$course->user->fullName()) }}">{{ $course->user->fullName() }}</a>
         </h1>
 
         <p>
@@ -39,4 +44,5 @@
             </p>
 
     @endif
+    </div>
 @endsection

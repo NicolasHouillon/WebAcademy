@@ -282,7 +282,7 @@ span.psw {
 */
 a{
     text-decoration: none;
-    color: white;
+    color: #d0d0d0;
 
 }
 
@@ -323,8 +323,10 @@ a:hover{
     padding: 10px;
     margin-bottom: 50px;
     font-size: 28px;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: #1F323D;
     color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px #4A5E69;
 }
 
 #app .card-img-top{
@@ -338,10 +340,7 @@ a:hover{
 #app .message{
     text-align: left;
     padding: 15px;
-    font-size: 28px;
     font-weight: bold;
-    background-color: rgba(0, 0, 0, 0.5);
-    color: #ffffff;
     width: auto;
     margin-left: 5%;
 }
@@ -352,10 +351,10 @@ a:hover{
     font-size: 28px;
     font-weight: bold;
     width: auto;
+    border-bottom: 2px solid;
 }
 
 #app .message-content{
-    border-top: 2px solid;
     padding: 20px;
     width: auto;
     text-align: left;

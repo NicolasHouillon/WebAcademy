@@ -1,5 +1,8 @@
 .course {
     position: relative;
+    top:10em;
+    margin-right: 8%;
+    margin-left: 8%;
 }
 
 .course li {
@@ -20,7 +23,7 @@
     height: 100%;
     border-radius: 20px;
     overflow: hidden;
-    background-color: rgba(28, 36, 60);
+    background-color: rgb(28, 36, 60);
 }
 
 .course li > .image img {
@@ -75,5 +78,47 @@
     opacity: 1;
 }
 
+.filtre{
+    background-color: white;
+    overflow: auto;
+}
 
+.liste-prof{
+    display: inline-block;
 
+}
+
+.liste-niveau{
+    display: inline-block;
+}
+
+.bouton-filtrer{
+    display: inline-block;
+    color:white;
+    float:right;
+    width: auto;
+    margin: 0 0 0 5%;
+}
+
+.bouton-reinitialiser{
+    display: inline-block;
+    color:white;
+    float:right;
+    width: auto;
+    margin: 0 0 0 5%;
+}
+
+.professeur{
+
+}
+
+@media screen and (max-width: 800px) {
+    .filtre {
+        float: none;
+        display: block;
+        text-align: left;
+        width: 100%;
+        margin: 0;
+        padding: 14px;
+    }
+}
