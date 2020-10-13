@@ -56,94 +56,64 @@ class MessageController extends Controller
         return Message::where('sender_id', Auth::id())
             ->where('receiver_id', $id)
             ->orWhere('sender_id', $id)
-            ->Where('receiver_id', Auth::id())
+            ->where('receiver_id', Auth::id())
             ->orderBy('created_at', 'desc')
-            ->orderBy('created_at','asc')
             ->limit(1)
-            ->get();
+            ->first();
     }
 
     /**
      * Show the form for creating a new resource.
      *
+     * @param User $user
      * @return Application|Factory|View
      */
-    public function create($id)
+    public function create(User $user)
     {
         return view('messages.create', [
-            'id' => $id
+            'id' => $user->id
         ]);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param Request $request
+     * @param User $user
      * @return Application|Factory|View
      */
-    public function store(Request $request,$id)
+    public function store(Request $request, User $user)
     {
         $message = new Message();
         $message->content = $request->contenu;
-        $message->receiver_id = $id;
+        $message->receiver_id = $user->id;
         $message->sender_id = Auth::id();
 
         $message->save();
 
-        return redirect(route('messages.show',$id));
+        return redirect(route('messages.show', $user->id));
     }
 
     /**
      * Display the specified resource.
      *
+     * @param User $user
      * @return Application|Factory|View
      */
-    public function show($id)
+    public function show(User $user)
     {
-        $user = Auth::user();
-        $messages = Message::where('sender_id', $user->id)
-            ->where('receiver_id', $id)
-            ->orWhere('sender_id', $id)
-            ->Where('receiver_id', $user->id)
-            ->orderBy('created_at', 'desc');
+        $messages = Message::where('sender_id', Auth::id())
+            ->where('receiver_id', $user->id)
+            ->orWhere('sender_id', $user->id)
+            ->Where('receiver_id', Auth::id())
+            ->orderBy('created_at', 'desc')
+            ->get();
 
         return view('messages.show', [
-            'messages' => $messages->get()
+            'messages' => $messages,
+            'user' => $user
         ]);
 
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Message  $message
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Message $message)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Message  $message
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Message $message)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Message  $message
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Message $message)
-    {
-        //
-    }
 }

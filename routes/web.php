@@ -70,7 +70,7 @@ Route::get('professor', [UserController::class, 'listOfProf'])->name('prof');
 
 
 Route::get('messages', [MessageController::class, 'index'])->name('messages');
-Route::get('messages/{id}', [MessageController::class, 'show'])->name('messages.show');
-Route::get('messages/create/{id}', [MessageController::class, 'create'])->name('message.create');
-Route::post('messages/store/{id}', [MessageController::class, 'store'])->name('message.store');
+Route::get('messages/{user}', [MessageController::class, 'show'])->name('messages.show');
+Route::get('messages/create/{user}', [MessageController::class, 'create'])->name('message.create');
+Route::post('messages/store/{user}', [MessageController::class, 'store'])->name('message.store');
 

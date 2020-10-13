@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Message extends Model
 {
@@ -12,20 +13,20 @@ class Message extends Model
 
     /**
      * Retourne l'utilisateur qui a envoyé le message
-     * @return BelongsTo
+     * @return HasOne
      */
     public function senderUser()
     {
-        return $this->belongsTo(User::class, 'id', 'sender_id');
+        return $this->hasOne(User::class, 'id', 'sender_id');
     }
 
     /**
      * Retourne l'utilisateur qui a reçu le message
-     * @return BelongsTo
+     * @return HasOne
      */
     public function receiverUser()
     {
-        return $this->belongsTo(User::class, 'id', 'sender_id');
+        return $this->hasOne(User::class, 'id', 'sender_id');
     }
 
 
