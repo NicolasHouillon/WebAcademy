@@ -27,7 +27,7 @@
         <!-- Left Side Of Navbar -->
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <a class="navbar-brand" href="{{ url('/') }}">
-                <img src="image/logo-2 (1).png" width="68" height="51">
+                <img src="{{asset("/image/logo-2 (1).png")}}" width="68" height="51">
             </a>
             <!-- Right Side Of Navbar -->
 
