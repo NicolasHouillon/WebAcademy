@@ -58,7 +58,7 @@ Route::name('admin.')->middleware('admin')->prefix('admin')->group(function () {
     Route::resource('levels', LevelsController::class);
     Route::resource('subjects', SubjectsController::class);
     Route::resource('users', UsersController::class);
-    Route::post('users/{id}/edit', [UsersController::class, 'uploadImage'])->name('uploadAdmin');
+    Route::post('users/{id}/edit', [UserController::class, 'uploadImage'])->name('uploadAdmin');
 });
 
 

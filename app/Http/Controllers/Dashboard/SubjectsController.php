@@ -25,6 +25,7 @@ class SubjectsController extends Controller
     {
         $subject = new Subject;
         $subject->name = $request->get('name');
+        $subject->slug = strtolower(str_replace(" ", "_", $request->get('name')));
         $subject->save();
         return redirect()->route('admin.subjects.index')->with('success', "La matière $subject->name a bien été crée.");
     }
