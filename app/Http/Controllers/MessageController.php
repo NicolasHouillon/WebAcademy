@@ -104,10 +104,11 @@ class MessageController extends Controller
         $messages = Message::where('sender_id', $user->id)
             ->where('receiver_id', $id)
             ->orWhere('sender_id', $id)
-            ->Where('receiver_id', $user->id)
+            ->where('receiver_id', $user->id)
             ->orderBy('created_at', 'desc');
 
         return view('messages.show', [
+            'id' => $id,
             'messages' => $messages->get()
         ]);
 
@@ -139,11 +140,21 @@ class MessageController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Message  $message
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Message $message)
+    public function destroy(Request $request, $id)
     {
-        //
+        $user = Auth::user();
+        dd($request->all());
+        $message = Message::where('sender_id', $user->id)
+            ->where('receiver_id', $id)
+            ->orWhere('sender_id', $id)
+            ->where('receiver_id', $user->id)
+            ->where('created_at', $request->get());
+        if ($request->delete == 'valide') {
+            $user->delete();
+            return redirect()->route('index');
+        }
+        return redirect()->route('user_profile', $user->slugFullName());
     }
 }

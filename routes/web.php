@@ -73,4 +73,5 @@ Route::get('messages', [MessageController::class, 'index'])->name('messages');
 Route::get('messages/{id}', [MessageController::class, 'show'])->name('messages.show');
 Route::get('messages/create/{id}', [MessageController::class, 'create'])->name('message.create');
 Route::post('messages/store/{id}', [MessageController::class, 'store'])->name('message.store');
+Route::delete('messages/{id}', [MessageController::class, 'destroy'])->name('message.delete');
 

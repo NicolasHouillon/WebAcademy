@@ -16,7 +16,7 @@ class Message extends Model
      */
     public function senderUser()
     {
-        return $this->belongsTo(User::class, 'id', 'sender_id');
+        return $this->belongsTo(User::class, 'sender_id', 'id');
     }
 
     /**
@@ -25,7 +25,7 @@ class Message extends Model
      */
     public function receiverUser()
     {
-        return $this->belongsTo(User::class, 'id', 'sender_id');
+        return $this->belongsTo(User::class, 'receiver_id', 'id');
     }
 
 
