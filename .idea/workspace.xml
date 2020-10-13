@@ -2,34 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="66c5db84-9c46-4afe-b79b-9537998b7b95" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Dashboard/AttachmentsController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/factories/MessageFactory.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeders/MessageSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/attachments/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/attachments/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/attachments/show.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/messages/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/messages/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/messages/show.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Dashboard/SubjectsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Dashboard/SubjectsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MessageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MessageController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/CourseRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/CourseRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Attachment.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Attachment.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Message.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Message.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/CourseFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/CourseFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_18_093909_create_messages_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_18_093909_create_messages_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/courses.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/courses.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/image/etudes.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/users/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/users/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/home.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/home.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/courses/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/courses/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/courses/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/courses/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/users/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/users/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -215,17 +196,7 @@
       <list>
         <serviceView>
           <treeState>
-            <expand>
-              <path>
-                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-                <item name="root:lp_projet_1@localhost" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              </path>
-              <path>
-                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-                <item name="root:lp_projet_1@localhost" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-                <item name="com.intellij.database.console.session.MessageBusSession@2ee17dee" type="9fbbdea:ServiceModel$ServiceNode" />
-              </path>
-            </expand>
+            <expand />
             <select />
           </treeState>
         </serviceView>
@@ -243,7 +214,8 @@
       <option name="presentableId" value="Default" />
       <updated>1602505025163</updated>
       <workItem from="1602505030487" duration="5516000" />
-      <workItem from="1602589942987" duration="282000" />
+      <workItem from="1602589942987" duration="3960000" />
+      <workItem from="1602595573522" duration="1308000" />
     </task>
     <servers />
   </component>
@@ -255,9 +227,9 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="320" y="115" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900@0.0.1440.900" timestamp="1602507426948" />
-    <state x="380" y="282" key="com.intellij.ide.util.TipDialog" timestamp="1602589942973">
+    <state x="380" y="276" key="com.intellij.ide.util.TipDialog" timestamp="1602595575942">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="380" y="282" key="com.intellij.ide.util.TipDialog/0.0.1440.900@0.0.1440.900" timestamp="1602589942973" />
+    <state x="380" y="276" key="com.intellij.ide.util.TipDialog/0.0.1440.900@0.0.1440.900" timestamp="1602595575942" />
   </component>
 </project>

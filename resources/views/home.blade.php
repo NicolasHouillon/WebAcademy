@@ -6,9 +6,6 @@
 
 @section('content')
 <div class="container home">
-    @if(Auth::user()->hasGroup("Professeur"))
-        <a href="{{ route('courses.create') }}">Ajouter un cours</a>
-    @endif
 
     <section class="tiles">
         <article class="style1">
@@ -82,6 +79,10 @@
                 </div>
             </a>
         </article>
+
+        @if(Auth::user()->hasGroup("Professeur"))
+            <a class="ajoutCours" href="{{ route('courses.create') }}">Ajouter un cours<i class="fas fa-plus icon"></i></a>
+        @endif
     </section>
 </div>
 @endsection
