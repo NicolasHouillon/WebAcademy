@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AttachmentController;
+use App\Http\Controllers\ChildenController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\Dashboard\AttachmentsController;
 use App\Http\Controllers\Dashboard\CoursesController;
@@ -66,4 +67,9 @@ Route::prefix('messages')->group(function () {
     Route::get('/{user}', [MessageController::class, 'show'])->name('messages.show');
     Route::get('/create/{user}', [MessageController::class, 'create'])->name('message.create');
     Route::post('/store/{user}', [MessageController::class, 'store'])->name('message.store');
+});
+
+Route::name('children.')->prefix('children')->group(function () {
+    Route::post('/store', [ChildenController::class, 'store'])->name('store');
+    Route::delete('/destroy/{child}', [ChildenController::class, 'destroy'])->name('destroy');
 });
