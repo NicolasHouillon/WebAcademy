@@ -3,7 +3,7 @@
 @section('content')
 
     @if($messages->isEmpty())
-        Vous n'avez pas ecnore de message avec ce professeur
+        Vous n'avez pas encore de message avec ce professeur
 
     @else
     <ul style="margin-top: 100px; list-style: none">
