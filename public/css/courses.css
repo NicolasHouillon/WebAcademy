@@ -1,19 +1,35 @@
 .course {
     position: relative;
-    top:10em;
-    margin-right: 8%;
-    margin-left: 8%;
+    top:3em;
+    margin: 4%;
+    background-color: rgb(255, 255, 255);
+    border: #4a5568 5px solid;
+    border-radius: 10px;
+    height: 75%;
+    width: 92%;
 }
 
 .course li {
     position: relative;
     display: inline-block;
-    width: calc(24% - 2.5em);
-    height: 25%;
-    margin: 20px;
+    width: calc(47% - 2em);
+    height: 30%;
+    margin: 1.5%;
     text-decoration: none;
     text-align: center;
-    border-radius: 20px;
+    border-radius: 5px;
+    background-color: rgb(70, 79, 107);
+    border: #272d37 5px solid;
+}
+
+.course li:hover {
+    box-shadow: 0 0;
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
+
+.course li:not(hover) {
+    transition: transform 0.3s ease;
 }
 
 .course li .image {
@@ -26,56 +42,25 @@
     background-color: rgb(28, 36, 60);
 }
 
-.course li > .image img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    opacity: 0.1;
+.course li .li-content {
+    position: relative;
+    display: inline-block;
+    margin: 0 20px;
 }
 
-.course li > .image {
-    pointer-events: none;
-    transition: background-color 0.5s ease, opacity 0.5s ease;
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    opacity: 1;
+.course li img {
+    top: calc(50% - 76px);
+    border: #1a202c 2px solid;
 }
 
-.course li > a {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    transition: background-color 0.5s ease, transform 0.5s ease;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    padding: 1em;
-    border-radius: 4px;
-    border-bottom: 0;
-    color: #ffffff;
-    text-align: center;
+.course li p {
     text-decoration: none;
-    z-index: 3;
-}
+    color: #FFFFFF;
+    width: 50%;
+    bottom: 27%;
+    padding: 25px 10px;
+    border-radius: 5px;
 
-/* animation images */
-
-.course li:hover > .image {
-    transform: scale(1.1);
-    transition: transform 0.5s ease, opacity 0.5s ease;
-    opacity: 0.8;
-}
-
-.course li:hover > .image img {
-    opacity: 1;
 }
 
 .filtre{

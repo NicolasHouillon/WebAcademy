@@ -5,6 +5,7 @@
 </head>
 
 @section('content')
+
     <div class="course">
 
     @if(Session::has('success'))
@@ -83,15 +84,15 @@
 
     <ul class="professeur">
         @foreach($courses as $course)
-            <li>
-                <span class="image">
-                    <img src="{{ asset($course->user->avatar) }}" height="100px" width="100px">
-                </span>
-                <a href="{{ route('courses.show', $course->id) }}">
+            <a href="{{ route('courses.show', $course->id) }}">
+                <li>
+                    <img class="li-content" src="{{ asset($course->user->avatar) }}" height="150px" width="150px">
+                    <p class="li-content">
                     PROFESSEUR : {{ $course->user->fullName() }}<br>
                     COURS : {{ $course->name }}
-                </a>
-            </li>
+                    </p>
+                </li>
+            </a>
         @endforeach
     </ul>
     </div>

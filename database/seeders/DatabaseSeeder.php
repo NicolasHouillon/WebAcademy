@@ -22,6 +22,5 @@ class DatabaseSeeder extends Seeder
             CourseSeeder::class,
             MessageSeeder::class
         ]);
-
     }
 }

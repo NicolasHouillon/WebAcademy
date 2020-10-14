@@ -707,6 +707,7 @@
                     "type": "github"
                 }
             ],
+
             "time": "2020-09-30T08:51:17+00:00"
         },
         {
@@ -1527,6 +1528,7 @@
                     "type": "tidelift"
                 }
             ],
+
             "time": "2020-09-23T08:17:37+00:00"
         },
         {
@@ -2551,6 +2553,7 @@
                     "type": "tidelift"
                 }
             ],
+
             "time": "2020-09-18T14:27:32+00:00"
         },
         {
@@ -2686,6 +2689,7 @@
         },
         {
             "name": "symfony/error-handler",
+
             "version": "v5.1.6",
             "source": {
                 "type": "git",
@@ -2696,6 +2700,7 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/error-handler/zipball/d2f1d4996d5499f1261164d10080e4120001f041",
                 "reference": "d2f1d4996d5499f1261164d10080e4120001f041",
+
                 "shasum": ""
             },
             "require": {
@@ -2753,6 +2758,7 @@
                     "type": "tidelift"
                 }
             ],
+
             "time": "2020-09-27T03:44:28+00:00"
         },
         {
@@ -4534,6 +4540,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
+
                     "dev-master": "2.2-dev"
                 },
                 "thanks": {
@@ -4584,6 +4591,7 @@
                     "type": "tidelift"
                 }
             ],
+
             "time": "2020-09-07T11:33:47+00:00"
         },
         {
@@ -6375,6 +6383,7 @@
                     "type": "github"
                 }
             ],
+
             "time": "2020-09-28T05:28:46+00:00"
         },
         {

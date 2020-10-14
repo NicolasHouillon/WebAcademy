@@ -3,10 +3,14 @@
  */
 
 .home {
-    padding: 0em 0 6em 0 ;
+    padding-top: 3em;
     position: relative;
     top: 5em;
     box-sizing: border-box;
+    background-color: rgb(255, 255, 255);
+    margin: 0 3%;
+    border-radius: 15px;
+    border: #4c4f52 6px solid;
 }
 
 @media screen and (max-width: 736px) {
@@ -20,7 +24,7 @@
 @media screen and (min-width: 600px) {
 
     .home {
-        top: 8em;
+        top: 6em;
     }
 
 }
@@ -294,4 +298,29 @@ body:not(.is-touch) .tiles article:hover .content {
         margin: 1.25em 0 0 0;
     }
 
+}
+
+.ajoutCours {
+    position: relative;
+    padding: 20px;
+    margin: 2em 3em;
+    background-color: rgb(70, 79, 107);
+    left: 79%;
+    border-radius: 5px;
+    color: #FFFFFF;
+}
+
+.ajoutCours:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+    color: #FFFFFF;
+}
+
+.ajoutCours:not(hover) {
+    transition: transform 0.3s ease;
+}
+
+.icon {
+    position: relative;
+    margin: 0 0 0 9px;
 }
