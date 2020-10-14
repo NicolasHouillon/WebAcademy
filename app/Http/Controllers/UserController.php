@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
-use League\CommonMark\Inline\Element\Image;
 
 class UserController extends Controller
 {
@@ -77,15 +76,11 @@ class UserController extends Controller
         return redirect()->route('user_profile', $user->slugFullName());
     }
 
-    public function destroy(Request $request, $id)
+    public function destroy($id)
     {
         $user = User::find($id);
-        if ($request->delete == 'valide') {
-            $user->delete();
-            return redirect()->route('index');
-        }
-        return redirect()->route('user_profile', $user->slugFullName());
-
+        $user->delete();
+        return redirect()->route('index');
     }
 
     public function uploadImage(Request $request) {
