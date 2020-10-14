@@ -5,6 +5,9 @@
     @if(isset($error))
         <h1>{{ $error }}</h1>
     @else
+        @if(session('success'))
+            <h1>{{ session('success') }}</h1>
+        @endif
         <div class="container show">
             <div class="content">
             <div class="col-sm-4">
@@ -21,7 +24,7 @@
                     </div>
                 </div>
             </div>
-            @if(Auth::user()->firstname == $user->firstname)
+            @if(Auth::user()->id == $user->id)
                 <div class="col-sm-8">
                     <div class="message card">
                         <div class="message-title">
@@ -36,6 +39,55 @@
                         </div>
                     </div>
                 </div>
+
+                {{--        LES ENFANTS        --}}
+                @if(Auth::user()->hasGroup('Parent'))
+                    <div class="col-sm-8">
+                        <div class="message card">
+                            <div class="message-title">Les cours de mes enfants</div>
+                            <div class="message-content">
+                                @foreach($user->children as $child)
+                                    <h3>{{ $child->fullName() }}</h3>
+                                    <ul>
+                                        @foreach($child->orders as $order)
+                                            <li>
+                                                <a href="{{ route('courses.show', $order->course) }}">{{ $order->course->name }}</a>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="message card">
+                            <div class="message-title">Mes enfants</div>
+                            <div class="message-content">
+                                @foreach($user->children as $child)
+                                    <li>
+                                        <a href="{{ route('user_profile', $child->slugFullName()) }}">{{ $child->fullName() }}</a>
+                                        <form action="{{ route('children.destroy', $child) }}" method="post">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit">Supprimer</button>
+                                        </form>
+                                    </li>
+                                @endforeach
+                                <hr>
+                                <h3>Ajouter un enfant</h3>
+                                <form action="{{ route('children.store') }}" method="post">
+                                    @csrf
+                                    <select name="child">
+                                        @foreach($children as $child)
+                                            <option value="{{ $child->id }}">{{ $child->fullName() }}</option>
+                                        @endforeach
+                                    </select>
+                                    <button type="submit">Valider</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                @endif
 
                 {{--        LES NOTIFICATIONS     --}}
                 @if($user->group->name == "Professeur")

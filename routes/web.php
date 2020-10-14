@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AttachmentController;
+use App\Http\Controllers\ChildenController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\Dashboard\AttachmentsController;
 use App\Http\Controllers\Dashboard\CoursesController;
@@ -61,16 +62,17 @@ Route::name('admin.')->middleware('admin')->prefix('admin')->group(function () {
     Route::post('users/{id}/edit', [UserController::class, 'uploadImage'])->name('uploadAdmin');
 });
 
-
 Route::post('courses/{id}/upload', [CourseController::class, 'uploadFile'])->name('uploadFile');
 Route::delete('attachments/{attachment}', [AttachmentController::class, 'destroy'])->name('destroy_attachment');
 
 Route::get('professor', [UserController::class, 'listOfProf'])->name('prof');
-
-
 
 Route::get('messages', [MessageController::class, 'index'])->name('messages');
 Route::get('messages/{user}', [MessageController::class, 'show'])->name('messages.show');
 Route::get('messages/create/{user}', [MessageController::class, 'create'])->name('message.create');
 Route::post('messages/store/{user}', [MessageController::class, 'store'])->name('message.store');
 
+Route::name('children.')->prefix('children')->group(function () {
+    Route::post('/store', [ChildenController::class, 'store'])->name('store');
+    Route::delete('/destroy/{child}', [ChildenController::class, 'destroy'])->name('destroy');
+});
