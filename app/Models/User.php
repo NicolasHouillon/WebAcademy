@@ -102,6 +102,10 @@ class User extends Authenticatable
         return $this->hasMany(Order::class);
     }
 
+    public function children() {
+        return $this->belongsToMany(User::class, 'children', 'parent_id', 'child_id');
+    }
+
     public function hasGroup(string $group): bool
     {
         return $this->group->name == $group;
@@ -136,7 +140,6 @@ class User extends Authenticatable
     }
 
     /**
-     * @param string $name
      * @param string $slug
      * @return array
      */
@@ -150,6 +153,10 @@ class User extends Authenticatable
             )
         ", [$slug]);
         return User::hydrate($results);
+    }
+
+    public static function getStudents() {
+        return User::where('group_id', 4)->orderBy('lastName')->get();
     }
 
 }

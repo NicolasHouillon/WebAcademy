@@ -40,7 +40,8 @@ class UserController extends Controller
         $return = [
             'user' => $user,
             'sended_messages' => $user->sendedMessages(),
-            'reveived_messages' => $user->reveivedMessages()
+            'reveived_messages' => $user->reveivedMessages(),
+            'children' => User::getStudents()
         ];
 
         if (Auth::check() && $user->group_id == 2) {
