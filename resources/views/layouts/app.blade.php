@@ -28,7 +28,7 @@
         <!-- Left Side Of Navbar -->
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <a class="navbar-brand" href="{{ url('/') }}">
-                <img src="{{asset("/image/logo-2 (1).png")}}" width="68" height="51">
+                <img src="{{asset("/image/logo-white.png")}}" width="68" height="51">
             </a>
             <!-- Right Side Of Navbar -->
 
@@ -36,9 +36,9 @@
                 <!-- Authentication Links -->
                 @guest
                     <li class="nav-item">
-                        <button class="nav-link linkLogin" id="linkLogin"
+                        <button class="nav-link linkLogin appButton" id="linkLogin"
                                 onclick="document.getElementById('id01').style.display='block'" style="width:auto;">
-                            Login
+                            Se connecter
                         </button>
                     </li>
                     <div id="id01" class="modal">
@@ -72,7 +72,7 @@
                                 </span>
                                 @enderror
 
-                                <button class="button-submit" type="submit">Login</button>
+                                <button class="button-submit appButton" type="submit">Login</button>
                                 <label>
                                     <input type="checkbox" checked="checked" name="remember"> Remember me
                                 </label>
@@ -80,7 +80,7 @@
 
                             <div class="container-login" style="background-color:#f1f1f1">
                                 <button type="button" onclick="document.getElementById('id01').style.display='none'"
-                                        class="cancelbtn">Cancel
+                                        class="cancelbtn appButton">Cancel
                                 </button>
                                 <span class="psw">Forgot <a href="#">password?</a></span>
                             </div>
@@ -88,9 +88,9 @@
                     </div>
                     @if (Route::has('register'))
                         <li class="nav-item">
-                            <button class="nav-link linkRegister" id="linkRegister"
+                            <button class="nav-link linkRegister appButton" id="linkRegister"
                                     onclick="document.getElementById('id02').style.display='block'" style="width:auto;">
-                                Register
+                                S'inscrire
                             </button>
                         </li>
                         <div id="id02" class="modal">
@@ -167,7 +167,7 @@
                                         </div>
                                     </div>
 
-                                    <button class="button-submit" type="submit">Register</button>
+                                    <button class="button-submit appButton" type="submit">Register</button>
                                     <label class="remember">
                                         <input type="checkbox" checked="checked" name="remember"> Remember me
                                     </label>
