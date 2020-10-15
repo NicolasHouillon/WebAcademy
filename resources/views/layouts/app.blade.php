@@ -1,4 +1,4 @@
-<!doctype html>
+ <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" xmlns:https="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8">
@@ -182,6 +182,7 @@
                         </li>
                     @endif
                     <li class="nav-item">
+
                         <a id="navbarDropdown" class="nav-link"
                            href="{{route('user_profile', ['name' => Auth::user()->slugFullName()])}}">
                             {{ Auth::user()->fullName() }}

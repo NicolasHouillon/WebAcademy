@@ -13,7 +13,7 @@
             <p>{{ $errors->first() }}</p>
         @endif
         <h1>
-            Le cours {{ $course->name }} publié par <a href="{{ url('/',$course->user->fullName()) }}">{{ $course->user->fullName() }}</a>
+            Le cours {{ $course->name }} publié par <a href="{{ url('@'.$course->user->slugFullName()) }}">{{ $course->user->fullName() }}</a>
         </h1>
 
         <p>

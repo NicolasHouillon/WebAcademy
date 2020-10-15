@@ -18,12 +18,12 @@
                         <p class="">{{ $user->lastname }}</p>
                         <p class="">{{ $user->email }}</p>
                         @if(Auth::user()->firstname == $user->firstname)
-                            <a href="{{route('edit_profile',$user->slugFullName())}}" class="btn btn-primary">Modifier
+                            <a href="{{route('edit_profile',$user->slugFullName())}}" class="">Modifier
                                 le profil</a>
                             <form action="{{route('user_delete',$user->id)}}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit">
+                                <button class="bouton-supprimer" type="submit">
                                     Supprimer profil
                                 </button>
 

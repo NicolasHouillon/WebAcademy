@@ -5,8 +5,9 @@
     background-color: rgb(255, 255, 255);
     border: #4a5568 5px solid;
     border-radius: 10px;
-    height: 75%;
+    height: auto;
     width: 92%;
+    overflow: auto;
 }
 
 .course li {
@@ -186,4 +187,27 @@ div button{
         width: auto;
         margin: 0 0 5px;
     }
+}
+
+/*CREATE COURSE*/
+
+.contentCreateCourse{
+    margin-left: 8%;
+    margin-right: 8%;
+    position: relative;
+    top: 5em;
+}
+
+.contentCreateCourse tr td{
+    padding: 15px;
+    text-align: left;
+}
+
+.contentCreateCourse tr{
+
+}
+
+.contentCreateCourse table{
+    border: 1px solid white;
+    border-radius: 20px;
 }

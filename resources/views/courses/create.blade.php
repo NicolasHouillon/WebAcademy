@@ -1,6 +1,9 @@
 @extends('layouts.app')
-
+<head>
+    <link rel="stylesheet" href="{{ asset('css/courses.css') }}">
+</head>
 @section('content')
+    <div class="contentCreateCourse">
     <h1>Créer un cours</h1>
 
     <form method="post" action="{{ route('courses.store') }}" enctype="multipart/form-data">
@@ -59,4 +62,5 @@
 
         <button type="submit">Créer</button>
     </form>
+    </div>
 @endsection
