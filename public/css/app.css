@@ -16,10 +16,75 @@ body{
     top: 0;
 }
 
+#app .menu {
+    position: absolute;
+}
+
+#app #menuO {
+    visibility: hidden;
+}
+
+#app #menuF {
+    visibility: hidden;
+}
+
+@media screen and (max-width: 450px) {
+    #app .navbar-nav {
+        position: absolute;
+        visibility: hidden;
+        top: 90%;
+        right: 2%;
+        background-color: #22282c;
+        width: 40%;
+        border-radius: 10px;
+    }
+
+    #app .navbar-nav .boutonHead {
+        position: relative;
+        display: block;
+        right: 5%;
+    }
+
+    #app #menuO {
+        visibility: visible;
+    }
+
+    #app #menuF {
+        visibility: hidden;
+    }
+
+    #app .menu {
+        background-color: unset;
+        right: 8%;
+        border: none;
+        border-radius: 5px;
+        width: auto;
+        font-size: 20px;
+        font-weight: bold;
+        color: white;
+        padding: 10px;
+        top: calc(50% - 23px);
+    }
+
+    #app .menu:hover {
+        background-color: #CC0381;
+        transition: background-color 0.3s ease;
+    }
+
+    #app .menu:not(hover) {
+        transition: background-color 0.3s ease;
+    }
+}
+
+@media screen and (min-width: 450px) {
+    #app .navbar-nav {
+        width: 100%;
+    }
+}
+
 #app .navbar-nav{
     list-style-type: none;
     padding-right: 20px;
-    width: 100%;
     text-align: right;
     display: table-cell;
     vertical-align: middle;
@@ -42,8 +107,8 @@ body{
 }
 
 #app .nav-link:hover{
-    background-color: #ffffff;
-    color: #22282c;
+    background-color: #CC0381;
+    color: white;
     transition: color 0.3s ease, background-color 0.3s ease;
 }
 
