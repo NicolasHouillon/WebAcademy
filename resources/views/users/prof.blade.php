@@ -10,7 +10,7 @@
             <p>
                 {{$prof->firstname." ".$prof->lastname}}
                 <a href="{{route('user_profile', $prof->slugFullName())}}">Voir le profil</a>
-                <a href="{{route('message.create', $prof->id)}}">Envoyer un message</a>
+                <a href="{{route('messages.show', $prof->id)}}">Envoyer un message</a>
             </p>
         @endforeach
     @endif

@@ -1,7 +1,7 @@
 body{
     margin: 0;
     font-family: OpenSans, sans-serif;
-    background-color: rgb(52, 70, 80);
+    background-color: #f0f0f0;
 }
 
 /*
@@ -9,47 +9,111 @@ body{
 */
 
 #app{
-    position: absolute;
     width: 100%;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    height: 106vh;
     top: 0;
 }
 
-@media (min-width: 1900px) {
-    #app {
-        top: 2em;
+#app .menu {
+    position: absolute;
+}
+
+#app #menuO {
+    visibility: hidden;
+}
+
+#app #menuF {
+    visibility: hidden;
+}
+
+@media screen and (max-width: 450px) {
+    #app .navbar-nav {
+        position: absolute;
+        visibility: hidden;
+        top: 90%;
+        right: 2%;
+        background-color: #22282c;
+        width: 40%;
+        border-radius: 10px;
+    }
+
+    #app .navbar-nav .boutonHead {
+        position: relative;
+        display: block;
+        right: 5%;
+    }
+
+    #app #menuO {
+        visibility: visible;
+    }
+
+    #app #menuF {
+        visibility: hidden;
+    }
+
+    #app .menu {
+        background-color: unset;
+        right: 8%;
+        border: none;
+        border-radius: 5px;
+        width: auto;
+        font-size: 20px;
+        font-weight: bold;
+        color: white;
+        padding: 10px;
+        top: calc(50% - 23px);
+    }
+
+    #app .menu:hover {
+        background-color: #CC0381;
+        transition: background-color 0.3s ease;
+    }
+
+    #app .menu:not(hover) {
+        transition: background-color 0.3s ease;
+    }
+}
+
+@media screen and (min-width: 450px) {
+    #app .navbar-nav {
+        width: 100%;
     }
 }
 
 #app .navbar-nav{
     list-style-type: none;
     padding-right: 20px;
-    width: 100%;
     text-align: right;
     display: table-cell;
     vertical-align: middle;
 }
 
 #app .nav-link{
+    position: relative;
     font-family: OpenSans, sans-serif;
     text-decoration: none;
     text-align: center;
-    padding: 6px 10px;
     font-weight: bold;
     font-size: small;
     margin: 5px;
-    border-radius: 30px;
+    border-radius: 5px;
     border:none;
     display: inline-block;
-    color: white;
-    background-color: rgba(0,0,0,0.4);
+    color: #ffffff;
+    background-color: unset;
+
 }
 
 #app .nav-link:hover{
-    background-color: rgba(0,0,0,0.8);
+    background-color: #CC0381;
+    color: white;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+#app .nav-link:not(hover) {
+    transition: color 0.3s ease, background-color 0.3s ease;
 }
 
 #app .nav-item{
@@ -112,18 +176,18 @@ body{
 }
 
 .navbar{
-    position: absolute;
-    background-color: unset;
+    position: relative;
     top: 0;
     right: 0;
     left: 0;
     height: 65px;
     z-index: 101;
+    background-color: #22282c;
 }
 
 @media screen and (min-width: 1200px) {
     .navbar {
-        height: 90px;
+        height: 11%;
     }
 }
 
@@ -151,8 +215,7 @@ input[type=email], input[type=password], input[type=lastname], input[type=firstn
 }
 
 /* Set a style for all buttons */
-button {
-    background-color: rgba(0,0,0,0.5);;
+#app .appButton {
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
@@ -161,7 +224,7 @@ button {
     width: 10%;
 }
 
-button:hover {
+#app .appButton:hover {
     opacity: 0.8;
 }
 

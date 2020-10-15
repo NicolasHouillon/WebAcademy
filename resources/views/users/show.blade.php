@@ -20,6 +20,14 @@
                         @if(Auth::user()->firstname == $user->firstname)
                             <a href="{{route('edit_profile',$user->slugFullName())}}" class="btn btn-primary">Modifier
                                 le profil</a>
+                            <form action="{{route('user_delete',$user->id)}}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit">
+                                    Supprimer profil
+                                </button>
+
+                            </form>
                         @endif
                     </div>
                 </div>

@@ -28,17 +28,18 @@
         <!-- Left Side Of Navbar -->
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <a class="navbar-brand" href="{{ url('/') }}">
-                <img src="{{asset("/image/logo-2 (1).png")}}" width="68" height="51">
+                <img src="{{asset("/image/logo-white.png")}}" width="68" height="51">
             </a>
             <!-- Right Side Of Navbar -->
-
+            <button class="menu" id="menuO">menu</button>
+            <button class="menu" id="menuF">menu</button>
             <ul class="navbar-nav ml-auto" id="linkboutons">
                 <!-- Authentication Links -->
                 @guest
-                    <li class="nav-item">
-                        <button class="nav-link linkLogin" id="linkLogin"
+                    <li class="nav-item boutonHead">
+                        <button class="nav-link linkLogin appButton" id="linkLogin"
                                 onclick="document.getElementById('id01').style.display='block'" style="width:auto;">
-                            Login
+                            Se connecter
                         </button>
                     </li>
                     <div id="id01" class="modal">
@@ -72,7 +73,7 @@
                                 </span>
                                 @enderror
 
-                                <button class="button-submit" type="submit">Login</button>
+                                <button class="button-submit appButton" type="submit">Login</button>
                                 <label>
                                     <input type="checkbox" checked="checked" name="remember"> Remember me
                                 </label>
@@ -80,17 +81,17 @@
 
                             <div class="container-login" style="background-color:#f1f1f1">
                                 <button type="button" onclick="document.getElementById('id01').style.display='none'"
-                                        class="cancelbtn">Cancel
+                                        class="cancelbtn appButton">Cancel
                                 </button>
                                 <span class="psw">Forgot <a href="#">password?</a></span>
                             </div>
                         </form>
                     </div>
                     @if (Route::has('register'))
-                        <li class="nav-item">
-                            <button class="nav-link linkRegister" id="linkRegister"
+                        <li class="nav-item boutonHead">
+                            <button class="nav-link linkRegister appButton" id="linkRegister"
                                     onclick="document.getElementById('id02').style.display='block'" style="width:auto;">
-                                Register
+                                S'inscrire
                             </button>
                         </li>
                         <div id="id02" class="modal">
@@ -167,7 +168,7 @@
                                         </div>
                                     </div>
 
-                                    <button class="button-submit" type="submit">Register</button>
+                                    <button class="button-submit appButton" type="submit">Register</button>
                                     <label class="remember">
                                         <input type="checkbox" checked="checked" name="remember"> Remember me
                                     </label>
@@ -212,6 +213,9 @@
     // Get the modal
     var modal = document.getElementById('id01');
     var modal2 = document.getElementById('id02');
+    var menuO = document.getElementById('menuO');
+    var menuF = document.getElementById('menuF');
+    var navbar = document.getElementById('linkboutons');
 
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function (event) {
@@ -221,27 +225,18 @@
         if (event.target === modal2) {
             modal2.style.display = "none";
         }
-    };
 
-    var linkMenu = document.getElementById('linkMenu');
-    var linkLogin = document.getElementById('linkLogin');
-    var linkRegister = document.getElementById('linkRegister');
-    var linkboutons = document.getElementById('linkboutons');
-    let flag = false;
-
-    window.onclick = function (event) {
-        if (event.target === linkMenu) {
-            if (flag) {
-                linkboutons.style.visibility = "hidden";
-                flag = false;
-            }
-
-            if (!flag) {
-                linkboutons.style.visibility = "visible";
-                flag = true;
-            }
+        if (event.target === menuO) {
+            navbar.style.visibility='visible';
+            menuO.style.visibility='hidden';
+            menuF.style.visibility='visible';
         }
-    }
+        if (event.target === menuF) {
+            navbar.style.visibility='hidden';
+            menuO.style.visibility='visible';
+            menuF.style.visibility='hidden';
+        }
+    };
 </script>
 </body>
 </html>

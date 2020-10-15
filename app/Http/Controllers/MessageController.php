@@ -106,7 +106,6 @@ class MessageController extends Controller
             ->where('receiver_id', $user->id)
             ->orWhere('sender_id', $user->id)
             ->Where('receiver_id', Auth::id())
-            ->orderBy('created_at', 'desc')
             ->get();
 
         return view('messages.show', [

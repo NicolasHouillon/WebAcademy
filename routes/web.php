@@ -15,6 +15,7 @@ use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
+
 Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
@@ -33,6 +34,8 @@ Route::get('/@{name}', [UserController::class, 'show'])->name('user_profile');
 Route::get('/@{name}/edit', [UserController::class, 'edit'])->name('edit_profile');
 Route::put('/@{name}/update', [UserController::class, 'update'])->name('update_profile');
 Route::post('/@{name}/upload', [UserController::class, 'uploadImage'])->name('upload');
+Route::delete('/{id}', [UserController::class, 'destroy'])->name('user_delete');
+
 
 // Paypal - NE PAS TOUCHER !
 Route::get('/pay/{course}', [PaypalController::class, 'paymentHandle'])->name('make.payment');
@@ -51,15 +54,19 @@ Route::name('admin.')->middleware('admin')->prefix('admin')->group(function () {
     Route::post('users/{id}/edit', [UserController::class, 'uploadImage'])->name('uploadAdmin');
 });
 
+
 Route::post('courses/{id}/upload', [CourseController::class, 'uploadFile'])->name('uploadFile');
 Route::delete('attachments/{attachment}', [AttachmentController::class, 'destroy'])->name('destroy_attachment');
 
 Route::get('professor', [UserController::class, 'listOfProf'])->name('prof');
 
-Route::get('messages', [MessageController::class, 'index'])->name('messages');
-Route::get('messages/{user}', [MessageController::class, 'show'])->name('messages.show');
-Route::get('messages/create/{user}', [MessageController::class, 'create'])->name('message.create');
-Route::post('messages/store/{user}', [MessageController::class, 'store'])->name('message.store');
+
+Route::prefix('messages')->group(function () {
+    Route::get('/', [MessageController::class, 'index'])->name('messages');
+    Route::get('/{user}', [MessageController::class, 'show'])->name('messages.show');
+    Route::get('/create/{user}', [MessageController::class, 'create'])->name('message.create');
+    Route::post('/store/{user}', [MessageController::class, 'store'])->name('message.store');
+});
 
 Route::name('children.')->prefix('children')->group(function () {
     Route::post('/store', [ChildenController::class, 'store'])->name('store');

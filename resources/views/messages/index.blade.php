@@ -2,6 +2,10 @@
 
 @section('content')
 
+    @if($messages->isEmpty())
+        Vous n'avez pas encore de message
+    @else
+
     <ul style="margin-top: 100px">
         @foreach($messages as $message)
             <li>
@@ -23,6 +27,7 @@
             </li>
         @endforeach
     </ul>
+    @endif
 
 
 

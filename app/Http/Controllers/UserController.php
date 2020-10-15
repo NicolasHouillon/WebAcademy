@@ -76,6 +76,7 @@ class UserController extends Controller
         $user->lastname = $request->lastname;
         $user->email = $request->email;
         $user->password = Hash::make($request['password']);
+
         $user->save();
 
         return redirect()->route('user_profile', $user->slugFullName());
@@ -85,12 +86,8 @@ class UserController extends Controller
     {
         $user = User::find($id);
         $this->authorize('delete', $user);
-        if ($request->delete == 'valide') {
-            $user->delete();
-            return redirect()->route('index');
-        }
-        return redirect()->route('user_profile', $user->slugFullName());
-
+        $user->delete();
+        return redirect()->route('index');
     }
 
     public function uploadImage(Request $request) {
@@ -107,6 +104,7 @@ class UserController extends Controller
         }
 
         return redirect()->route('user_profile', $user->slugFullName());
+
     }
 
 
