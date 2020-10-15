@@ -23,6 +23,7 @@
         @endif
 
         @csrf
+        @method('PUT')
         <div style="padding-top: 100px">
             <h3>Remplir les informations</h3>
             <hr class="mt-2 mb-2">

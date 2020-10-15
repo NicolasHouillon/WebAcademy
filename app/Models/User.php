@@ -134,9 +134,16 @@ class User extends Authenticatable
         return str_replace(" ", "_", strtolower($this->firstname . " " . $this->lastname));
     }
 
-
     public function payCourse($id) : bool {
         return $this->orders->where('course_id', $id)->count() >0;
+    }
+
+    public static function getUserForSlug(string $slug): ?User {
+        $data = explode("_", $slug);
+        return User::where([
+            'firstname' => $data[0],
+            'lastname' => $data[1]
+        ])->first();
     }
 
     /**
