@@ -31,11 +31,12 @@
                 <img src="{{asset("/image/logo-white.png")}}" width="68" height="51">
             </a>
             <!-- Right Side Of Navbar -->
-
+            <button class="menu" id="menuO">menu</button>
+            <button class="menu" id="menuF">menu</button>
             <ul class="navbar-nav ml-auto" id="linkboutons">
                 <!-- Authentication Links -->
                 @guest
-                    <li class="nav-item">
+                    <li class="nav-item boutonHead">
                         <button class="nav-link linkLogin appButton" id="linkLogin"
                                 onclick="document.getElementById('id01').style.display='block'" style="width:auto;">
                             Se connecter
@@ -87,7 +88,7 @@
                         </form>
                     </div>
                     @if (Route::has('register'))
-                        <li class="nav-item">
+                        <li class="nav-item boutonHead">
                             <button class="nav-link linkRegister appButton" id="linkRegister"
                                     onclick="document.getElementById('id02').style.display='block'" style="width:auto;">
                                 S'inscrire
@@ -212,6 +213,9 @@
     // Get the modal
     var modal = document.getElementById('id01');
     var modal2 = document.getElementById('id02');
+    var menuO = document.getElementById('menuO');
+    var menuF = document.getElementById('menuF');
+    var navbar = document.getElementById('linkboutons');
 
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function (event) {
@@ -221,27 +225,18 @@
         if (event.target === modal2) {
             modal2.style.display = "none";
         }
-    };
 
-    var linkMenu = document.getElementById('linkMenu');
-    var linkLogin = document.getElementById('linkLogin');
-    var linkRegister = document.getElementById('linkRegister');
-    var linkboutons = document.getElementById('linkboutons');
-    let flag = false;
-
-    window.onclick = function (event) {
-        if (event.target === linkMenu) {
-            if (flag) {
-                linkboutons.style.visibility = "hidden";
-                flag = false;
-            }
-
-            if (!flag) {
-                linkboutons.style.visibility = "visible";
-                flag = true;
-            }
+        if (event.target === menuO) {
+            navbar.style.visibility='visible';
+            menuO.style.visibility='hidden';
+            menuF.style.visibility='visible';
         }
-    }
+        if (event.target === menuF) {
+            navbar.style.visibility='hidden';
+            menuO.style.visibility='visible';
+            menuF.style.visibility='hidden';
+        }
+    };
 </script>
 </body>
 </html>

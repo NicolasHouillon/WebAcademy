@@ -30,6 +30,7 @@
     font-size: 25px;
     font-weight: bold;
     width: auto;
+    height: auto;
     margin: 15px;
     padding: 1% 1.5%;
     top: 50%;
@@ -50,11 +51,11 @@
 
 .loginPage .popupB:hover {
     background-color: rgb(204, 3, 129);
-    color: #22282c;
+    color: white;
     transition: color 0.3s ease, background-color 0.3s ease;
 }
 
-.loginPage .popup:not(hover) {
+.loginPage .popupB:not(hover) {
     transition: color 0.3s ease, background-color 0.3s ease;
 }
 
@@ -69,6 +70,42 @@
     .loginPage .popup {
         font-size: 60px;
         width: 310px;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .loginPage .text {
+        top: 15%;
+    }
+
+    .loginPage {
+        text-align: center;
+    }
+
+    .loginPage .popupB {
+        padding: 10px;
+        width: 35%;
+        top: 60%;
+        margin-left: 6%;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .loginPage .popupB {
+        display: inline;
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 400px){
+    .loginPage .text {
+        font-size: 30px;
+    }
+}
+
+@media screen and (max-width: 350px){
+    .loginPage .text {
+        font-size: 25px;
     }
 }
 
