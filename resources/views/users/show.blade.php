@@ -134,7 +134,7 @@
 
                                         <div class="message-content">
                                             <p>
-                                                <a href="{{ url('courses/show',$order["order"]->course->id) }}"><b>{{ $order["order"]->course->name }}</a> : </b>
+                                                <a href="{{ url('courses/show',$order["order"]->course->id) }}"><b>{{ $order["order"]->course->name }}</b></a> : </b>
                                                 Paiment de {{ $order["details"]->purchase_units[0]->amount->value }}€
                                                 le {{ date_format($order["order"]->course->created_at, "d/m/Y") }}
                                             </p>

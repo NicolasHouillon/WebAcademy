@@ -1,39 +1,72 @@
 /*
     page Login
  */
+.loginPage {
+    position: relative;
+    height: 89%;
+}
 
 .loginPage .image {
     position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url("../image/étudiant.jpg");
+    background-size: cover;
+    filter: brightness(70%);
 }
 
-.loginHead {
-    text-align: center;
-    height: 100vh;
+.loginPage .text {
+    position: absolute;
+    top: 20%;
+    margin-left: 5%;
+    font-size: 35px;
+    color: white;
+    text-shadow: #22282c 2px 2px;
 }
 
-.loginHead .popupLogin {
+.loginPage .popupB {
     position: relative;
-    top: 40%;
-    margin: 20px;
-    padding: 10px;
-    font-size: 28px;
+    display: inline-block;
+    font-size: 25px;
     font-weight: bold;
-    background-color: rgba(0, 0, 0, 0.5);
-    border: 3px solid #ffffff;
-    color: #ffffff;
-    width: 180px;
-    box-shadow: 5px 5px 5px #1a202c;
+    width: auto;
+    margin: 15px;
+    padding: 1% 1.5%;
+    top: 50%;
+    border-radius: 5px;
+    border: #22282c 2px solid;
+}
+
+.loginPage .login {
+    margin-left: 5%;
+    background-color: white;
+    color: #22282c;
+}
+
+.loginPage .register {
+    background-color: #22282c;
+    color: white;
+}
+
+.loginPage .popupB:hover {
+    background-color: rgb(204, 3, 129);
+    color: #22282c;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.loginPage .popup:not(hover) {
+    transition: color 0.3s ease, background-color 0.3s ease;
 }
 
 @media (min-width: 768px) {
-    .loginHead .popupLogin {
+    .loginPage .popup {
         font-size: 40px;
         width: 230px;
     }
 }
 
 @media (min-width: 1900px) {
-    .loginHead .popupLogin {
+    .loginPage .popup {
         font-size: 60px;
         width: 310px;
     }
@@ -48,6 +81,7 @@
     height: 100%;
     z-index:1;
     display:none;
+    overflow: auto;
 }
 
 .overlayL .popup {
@@ -75,6 +109,7 @@
     height: 100%;
     z-index:1;
     display:none;
+    overflow: auto;
 }
 
 .overlayR .popup {

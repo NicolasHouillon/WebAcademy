@@ -6,15 +6,18 @@
 
 @section('content')
 <div class="container loginPage">
-    <div class="image">
-        <img src="image/etudes.jpg" width="113%" height="100%">
-    </div>
-    <div class="row justify-content-center loginHead">
-        <button id="popupLogin" class="popupLogin" onclick="document.getElementById('overlayL').style.display='block'">Login</button>
+    <div class="image"></div>
+
+        <div class="text">
+            <h2>Bienvenue sur WebAcademy</h2>
+            <p>Site de cours en ligne.</p>
+        </div>
+
+        <button class="popupB login" onclick="document.getElementById('overlayL').style.display='block'">Se connecter</button>
         <div id="overlayL" class="overlayL">
             <div class="popup">
                 <h2>
-                    Login
+                    Se connecter
                     <span class="btnClose" onclick="document.getElementById('overlayL').style.display='none'">&times;</span>
                 </h2>
 
@@ -87,11 +90,11 @@
 
         </div>
 
-        <button id="popupLogin" class="popupLogin" onclick="document.getElementById('overlayR').style.display='block'">Register</button>
+        <button class="popupB register" onclick="document.getElementById('overlayR').style.display='block'">S'inscrire</button>
         <div id="overlayR" class="overlayR">
             <div class="popup">
                 <h2>
-                    Register
+                    S'inscrire
                     <span class="btnClose" onclick="document.getElementById('overlayR').style.display='none'">&times;</span>
                 </h2>
 
@@ -192,6 +195,5 @@
 
             </div>
         </div>
-    </div>
 </div>
 @endsection

@@ -3,28 +3,17 @@
  */
 
 .home {
+    top: 1em;
     padding-top: 3em;
     position: relative;
-    top: 5em;
     box-sizing: border-box;
-    background-color: rgb(255, 255, 255);
     margin: 0 3%;
-    border-radius: 15px;
-    border: #4c4f52 6px solid;
 }
 
 @media screen and (max-width: 736px) {
 
     .home {
         padding: 0em 0 4em 0 ;
-    }
-
-}
-
-@media screen and (min-width: 600px) {
-
-    .home {
-        top: 6em;
     }
 
 }
@@ -198,27 +187,27 @@
 /* Couleurs boutons */
 
 .tiles article.style1 > .image:before {
-    background-color: #cd7288;
+    background-color: #d9138a;
 }
 
 .tiles article.style2 > .image:before {
-    background-color: #699ecd;
+    background-color: #12a4d9;
 }
 
 .tiles article.style3 > .image:before {
-    background-color: #6fc3b4;
+    background-color: #e2d810;
 }
 
 .tiles article.style4 > .image:before {
-    background-color: #af5883;
+    background-color: #e20600;
 }
 
 .tiles article.style5 > .image:before {
-    background-color: #9875b4;
+    background-color: #00d270;
 }
 
 .tiles article.style6 > .image:before {
-    background-color: #6c80c9;
+    background-color: #9c2bd9;
 }
 
 /* animations boutons */

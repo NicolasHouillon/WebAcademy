@@ -6,10 +6,16 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/courses.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/courses.css" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/resources/views/courses/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/courses/create.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/courses/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/courses/show.blade.php" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/public/css/home.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/home.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/login.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/image/bleuGris.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
+>>>>>>> 565b4415c42d4f63a488830794e1596810291d56
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/users/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/users/show.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -217,6 +223,7 @@
     </configuration>
   </component>
   <component name="ServiceViewManager">
+<<<<<<< HEAD
     <option name="allServicesViewState">
       <serviceView>
         <treeState>
@@ -224,6 +231,27 @@
           <select />
         </treeState>
       </serviceView>
+=======
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="root:lp_projet_1@localhost" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              </path>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="root:lp_projet_1@localhost" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+                <item name="com.intellij.database.console.session.MessageBusSession@588c8ae9" type="9fbbdea:ServiceModel$ServiceNode" />
+              </path>
+            </expand>
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+>>>>>>> 565b4415c42d4f63a488830794e1596810291d56
     </option>
   </component>
   <component name="SvnConfiguration">
@@ -238,8 +266,15 @@
       <updated>1602505025163</updated>
       <workItem from="1602505030487" duration="5516000" />
       <workItem from="1602589942987" duration="3960000" />
+<<<<<<< HEAD
       <workItem from="1602595573522" duration="1308000" />
       <workItem from="1602704365098" duration="3937000" />
+=======
+      <workItem from="1602595573522" duration="1524000" />
+      <workItem from="1602667691796" duration="6802000" />
+      <workItem from="1602754705057" duration="198000" />
+      <workItem from="1602763040032" duration="1767000" />
+>>>>>>> 565b4415c42d4f63a488830794e1596810291d56
     </task>
     <servers />
   </component>
@@ -264,9 +299,25 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="320" y="115" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900@0.0.1440.900" timestamp="1602507426948" />
-    <state x="380" y="276" key="com.intellij.ide.util.TipDialog" timestamp="1602595575942">
+    <state width="1398" height="226" key="GridCell.Tab.0.bottom" timestamp="1602680584295">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="380" y="276" key="com.intellij.ide.util.TipDialog/0.0.1440.900@0.0.1440.900" timestamp="1602595575942" />
+    <state width="1398" height="226" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1602680584295" />
+    <state width="1398" height="226" key="GridCell.Tab.0.center" timestamp="1602680584295">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="226" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1602680584295" />
+    <state width="1398" height="226" key="GridCell.Tab.0.left" timestamp="1602680584294">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="226" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1602680584294" />
+    <state width="1398" height="226" key="GridCell.Tab.0.right" timestamp="1602680584295">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="226" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1602680584295" />
+    <state x="380" y="271" key="com.intellij.ide.util.TipDialog" timestamp="1602763040764">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="380" y="271" key="com.intellij.ide.util.TipDialog/0.0.1440.900@0.0.1440.900" timestamp="1602763040764" />
   </component>
 </project>
