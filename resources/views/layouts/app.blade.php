@@ -44,7 +44,7 @@
                     </li>
                     <div id="id01" class="modal">
 
-                        <form class="modal-content animate" action="{{ route('login') }}" method="post">
+                        <form class="modal-content animate" action="{{ route('login') }}" method="post" autocomplete="on">
                             @csrf
                             <div class="imgcontainer">
                                 <h1>LOGIN</h1>
@@ -96,7 +96,7 @@
                         </li>
                         <div id="id02" class="modal">
 
-                            <form class="modal-content animate" action="{{ route('register') }}" method="post">
+                            <form class="modal-content animate" action="{{ route('register') }}" method="post" autocomplete="on">
                                 @csrf
                                 <div class="imgcontainer">
                                     <h1>REGISTER</h1>
