@@ -26,28 +26,26 @@
                                 <button class="bouton-supprimer" type="submit">
                                     Supprimer profil
                                 </button>
-
                             </form>
                         @endif
                     </div>
                 </div>
             </div>
+
             @if(Auth::user()->id == $user->id)
                 <div class="col-sm-8">
                     <div class="message card">
-                        <div class="message-title">
-                            Messages
+                        <div class="message-listeProf">
+                            <a href="{{url('messages')}}">Messages</a>
                         </div>
-                        <div class="message-content" style="font-weight: lighter">
-                            @if(Auth::user()->reveived_messages == null)
-                                Aucun message
-                            @else
+                    </div>
 
-                            @endif
+                    <div class="message card">
+                        <div class="message-listeProf">
+                            <a href="{{url('professor')}}">Liste des profs</a>
                         </div>
                     </div>
                 </div>
-
                 {{--        LES ENFANTS        --}}
                 @if(Auth::user()->hasGroup('Parent'))
                     <div class="col-sm-8">
@@ -143,6 +141,15 @@
                         </div>
                 @endif
             @endif
+                @if(Auth::user()->id != $user->id)
+                    <div class="col-sm-8">
+                        <div class="message card">
+                            <div class="message-listeProf">
+                                <a href="{{url('messages/'.$user->id)}}">Contacter par message </a>
+                            </div>
+                        </div>
+                    </div>
+                @endif
             @if($user->group->name == "Professeur")
                 <div class="col-sm-12">
                     <div class="card">
