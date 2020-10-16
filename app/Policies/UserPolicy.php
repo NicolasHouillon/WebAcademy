@@ -2,18 +2,16 @@
 
 namespace App\Policies;
 
-use App\Models\Course;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 use Illuminate\Auth\Access\Response;
 
-class CoursePolicy
+class UserPolicy
 {
     use HandlesAuthorization;
 
-    public function before(User $user, string $ability)
-    {
-        if ($user->hasGroup("Administrateur")) return true;
+    public function before(User $user, string $ability) {
+        if($user->hasGroup("")) return Response::allow();
     }
 
     /**
@@ -31,10 +29,10 @@ class CoursePolicy
      * Determine whether the user can view the model.
      *
      * @param User $user
-     * @param Course $model
+     * @param User $model
      * @return mixed
      */
-    public function view(User $user, Course $model)
+    public function view(User $user, User $model)
     {
         return Response::allow();
     }
@@ -47,59 +45,60 @@ class CoursePolicy
      */
     public function create(User $user)
     {
-        return $user->hasGroup("Professeur")
-            ? Response::allow()
-            : Response::deny("Vous devez être professeur pour créer un cours.");
+        return Response::deny();
     }
 
     /**
      * Determine whether the user can update the model.
      *
      * @param User $user
-     * @param Course $course
+     * @param User $model
      * @return mixed
      */
-    public function update(User $user, Course $course)
+    public function update(User $user, User $model)
     {
-        return $user->hasGroup("Professeur") && $user->id == $course->user->id
+        return $user->id == $model->id
             ? Response::allow()
-            : Response::deny("Vous devez être professeur pour modifier un cours.");
+            : Response::deny("Vous ne pouvez pas modifier le profil d'un autre utilisateur.")
+        ;
     }
 
     /**
      * Determine whether the user can delete the model.
      *
      * @param User $user
-     * @param Course $course
+     * @param User $model
      * @return mixed
      */
-    public function delete(User $user, Course $course)
+    public function delete(User $user, User $model)
     {
-        return $user->hasGroup("Professeur") && $user->id == $course->user->id;
+        return $user->id == $model->id
+            ? Response::allow()
+            : Response::deny("Vous ne pouvez pas supprimer un autre utilisateur.")
+        ;
     }
 
     /**
      * Determine whether the user can restore the model.
      *
      * @param User $user
-     * @param Course $course
+     * @param User $model
      * @return mixed
      */
-    public function restore(User $user, Course $course)
+    public function restore(User $user, User $model)
     {
-        return false;
+        return Response::deny();
     }
 
     /**
      * Determine whether the user can permanently delete the model.
      *
      * @param User $user
-     * @param Course $course
+     * @param User $model
      * @return mixed
      */
-    public function forceDelete(User $user, Course $course)
+    public function forceDelete(User $user, User $model)
     {
-        return false;
+        return Response::deny();
     }
-
 }

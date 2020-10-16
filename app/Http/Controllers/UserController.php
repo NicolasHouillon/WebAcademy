@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
+use League\CommonMark\Inline\Element\Image;
 
 class UserController extends Controller
 {
@@ -27,6 +28,7 @@ class UserController extends Controller
 
     public function show(string $name)
     {
+        $this->authorize('viewAny', User::class);
         if (Auth::user()->slugFullName() == $name) {
             $user = Auth::user();
         } else {
@@ -58,15 +60,18 @@ class UserController extends Controller
         return view('users.show', $return);
     }
 
-    public function edit()
+    public function edit(string $name)
     {
-        $user = User::find(Auth::user()->id);
+        $user = User::getUserForSlug($name);
+        $this->authorize('update', $user);
         return view('users.edit', ['user' => $user]);
     }
 
-    public function update(Request $request)
+    public function update(Request $request, string $name)
     {
-        $user = Auth::user();
+        $user = User::getUserForSlug($name);
+        $this->authorize('update', $user);
+
         $user->firstname = $request->firstname;
         $user->lastname = $request->lastname;
         $user->email = $request->email;
@@ -77,9 +82,10 @@ class UserController extends Controller
         return redirect()->route('user_profile', $user->slugFullName());
     }
 
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
         $user = User::find($id);
+        $this->authorize('delete', $user);
         $user->delete();
         return redirect()->route('index');
     }

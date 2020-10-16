@@ -32,14 +32,13 @@ Route::prefix('courses')->group(function () {
 
 Route::get('/@{name}', [UserController::class, 'show'])->name('user_profile');
 Route::get('/@{name}/edit', [UserController::class, 'edit'])->name('edit_profile');
-Route::get('/@{name}/update', [UserController::class, 'update'])->name('update_profile');
+Route::put('/@{name}/update', [UserController::class, 'update'])->name('update_profile');
 Route::post('/@{name}/upload', [UserController::class, 'uploadImage'])->name('upload');
 Route::delete('/{id}', [UserController::class, 'destroy'])->name('user_delete');
 
 
 // Paypal - NE PAS TOUCHER !
 Route::get('/pay/{course}', [PaypalController::class, 'paymentHandle'])->name('make.payment');
-Route::get('cancel-payment', [PaypalController::class, 'paymentCancel'])->name('cancel.payment');
 Route::get('payment-success', [PaypalController::class, 'paymentSuccess'])->name('success.payment');
 
 Route::name('admin.')->middleware('admin')->prefix('admin')->group(function () {

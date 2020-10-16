@@ -155,14 +155,6 @@ class CourseController extends Controller
         $course->user_id = Auth::id();
         $course->save();
 
-        if ($request->hasFile('uploads')) {
-            foreach ($request->uploads as $file) {
-                $name = uniqid() . '_' . time() . '.' . $file->getClientOriginalExtension();
-                $path = public_path() . '/uploads';
-                $file->save($path, $name);
-            }
-        }
-
         return $course;
     }
 
@@ -176,25 +168,23 @@ class CourseController extends Controller
         }
     }
 
-    public function uploadFile(Request $request, $id) {
-
+    public function uploadFile(Request $request, $id)
+    {
         $user = Auth::user();
-        if ($request->hasFile('file')){
+        if ($request->hasFile('file')) {
             $files = $request->file('file');
             foreach ($files as $file) {
                 $extension = $file->getClientOriginalExtension();
-                Storage::disk('public')->put("attachement/".$user->id."/".$file->getFilename().'.'.$extension,  File::get($file));
+                Storage::disk('public')->put("attachement/" . $user->id . "/" . $file->getFilename() . '.' . $extension, File::get($file));
                 $attachement = new Attachment();
                 $attachement->name = $file->getClientOriginalName();
-                $attachement->file = "attachement/".$user->id."/".$file->getFilename().'.'.$extension;
-                $attachement->course_id =$id;
+                $attachement->file = "attachement/" . $user->id . "/" . $file->getFilename() . '.' . $extension;
+                $attachement->course_id = $id;
                 $attachement->save();
             }
-
         }
 
         return back();
-
     }
 
 }

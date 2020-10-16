@@ -47,11 +47,6 @@ class PaypalController extends Controller
         return redirect($response->result->links[1]->href);
     }
 
-    public function paymentCancel()
-    {
-
-    }
-
     public function paymentSuccess(Request $request)
     {
         $order = Order::where('paypal_order_id', $request->query('token'))->first();
