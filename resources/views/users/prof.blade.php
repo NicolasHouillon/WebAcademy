@@ -1,7 +1,9 @@
 @extends('layouts.app')
-
+<head>
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+</head>
 @section('content')
-
+<div class="content">
     @if(isset($error))
         <h1>{{ $error }}</h1>
     @else
@@ -14,4 +16,5 @@
             </p>
         @endforeach
     @endif
+</div>
 @endsection
