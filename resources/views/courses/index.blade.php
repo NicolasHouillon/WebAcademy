@@ -82,18 +82,17 @@
         </div>
     </div>
 
-    <ul class="professeur">
+    <section class="liste-cours">
         @foreach($courses as $course)
-            <a href="{{ route('courses.show', $course->id) }}">
-                <li>
-                    <img class="li-content" src="{{ asset($course->user->avatar) }}" height="150px" width="150px">
-                    <p class="li-content">
+            <article class="prof">
+                <img class="li-content li-img" src="{{ asset($course->user->avatar) }}" height="150px" width="150px">
+                <p class="li-content li-text">
                     PROFESSEUR : {{ $course->user->fullName() }}<br>
                     COURS : {{ $course->name }}
-                    </p>
-                </li>
-            </a>
+                </p>
+                <a class="li-content li-link" href="{{ route('courses.show', $course->id) }}">Voir plus ...</a>
+            </article>
         @endforeach
-    </ul>
+    </section>
     </div>
 @endsection
