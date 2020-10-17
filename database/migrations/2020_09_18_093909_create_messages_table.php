@@ -31,6 +31,7 @@ class CreateMessagesTable extends Migration
                 ->on('users')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
+            $table->primary(['sender_id', 'receiver_id', 'created_at']);
         });
     }
 
