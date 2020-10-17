@@ -22,140 +22,110 @@
     border-radius: 5px;
 }
 
-.course .li-content {
-    position: relative;
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.course .li-text {
-    width: 60%;
-    left: 38%;
-    bottom: 15%;
-    color: white;
+.course .prof div {
+    display: inline-block;
 }
 
 .course .li-img {
-    left: 5%;
-    top: calc(50% - 77px);
+    position: relative;
+    height: 100%;
+    width: 40%;
 }
 
-.course .li-link {
+.course .li-img img {
+    position: relative;
+    top: calc(50% - 75px);
+    left: calc(50% - 75px);
+}
+
+.course .li-content {
+    position: absolute;
+    height: 100%;
+    width: 60%;
+}
+
+.course .li-content .li-text {
+    position: relative;
+    top: calc(50% - 35px);
+    left: 0;
+    color: white;
+}
+
+.course .li-content .li-link {
+    position: absolute;
+    bottom: 1em;
+    right: 1em;
+    padding: 10px;
     background-color: #CC0381;
     border-radius: 5px;
-    padding: 1em;
     color: white;
-    width: fit-content;
 }
 
-@media screen and (min-height: 1000px) {
-    .course .li-link {
-        bottom: -18%;
-    }
-
-    .course .li-text {
-        top: 0;
-    }
-}
-
-@media screen and (min-width: 1800px) and (min-width: 1000px) {
-    .course .li-link {
-        bottom: 20%;
-        left: 79%;
-        font-size: 20px;
-    }
-
-    .course .li-text {
-        left: 43%;
-        top: -32%;
-        font-size: 25px;
-    }
-
-    .course .li-img {
-        top: calc(50% - 130px);
-        height: 250px;
-        width: 250px;
-    }
-}
-
-@media screen and (min-width: 1300px) and (max-width: 1500px) {
-    .course .li-link {
-        left: 75%;
-    }
-}
-
-@media screen and (min-height: 750px) and (max-height: 850px) and (min-width: 1300px) and (max-width: 1500px) {
-    .course .li-link {
-        bottom: 8%;
-    }
-}
-
-@media (max-width: 1299px) and (min-width: 1100px) and (max-height: 850px) {
-    .course .li-link {
-        bottom: 5%;
-        left: 68%;
-    }
-
-    .course .li-text {
-        bottom: 20%;
-        left: 45%;
-        width: 50%;
-    }
-}
-
-@media (max-width: 1100px) and (min-width: 900px) and (max-height: 800px) {
-    .course .li-text {
-        bottom: 25%;
-        left: 50%;
-        width: 40%;
-    }
-
-    .course .li-link {
-        left: 65%;
-        bottom: 15%;
-    }
-}
-
-@media screen and (max-width: 900px){
-    .course {
-        margin: 2% 0;
-    }
-
-    .course .prof {
-        width: 100%;
-        height: 30%;
-    }
-
-    .course .li-link {
-        left: 73%;
-        bottom: 17%;
-    }
-
-    .course .li-text {
-        bottom: 25%;
-        left: 41%;
-    }
-}
-
-@media (max-width: 500px) {
-    .course .liste-cours {
-        padding: 2%;
-    }
-
-    .course .prof {
-        margin: 2% 0 0 8%;
-    }
-}
-
-.course .li-link:hover {
+.course .li-content .li-link:hover {
     background-color: #f0f0f0;
     color: #22282c;
     transform: scale(1.1);
     transition: background-color 0.5s ease, color 0.5s ease, transform 0.5s ease
- }
+}
 
 .course .li-link:not(hover) {
     transition: background-color 0.5s ease, color 0.5s ease, transform 0.5s ease
+}
+
+@media screen and (min-width: 900px) and (max-width: 1200px) {
+    .course .li-img img {
+        height: 125px;
+        width: 125px;
+        top: calc(50% - 62px);
+        left: calc(50% - 62px);
+    }
+}
+
+@media (min-width: 1300px) and (max-width: 1700px) and (min-height: 1000px) {
+    .course .prof {
+        height: 25%;
+    }
+}
+
+@media (min-width: 1700px) {
+    .course .li-img img {
+        height: 220px;
+        width: 220px;
+        top: calc(50% - 110px);
+        left: calc(50% - 110px);
+    }
+
+    .course .li-content .li-text {
+        font-size: larger;
+    }
+
+    .course .li-content .li-link {
+        font-size: 20px;
+        padding: 15px;
+    }
+}
+
+@media (max-width: 700px) {
+    .course .prof {
+        width: 100%;
+    }
+}
+
+@media (max-width: 500px) {
+    .course {
+        margin: 0;
+    }
+
+    .course .liste-cours {
+        margin: 0;
+        padding: 0;
+    }
+
+    .course .prof {
+        margin: 2em 1em 0 1em;
+    }
+
+
 }
 
 .filtre{
