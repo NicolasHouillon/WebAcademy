@@ -3,7 +3,7 @@
     <link rel="stylesheet" href="{{ asset('css/courses.css') }}">
 </head>
 @section('content')
-    <div class="course">
+    <div class="course-content">
 
 
     @if(isset($error))
