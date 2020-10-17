@@ -25,7 +25,7 @@ class Message extends Model
      */
     public function receiverUser()
     {
-        return $this->hasOne(User::class, 'id', 'sender_id');
+        return $this->hasOne(User::class, 'id', 'receiver_id');
     }
 
 

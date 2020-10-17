@@ -14,8 +14,9 @@ class MessageSeeder extends Seeder
      */
     public function run()
     {
-        for ($i = 0; $i < 30; $i++) {
+        for ($i = 0; $i < 20; $i++) {
             Message::factory()->create();
+            sleep(1);
         }
     }
 }

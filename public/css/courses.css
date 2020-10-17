@@ -200,10 +200,6 @@
     margin: 0;
 }
 
-select{
-
- }
-
 div button{
     background-color: rgba(0,0,0,0.5);
     color: white;
@@ -211,7 +207,7 @@ div button{
     margin: 8px 0;
     border: none;
     cursor: pointer;
-    width: 10%;
+    width: auto;
 }
 
 .professeur{
