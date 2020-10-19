@@ -109,27 +109,31 @@ class UserController extends Controller
     }
 
     public function index(Request $request){
-        $users = User::where('group_id',2)
-            ->orWhere('group_id',3)
-            ->orWhere('group_id',4);
+        $users = User::whereIn('group_id',[2,3,4]);
 
-        $groups = Group::where('id',2)
-            ->orWhere('id',3)
-            ->orWhere('id',4);
+        $groups = Group::whereIn('id',[2,3,4]);
 
-        $this->sortUsers($users, $request);
+        $this->search($users,$request);
+
+        $old = $request->get('nom');
+
 
         return view('users.index',[
             'users' => $users->get(),
-            'groups' => $groups->get()
+            'groups' => $groups->get(),
+            'old' => $old
         ]);
     }
 
-    private function sortUsers($users, Request $request)
+
+    private function search($users, Request $request)
     {
         if ($request->query('role') != "") {
             $users->where('group_id', $request->get('role'));
-            dd($users);
+        }
+        if ($request->query('nom') != "") {
+            $users->where('firstname','like', '%'.$request->get('nom').'%')
+            ->orwhere('lastname','like', '%'.$request->get('nom').'%');
         }
     }
 }

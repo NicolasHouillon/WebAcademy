@@ -9,7 +9,7 @@
         <form class="form" action="{{ route('annuaire') }}" method="get">
             <div class="liste-prof">
                 <label for="role">Rôle</label>
-                <select id="role" name="role">
+                <select id="role" name="role" onchange="this.form.submit()">
                     <option value="">Tous</option>
                     @foreach($groups as $group)
                         @if(request()->role == $group->id)
@@ -19,10 +19,11 @@
                         @endif
                     @endforeach
                 </select>
+                <label for="nom">Recherche</label>
+                <input id="nom" name="nom" type="text" onsubmit="this.form.submit()" placeholder="{{$old}}">
             </div>
-            <button class="bouton-filtrer" type="submit">Filtrer</button>
-            <button class="bouton-reinitialiser"><a href="{{ route('annuaire') }}">Réinitialiser</a></button>
         </form>
+
         <h1>Liste des utilisateurs</h1>
         <table>
         @foreach($users as $user)

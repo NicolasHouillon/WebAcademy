@@ -17,27 +17,33 @@ class SubjectSeeder extends Seeder
         DB::table('subjects')->insert([
             [
                 'name' => 'Français',
-                'slug' => 'francais'
+                'slug' => 'francais',
+                'url' => '/image/francais.jpg'
             ],
             [
                 'name' => 'Mathématiques',
-                'slug' => 'mathematiques'
+                'slug' => 'mathematiques',
+                'url' => '/image/mathematiques.jpg'
             ],
             [
                 'name' => 'Histoire',
-                'slug' => 'histoire'
+                'slug' => 'histoire',
+                'url' => '/image/histoire.jpg'
             ],
             [
                 'name' => 'Géopgraphie',
-                'slug' => 'geographie'
+                'slug' => 'geographie',
+                'url' => '/image/geographie.jpg'
             ],
             [
                 'name' => 'Anglais',
-                'slug' => 'anglais'
+                'slug' => 'anglais',
+                'url' => '/image/anglais.jpg'
             ],
             [
                 'name' => 'Espagnol',
-                'slug' => 'espagnol'
+                'slug' => 'espagnol',
+                'url' => '/image/espagnol.jpg'
             ],
         ]);
     }
