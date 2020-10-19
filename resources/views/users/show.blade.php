@@ -42,7 +42,7 @@
 
                     <div class="message card">
                         <div class="message-listeProf">
-                            <a href="{{url('professor')}}">Liste des profs</a>
+                            <a href="{{url('annuaire')}}">Annuaire</a>
                         </div>
                     </div>
                 </div>

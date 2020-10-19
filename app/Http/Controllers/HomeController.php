@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Course;
+use App\Models\Subject;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Routing\Controller;
 
@@ -23,7 +25,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $subject = Subject::all();
+        return view('home', ['subjects' => $subject]);
     }
 
 }
