@@ -8,6 +8,7 @@ use App\Models\Course;
 use App\Models\Level;
 use App\Models\Subject;
 use App\Models\User;
+use App\Notifications\CourseCreate;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -81,6 +82,7 @@ class CourseController extends Controller
     {
         $this->authorize('create', Course::class);
         $course = $this->storeCourse($request, new Course);
+        $course->notify(new CourseCreate($course));
         return redirect()->route('courses.index', $course->subject->slug);
     }
 

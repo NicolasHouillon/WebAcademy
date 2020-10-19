@@ -26,6 +26,7 @@
             <th scope="col">Auteur</th>
             <th scope="col">Matière</th>
             <th scope="col">Niveau</th>
+            <th scope="col">Validé</th>
             <th scope="col" class="text-right">Actions</th>
         </tr>
         </thead>
@@ -38,6 +39,7 @@
                 <td>{{ $course->user->fullName() }}</td>
                 <td>{{ $course->subject->name }}</td>
                 <td>{{ $course->level->name }}</td>
+                <td>{{ $course->valide ? '👍' : '❌' }}</td>
                 <td class="text-right">
                     <a href="{{ route('admin.courses.show', $course) }}" class="btn btn-secondary">Visualiser</a>
                     <a href="{{ route('admin.courses.edit', $course) }}" class="btn btn-primary">Modifier</a>
