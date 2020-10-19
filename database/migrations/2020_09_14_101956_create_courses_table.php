@@ -18,6 +18,7 @@ class CreateCoursesTable extends Migration
             $table->string('name')->nullable(false);
             $table->string('description')->nullable(false);
             $table->float('price')->nullable(false);
+            $table->boolean('valide')->nullable(false)->default(false);
             $table->unsignedBigInteger('user_id')->nullable(false);
             $table->unsignedBigInteger('subject_id')->nullable(false);
             $table->unsignedBigInteger('level_id')->nullable(false);

@@ -12,4 +12,8 @@
         @endforeach
     @endif
 
+    @if($notifications > 0)
+        <h3>Il y a {{ $notifications }} cours en attente de validation.</h3>
+    @endif
+
 @endsection

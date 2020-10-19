@@ -109,11 +109,19 @@
                                 <div class="card-body">
                                     <ul>
                                         @foreach($user->unreadNotifications as $notif)
-                                            <li style="font-size: .9em">
-                                                {{ $notif->data['payer'] }} a acheté votre cours
-                                                <b><i>{{ $notif->data['course'] }}</i></b>
-                                                le {{ strftime("%d %m %Y", (new DateTime($notif->data['date']))->getTimestamp()) }}
-                                            </li>
+                                            @if(isset($notif->data['payer']))
+                                                <li style="font-size: .9em">
+                                                    {{ $notif->data['payer'] }} a acheté votre cours
+                                                    <b><i>{{ $notif->data['course'] }}</i></b>
+                                                    le {{ strftime("%d %m %Y", (new DateTime($notif->data['date']))->getTimestamp()) }}
+                                                </li>
+                                            @else
+                                                <li style="font-size: .9em">
+                                                    Votre cours {{ $notif->data['course']['name'] }}
+                                                    a bien été validé
+                                                    le {{ strftime("%d %m %Y", (new DateTime($notif->data['course']['updated_at']))->getTimestamp()) }}
+                                                </li>
+                                            @endif
                                         @endforeach
                                     </ul>
                                 </div>
