@@ -7,6 +7,8 @@ use App\Http\Requests\CourseRequest;
 use App\Models\Course;
 use App\Models\Level;
 use App\Models\Subject;
+use App\Notifications\CourseValidate;
+use Illuminate\Support\Facades\Notification;
 
 class CoursesController extends Controller
 {
@@ -50,6 +52,16 @@ class CoursesController extends Controller
     {
         $course->delete();
         return redirect()->route('admin.courses.index')->with('success', "Le cours a bien été supprimé.");
+    }
+
+    public function valid(Course $course) {
+        $course->valide = true;
+        $course->save();
+        $course->user->notify(new CourseValidate($course));
+
+        $course->unreadNotifications->markAsRead();
+
+        return redirect()->route('admin.courses.index')->with('success', "Le cours a bien été validé.");
     }
 
 }

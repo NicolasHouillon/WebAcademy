@@ -6,6 +6,7 @@ use App\Http\Controllers\CourseController;
 use App\Http\Controllers\Dashboard\AttachmentsController;
 use App\Http\Controllers\Dashboard\CoursesController;
 use App\Http\Controllers\Dashboard\GroupsController;
+use App\Http\Controllers\Dashboard\HomeController;
 use App\Http\Controllers\Dashboard\LevelsController;
 use App\Http\Controllers\Dashboard\SubjectsController;
 use App\Http\Controllers\Dashboard\UsersController;
@@ -26,7 +27,7 @@ Route::prefix('courses')->group(function () {
     Route::get('/show/{course}', [CourseController::class, 'show'])->name('courses.show');
     Route::get('/{course}/edit', [CourseController::class, 'edit'])->name('courses.edit');
     Route::put('/{course}', [CourseController::class, 'update'])->name('courses.update');
-    Route::post('/store', [CourseController::class, 'update'])->name('courses.store');
+    Route::post('/store', [CourseController::class, 'store'])->name('courses.store');
     Route::delete('/{course}', [CourseController::class, 'destroy'])->name('courses.delete');
 });
 
@@ -42,9 +43,7 @@ Route::get('/pay/{course}', [PaypalController::class, 'paymentHandle'])->name('m
 Route::get('payment-success', [PaypalController::class, 'paymentSuccess'])->name('success.payment');
 
 Route::name('admin.')->middleware('admin')->prefix('admin')->group(function () {
-    Route::get('/', function () {
-        return view('admin.home');
-    })->name('home');
+    Route::get('/', [HomeController::class, 'index'])->name('home');
     Route::resource('attachments', AttachmentsController::class);
     Route::resource('courses', CoursesController::class);
     Route::resource('groups', GroupsController::class);
@@ -52,6 +51,7 @@ Route::name('admin.')->middleware('admin')->prefix('admin')->group(function () {
     Route::resource('subjects', SubjectsController::class);
     Route::resource('users', UsersController::class);
     Route::post('users/{id}/edit', [UserController::class, 'uploadImage'])->name('uploadAdmin');
+    Route::put('/{course}/validate', [CoursesController::class, 'valid'])->name('courses.validate');
 });
 
 
