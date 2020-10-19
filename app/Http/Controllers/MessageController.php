@@ -48,7 +48,7 @@ class MessageController extends Controller
         }
 
         return view('messages.index', [
-            'messages' => $messages
+            'messages' => $messages->sortByDesc('created_at')
         ]);
     }
 
@@ -58,7 +58,6 @@ class MessageController extends Controller
             ->orWhere('sender_id', $id)
             ->where('receiver_id', Auth::id())
             ->orderBy('created_at', 'desc')
-            ->limit(1)
             ->first();
     }
 

@@ -35,6 +35,8 @@ Route::get('/@{name}/edit', [UserController::class, 'edit'])->name('edit_profile
 Route::put('/@{name}/update', [UserController::class, 'update'])->name('update_profile');
 Route::post('/@{name}/upload', [UserController::class, 'uploadImage'])->name('upload');
 Route::delete('/{id}', [UserController::class, 'destroy'])->name('user_delete');
+Route::get('/annuaire', [UserController::class, 'index'])->name('annuaire');
+
 
 
 // Paypal - NE PAS TOUCHER !
@@ -57,8 +59,6 @@ Route::name('admin.')->middleware('admin')->prefix('admin')->group(function () {
 
 Route::post('courses/{id}/upload', [CourseController::class, 'uploadFile'])->name('uploadFile');
 Route::delete('attachments/{attachment}', [AttachmentController::class, 'destroy'])->name('destroy_attachment');
-
-Route::get('professor', [UserController::class, 'listOfProf'])->name('prof');
 
 
 Route::prefix('messages')->group(function () {

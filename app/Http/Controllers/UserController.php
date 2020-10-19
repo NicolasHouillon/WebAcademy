@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Group;
 use App\Models\User;
 use App\Services\PaypalService;
 use Illuminate\Http\Request;
@@ -107,10 +108,28 @@ class UserController extends Controller
 
     }
 
+    public function index(Request $request){
+        $users = User::where('group_id',2)
+            ->orWhere('group_id',3)
+            ->orWhere('group_id',4);
 
-    public function listOfProf() {
-        return view('users.prof', [
-            'profs' => User::all()->where('group_id', '=',2)
+        $groups = Group::where('id',2)
+            ->orWhere('id',3)
+            ->orWhere('id',4);
+
+        $this->sortUsers($users, $request);
+
+        return view('users.index',[
+            'users' => $users->get(),
+            'groups' => $groups->get()
         ]);
+    }
+
+    private function sortUsers($users, Request $request)
+    {
+        if ($request->query('role') != "") {
+            $users->where('group_id', $request->get('role'));
+            dd($users);
+        }
     }
 }
