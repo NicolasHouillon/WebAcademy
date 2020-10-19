@@ -98,5 +98,10 @@
             </article>
         @endforeach
     </section>
+        @if(Auth::user()->hasGroup("Professeur"))
+            <div class="ajout">
+                <a class="ajoutCours" href="{{ route('courses.create') }}">Ajouter un cours<i class="fas fa-plus icon"></i></a>
+            </div>
+        @endif
     </div>
 @endsection
