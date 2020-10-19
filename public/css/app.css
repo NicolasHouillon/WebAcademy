@@ -32,17 +32,14 @@ body{
     #app .navbar-nav {
         position: absolute;
         visibility: hidden;
-        top: 90%;
-        right: 2%;
+        top: 74%;
         background-color: #22282c;
-        width: 40%;
-        border-radius: 10px;
+        width: 100%;
     }
 
     #app .navbar-nav .boutonHead {
         position: relative;
-        display: block;
-        right: 5%;
+        right: 13%;
     }
 
     #app #menuO {

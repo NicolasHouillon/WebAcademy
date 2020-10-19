@@ -1,0 +1,74 @@
+.edit-user .titre {
+    text-align: center;
+    font-size: 30px;
+}
+
+.edit-user .champs {
+    display: inline-block;
+    padding: 10px 10px;
+    margin-top: 1em;
+    margin-bottom: 2em;
+    margin-left: 3.5em;
+    background-color: #22282c;
+    border-radius: 5px;
+    color: white;
+}
+
+.edit-user .boutons {
+    text-align: center;
+}
+
+.edit-user .boutons button {
+    padding: 10px;
+    border-radius: 5px;
+    font-size: small;
+    font-weight: bold;
+    background-color: #CC0381;
+    border: none;
+}
+
+.edit-user .boutons button:hover {
+    transform: scale(1.1);
+    transition: transform 0.5s ease;
+}
+
+.edit-user .boutons button:not(hover) {
+     transition: transform 0.5s ease;
+}
+
+.edit-user .avatar {
+    text-align: center;
+    margin-top: 3em;
+    margin-bottom: 1em;
+}
+
+.edit-user .avatar .avatar-text {
+    background-color: #22282c;
+    color: white;
+    width: fit-content;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 0 32%;
+}
+
+.edit-user .quitter {
+    text-align: right;
+    margin-right: 4em;
+}
+
+.edit-user .quitter a {
+    padding: 1em;
+    border-radius: 5px;
+    font-size: small;
+    font-weight: bold;
+    background-color: #22282c;
+    color: white;
+    border: none;
+}
+
+.edit-user .quitter a:hover {
+    background-color: #CC0381;
+    transition: background-color 0.5s ease;
+}
+
+

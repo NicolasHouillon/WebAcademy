@@ -1,65 +1,130 @@
 .course {
     position: relative;
-    margin: 4%;
-    background-color: rgb(255, 255, 255);
-    border: #4a5568 5px solid;
-    border-radius: 10px;
-    height: auto;
-    width: 92%;
-    overflow: auto;
+    margin: 2% 4.5%;
+
 }
 
-.course li {
+.course .liste-cours {
+    display: flex;
+    flex-wrap: wrap;
     position: relative;
-    display: inline-block;
-    width: calc(47% - 2em);
-    height: 30%;
-    margin: 1.5%;
-    text-decoration: none;
-    text-align: center;
+    padding: 0 4em;
+    margin: 2em 0 0 -2.5em;
+}
+
+.course .prof {
+    position: relative;
+    width: calc(49% - 2.5em);
+    height: 34%;
+    margin: 2.5em 0 0 2.5em;
+    background-color: #22282c;
+    border: #CC0381 2px solid;
     border-radius: 5px;
-    background-color: rgb(70, 79, 107);
-    border: #272d37 5px solid;
 }
 
-.course li:hover {
-    box-shadow: 0 0;
-    transform: scale(1.1);
-    transition: transform 0.3s ease;
+.course .prof div {
+    display: inline-block;
 }
 
-.course li:not(hover) {
-    transition: transform 0.3s ease;
-}
-
-.course li .image {
+.course .li-img {
     position: relative;
-    display: block;
-    width: 100%;
     height: 100%;
-    border-radius: 20px;
-    overflow: hidden;
-    background-color: rgb(28, 36, 60);
+    width: 40%;
 }
 
-.course li .li-content {
+.course .li-img img {
     position: relative;
-    display: inline-block;
-    margin: 0 20px;
+    top: calc(50% - 75px);
+    left: calc(50% - 75px);
 }
 
-.course li img {
-    top: calc(50% - 76px);
-    border: #1a202c 2px solid;
+.course .li-content {
+    position: absolute;
+    height: 100%;
+    width: 60%;
 }
 
-.course li p {
-    text-decoration: none;
-    color: #FFFFFF;
-    width: 50%;
-    bottom: 27%;
-    padding: 25px 10px;
+.course .li-content .li-text {
+    position: relative;
+    top: calc(50% - 35px);
+    left: 0;
+    color: white;
+}
+
+.course .li-content .li-link {
+    position: absolute;
+    bottom: 1em;
+    right: 1em;
+    padding: 10px;
+    background-color: #CC0381;
     border-radius: 5px;
+    color: white;
+}
+
+.course .li-content .li-link:hover {
+    background-color: #f0f0f0;
+    color: #22282c;
+    transform: scale(1.1);
+    transition: background-color 0.5s ease, color 0.5s ease, transform 0.5s ease
+}
+
+.course .li-link:not(hover) {
+    transition: background-color 0.5s ease, color 0.5s ease, transform 0.5s ease
+}
+
+@media screen and (min-width: 900px) and (max-width: 1200px) {
+    .course .li-img img {
+        height: 125px;
+        width: 125px;
+        top: calc(50% - 62px);
+        left: calc(50% - 62px);
+    }
+}
+
+@media (min-width: 1300px) and (max-width: 1700px) and (min-height: 1000px) {
+    .course .prof {
+        height: 25%;
+    }
+}
+
+@media (min-width: 1700px) {
+    .course .li-img img {
+        height: 220px;
+        width: 220px;
+        top: calc(50% - 110px);
+        left: calc(50% - 110px);
+    }
+
+    .course .li-content .li-text {
+        font-size: larger;
+    }
+
+    .course .li-content .li-link {
+        font-size: 20px;
+        padding: 15px;
+    }
+}
+
+@media (max-width: 700px) {
+    .course .prof {
+        width: 100%;
+    }
+}
+
+@media (max-width: 500px) {
+    .course {
+        margin: 0;
+    }
+
+    .course .liste-cours {
+        margin: 0;
+        padding: 0;
+    }
+
+    .course .prof {
+        margin: 2em 1em 0 1em;
+    }
+
 
 }
 
@@ -206,3 +271,27 @@ div button{
     border: 1px solid white;
     border-radius: 20px;
 }
+
+.course-content {
+    margin: 5%;
+    padding: 1%;
+    border: #22282c 3px solid;
+    border-radius: 5px;
+}
+
+.course-content a {
+    color: #CC0381;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.course-content a:hover {
+    background-color: #CC0381;
+    color: white;
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.course-content h1 {
+    text-align: center;
+}
+
