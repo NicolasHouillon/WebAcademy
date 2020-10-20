@@ -35,9 +35,6 @@
                 </span>
                 </div>
             </div>
-            <div class="boutons">
-                <a class="quitter btn" href="{{route('user_profile',$user->slugFullName())}}" class="button">Retour</a>
-            </div>
         </form>
 
     <form action="{{route('update_profile', $user->slugFullName())}}" method="POST" enctype="multipart/form-data">
@@ -81,6 +78,9 @@
             <button class="btn btn-success" type="submit">Valider</button>
         </div>
     </form>
+    <div class="boutons">
+        <a class="quitter btn" href="{{route('user_profile',$user->slugFullName())}}" class="button">Retour</a>
+    </div>
 
 
     </div>
