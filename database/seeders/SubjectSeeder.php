@@ -43,7 +43,7 @@ class SubjectSeeder extends Seeder
             [
                 'name' => 'Espagnol',
                 'slug' => 'espagnol',
-                'url' => '/image/espagnol.jpg'
+                'url' => '/image/espagnol.png'
             ],
         ]);
     }

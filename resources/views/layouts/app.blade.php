@@ -38,7 +38,7 @@
                 @guest
                     <li class="nav-item boutonHead">
                         <button class="nav-link linkLogin appButton" id="linkLogin"
-                                onclick="document.getElementById('id01').style.display='block'" style="width:auto;">
+                                onclick="document.getElementById('id01').style.display='block'" style="width:auto;border:none">
                             Se connecter
                         </button>
                     </li>
@@ -47,7 +47,7 @@
                         <form class="modal-content animate" action="{{ route('login') }}" method="post" autocomplete="on">
                             @csrf
                             <div class="imgcontainer">
-                                <h1>LOGIN</h1>
+                                <h1>Se connecter</h1>
                                 <span onclick="document.getElementById('id01').style.display='none'" class="close"
                                       title="Close Modal">&times;</span>
                             </div>
@@ -73,15 +73,15 @@
                                 </span>
                                 @enderror
 
-                                <button class="button-submit appButton" type="submit">Login</button>
+                                <button class="button-submit appButton" type="submit" style="background-color: gainsboro">Login</button>
                                 <label>
                                     <input type="checkbox" checked="checked" name="remember"> Remember me
                                 </label>
                             </div>
 
-                            <div class="container-login" style="background-color:#f1f1f1">
+                            <div class="container-login">
                                 <button type="button" onclick="document.getElementById('id01').style.display='none'"
-                                        class="cancelbtn appButton">Cancel
+                                        class="cancelbtn appButton" style="background-color: gainsboro">Cancel
                                 </button>
                                 <span class="psw">Forgot <a href="#">password?</a></span>
                             </div>
@@ -90,7 +90,7 @@
                     @if (Route::has('register'))
                         <li class="nav-item boutonHead">
                             <button class="nav-link linkRegister appButton" id="linkRegister"
-                                    onclick="document.getElementById('id02').style.display='block'" style="width:auto;">
+                                    onclick="document.getElementById('id02').style.display='block'" style="width:auto;border:none">
                                 S'inscrire
                             </button>
                         </li>
@@ -168,7 +168,7 @@
                                         </div>
                                     </div>
 
-                                    <button class="button-submit appButton" type="submit">Register</button>
+                                    <button class="button-submit appButton" type="submit" style="background-color: gainsboro">Register</button>
                                     <label class="remember">
                                         <input type="checkbox" checked="checked" name="remember"> Remember me
                                     </label>
