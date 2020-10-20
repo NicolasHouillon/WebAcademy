@@ -555,3 +555,10 @@ a:hover{
     border-style: none;
     margin-top: 2px;
 }
+
+.footer {
+    position: absolute;
+    background-color: #1c7430;
+    width: 100%;
+    height: 15%;
+}

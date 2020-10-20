@@ -16,6 +16,30 @@
         </div>
     @endif
 
+        <div class="titre">
+            <h3>Remplir les informations</h3>
+            <hr class="mt-2 mb-2" style="position: relative; width: 90%">
+        </div>
+
+        <form enctype="multipart/form-data" action="{{route('upload', $user->slugFullName())}}" method="POST" >
+            <div class="avatar">
+                @csrf
+                {{-- l'avatar  --}}
+                <div class="image">
+                    <img src="{{asset($user->avatar)}}" id="img"> <br>
+                </div>
+                <div class="avatar-text">
+                <span class="ss-text">
+                    <label for="avatar"><strong> Choissisez un nouvel avatar :  </strong></label>
+                    <input type="file" name="avatar" id="avatar" onchange="this.form.submit()">
+                </span>
+                </div>
+            </div>
+            <div class="boutons">
+                <a class="quitter btn" href="{{route('user_profile',$user->slugFullName())}}" class="button">Retour</a>
+            </div>
+        </form>
+
     <form action="{{route('update_profile', $user->slugFullName())}}" method="POST" enctype="multipart/form-data">
         @if ($errors->any())
             @foreach ($errors->all() as $error)
@@ -28,10 +52,6 @@
 
         @csrf
         @method('PUT')
-        <div class="titre">
-            <h3>Remplir les informations</h3>
-            <hr class="mt-2 mb-2" style="position: relative; width: 90%">
-        </div>
 
         <div class="champs">
             {{-- le nom  --}}
@@ -62,25 +82,7 @@
         </div>
     </form>
 
-    <form enctype="multipart/form-data" action="{{route('upload', $user->slugFullName())}}" method="POST" >
-        <div class="avatar">
-            @csrf
-            {{-- l'avatar  --}}
-            <div class="image">
-                <img src="{{asset($user->avatar)}}" id="img"> <br>
-            </div>
-            <div class="avatar-text">
-                <span class="ss-text">
-                    <label for="avatar"><strong> Choissisez un nouvel avatar :  </strong></label>
-                    <input type="file" name="avatar" id="avatar" >
-                </span>
-            </div>
-        </div>
-        <div class="boutons">
-            <button class="btn btn-success" type="submit" >Valider</button>
-            <a class="quitter btn" href="{{route('user_profile',$user->slugFullName())}}" class="button">Retour</a>
-        </div>
-    </form>
+
     </div>
 
     <script>

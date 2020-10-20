@@ -244,6 +244,11 @@
         }
     };
 </script>
+
+
+<div class="footer">
+    <p>ceci est les footer</p>
+</div>
 </body>
 </html>
 
