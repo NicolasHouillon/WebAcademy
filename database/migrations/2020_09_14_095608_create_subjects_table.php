@@ -17,7 +17,7 @@ class CreateSubjectsTable extends Migration
             $table->id();
             $table->string('name')->nullable(false);
             $table->string('slug')->nullable(false);
-            $table->string('url')->nullable(true);
+            $table->string('url')->nullable(true)->default('image/subject_default.jpg');
             $table->timestamps();
         });
     }

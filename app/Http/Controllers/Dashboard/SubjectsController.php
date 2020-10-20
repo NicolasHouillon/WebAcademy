@@ -5,6 +5,10 @@ namespace App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\SubjectRequest;
 use App\Models\Subject;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 
 class SubjectsController extends Controller
 {
@@ -48,6 +52,23 @@ class SubjectsController extends Controller
     {
         $subject->delete();
         return redirect()->route('admin.subjects.index')->with('success', "La matière a bien été supprimée.");
+    }
+
+    public function uploadImage(Request $request,Subject $subject) {
+        $request->validate([
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg',
+        ]);
+
+        if ($request->hasFile('image')){
+            $img = $request->file('image');
+            $extension = $img->getClientOriginalExtension();
+            Storage::disk('public')->put("subject/".$subject->id."/".$img->getFilename().'.'.$extension,  File::get($img));
+            $subject->url = "storage/subject/".$subject->id."/".$img->getFilename().'.'.$extension;
+            $subject->save();
+        }
+
+        return redirect()->back();
+
     }
 
 }
