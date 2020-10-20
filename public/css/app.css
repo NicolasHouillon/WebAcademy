@@ -477,9 +477,85 @@ a:hover{
 }
 
 #app .message-content{
-    padding: 20px;
+    padding: 15px;
     width: auto;
     text-align: left;
+}
+
+#app .message-droit{
+    text-align: right;
+    padding: 5px;
+    vertical-align: middle;
+    width: auto;
+    height: auto;
+    overflow: scroll;
+    margin: 10px 0;
+    clear: both;
+}
+
+#app .message-gauche{
+    text-align: left;
+    padding: 5px;
+    vertical-align: middle;
+    width: auto;
+    height: auto;
+    overflow: scroll;
+    margin: 10px 0;
+    clear: both;
+}
+#app .message-gauche img{
+    vertical-align: middle;
+}
+
+#app .message-droit img{
+    vertical-align: middle;
+}
+#app .message-block{
+    border: 1px solid black;
+    position: relative;
+    margin-top: 3%;
+    overflow: scroll;
+    height: 500px;
+}
+
+#app .zone-de-frappe{
+    position: relative;
+    margin-top: 1%;
+    text-align: center;
+    overflow: auto;
+}
+
+#app .zone-de-frappe a{
+    margin: 10px;
+    padding: 5px;
+    color: black;
+    border: 1px solid black;
+    position: relative;
+    display: inline;
+}
+
+#app .zone-de-frappe button{
+    margin: 10px;
+    padding: 5px;
+    border: 2px solid #CC0381;
+    background-color: unset;
+    display: inline;
+}
+
+#app .zone-de-frappe button:hover{
+    margin: 10px;
+    border: 2px solid #CC0381;
+    background-color: #CC0381;
+}
+
+#app .zone-de-frappe button:active{
+    margin: 10px;
+    border: 2px solid #CC0381;
+    background-color: #820252;
+}
+
+#app .zone-de-frappe textarea{
+    width:80vw;
 }
 
 #app .card-title{

@@ -5,7 +5,7 @@
 @section('content')
     <div class="content">
         <div class="bouton-retour">
-            <a href="{{url('professor')}}">retour liste</a>
+            <a href="{{url('annuaire')}}">retour liste</a>
         </div>
         <div class="title">
             Mes messages
