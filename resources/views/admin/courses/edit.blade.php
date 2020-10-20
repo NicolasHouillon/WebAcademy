@@ -67,4 +67,12 @@
         <button type="submit" class="btn btn-primary">Valider</button>
     </form>
 
+    @if(!$course->valide)
+        <form action="{{ route('admin.courses.validate', $course) }}" method="post">
+            @csrf
+            @method('PUT')
+            <button type="submit" class="btn btn-primary">Valider ce cours</button>
+        </form>
+    @endif
+
 @endsection

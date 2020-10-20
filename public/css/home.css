@@ -186,9 +186,9 @@
 /* Couleurs boutons */
 
 .tiles article.style1 > .image:before {
-    background-color: #d9138a;
+    background-color: #CC0381;
 }
-
+/*
 .tiles article.style2 > .image:before {
     background-color: #12a4d9;
 }
@@ -208,7 +208,7 @@
 .tiles article.style6 > .image:before {
     background-color: #9c2bd9;
 }
-
+*/
 /* animations boutons */
 
 body:not(.is-touch) .tiles article:hover > .image {
@@ -287,41 +287,4 @@ body:not(.is-touch) .tiles article:hover .content {
     }
 }
 
-@media screen and (max-width: 1024px){
-    .ajoutCours {
-        padding: 20px;
-        margin: 2em 0;
-        background-color: rgb(70, 79, 107);
-        border-radius: 5px;
-        color: #FFFFFF;
-    }
-}
 
-@media screen and (min-width: 800px){
-    .ajoutCours {
-        position: relative;
-        padding: 20px;
-        margin: 2em 3em;
-        background-color: rgb(70, 79, 107);
-        left: 79%;
-        border-radius: 5px;
-        color: #FFFFFF;
-    }
-}
-
-
-
-.ajoutCours:hover {
-    transform: scale(1.1);
-    transition: transform 0.3s ease;
-    color: #FFFFFF;
-}
-
-.ajoutCours:not(hover) {
-    transition: transform 0.3s ease;
-}
-
-.icon {
-    position: relative;
-    margin: 0 0 0 9px;
-}

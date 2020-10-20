@@ -28,9 +28,9 @@
 
         @csrf
         @method('PUT')
-        <div class="titre" style="padding-top: 100px">
+        <div class="titre">
             <h3>Remplir les informations</h3>
-            <hr class="mt-2 mb-2">
+            <hr class="mt-2 mb-2" style="position: relative; width: 90%">
         </div>
 
         <div class="champs">
@@ -66,20 +66,21 @@
         <div class="avatar">
             @csrf
             {{-- l'avatar  --}}
-            <img src="{{asset($user->avatar)}}" style="max-width: 100px; height: auto" id="img"> <br>
+            <div class="image">
+                <img src="{{asset($user->avatar)}}" id="img"> <br>
+            </div>
             <div class="avatar-text">
-                <label for="avatar"><strong> Choissisez un nouvel avatar :  </strong></label>
-                <input type="file" name="avatar" id="avatar" >
+                <span class="ss-text">
+                    <label for="avatar"><strong> Choissisez un nouvel avatar :  </strong></label>
+                    <input type="file" name="avatar" id="avatar" >
+                </span>
             </div>
         </div>
         <div class="boutons">
             <button class="btn btn-success" type="submit" >Valider</button>
+            <a class="quitter btn" href="{{route('user_profile',$user->slugFullName())}}" class="button">Retour</a>
         </div>
     </form>
-
-    <div class="quitter">
-        <a href="{{route('user_profile',$user->slugFullName())}}" class="button">Retour</a>
-    </div>
     </div>
 
     <script>

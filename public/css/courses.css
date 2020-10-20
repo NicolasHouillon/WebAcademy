@@ -1,7 +1,6 @@
 .course {
     position: relative;
     margin: 2% 4.5%;
-
 }
 
 .course .liste-cours {
@@ -180,10 +179,6 @@ div button{
     width: auto;
 }
 
-.professeur{
-
-}
-
 .dropdown{
     display: none;
 }
@@ -295,3 +290,74 @@ div button{
     text-align: center;
 }
 
+/*
+@media screen and (max-width: 1024px){
+    .ajoutCours {
+        padding: 20px;
+        margin: 2em 0;
+        background-color: rgb(70, 79, 107);
+        border-radius: 5px;
+        color: #FFFFFF;
+    }
+}
+
+@media screen and (min-width: 800px){
+    .ajoutCours {
+        position: relative;
+        padding: 20px;
+        margin: 2em 3em;
+        background-color: rgb(70, 79, 107);
+        left: 79%;
+        border-radius: 5px;
+        color: #FFFFFF;
+    }
+}
+
+
+
+.ajoutCours:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+    color: #FFFFFF;
+}
+
+.ajoutCours:not(hover) {
+    transition: transform 0.3s ease;
+}
+
+.icon {
+    position: relative;
+    margin: 0 0 0 9px;
+}
+*/
+
+.course .ajout {
+    position: relative;
+    text-align: center;
+    margin-top: 3em;
+    background-color: #1e7e34;
+}
+
+.course .ajoutCours {
+    position: absolute;
+    left: calc(50% - 90px);
+    padding: 20px 10px;
+    background-color: #22282c;
+    color: white;
+    border-radius: 5px;
+}
+
+.course .ajoutCours:hover {
+    background-color: #CC0381;
+    transform: scale(1.1);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.course .ajoutCours:not(hover) {
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.course .icon {
+    position: relative;
+    margin: 0 0 0 9px;
+}
