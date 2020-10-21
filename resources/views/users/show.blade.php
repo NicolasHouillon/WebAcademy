@@ -20,7 +20,7 @@
                             @if(Auth::user()->firstname == $user->firstname)
                                 <a href="{{route('edit_profile',$user->slugFullName())}}" class="">Modifier
                                     le profil</a>
-                                <form action="{{route('user_delete',$user->id)}}" method="POST">
+                                <form action="{{route('user_delete',$user->id)}}" method="POST" onsubmit="if(verif()) return true; else return false;">
                                     @csrf
                                     @method('DELETE')
                                     <button class="bouton-supprimer" type="submit">
@@ -178,4 +178,12 @@
             </div>
         </div>
     @endif
+
+    <script>
+        function verif() {
+            var confirmer = confirm('Etes vous sûr de vouloir supprimer ce profil ?');
+            if(confirmer)
+                return true;
+        }
+    </script>
 @endsection
