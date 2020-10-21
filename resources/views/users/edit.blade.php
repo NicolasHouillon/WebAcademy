@@ -102,4 +102,6 @@
             readURL(this)
         });
     </script>
+
 @endsection
+@extends('layouts.footer')

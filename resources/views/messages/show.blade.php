@@ -32,3 +32,4 @@
     <a href="{{route('messages')}}">Retour</a>
 
 @endsection
+@extends('layouts.footer')

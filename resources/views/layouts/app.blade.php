@@ -211,9 +211,11 @@
         </div>
     </div>
 
-    <main>
+    <main style="position: relative;">
         @yield('content')
     </main>
+
+
 </div>
 <script>
     // Get the modal
@@ -244,11 +246,6 @@
         }
     };
 </script>
-
-
-<div class="footer">
-    <p>ceci est les footer</p>
-</div>
 </body>
 </html>
 

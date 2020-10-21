@@ -3,7 +3,6 @@
 <head>
     <link rel="stylesheet" href="{{ asset('css/home.css') }}">
 </head>
-
 @section('content')
 <div class="container home">
     <section class="tiles">
@@ -22,4 +21,10 @@
     @endforeach
     </section>
 </div>
+
+
 @endsection
+
+@extends('layouts.footer')
+
+

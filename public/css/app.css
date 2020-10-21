@@ -9,6 +9,7 @@ body{
 */
 
 #app{
+    position: relative;
     width: 100%;
     background-repeat: no-repeat;
     background-size: cover;
@@ -556,9 +557,3 @@ a:hover{
     margin-top: 2px;
 }
 
-.footer {
-    position: absolute;
-    background-color: #1c7430;
-    width: 100%;
-    height: 15%;
-}
