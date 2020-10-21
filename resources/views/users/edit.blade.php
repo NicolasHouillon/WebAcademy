@@ -104,4 +104,3 @@
     </script>
 
 @endsection
-@extends('layouts.footer')

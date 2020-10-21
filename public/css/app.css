@@ -366,7 +366,7 @@ a:hover{
 }
 
 #app .show{
-    position: absolute;
+    position: relative;
     width: 100%;
     top:10em;
 }

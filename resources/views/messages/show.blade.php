@@ -57,4 +57,3 @@
         @endif
     </div>
 @endsection
-@extends('layouts.footer')

@@ -214,7 +214,7 @@
     <main style="position: relative;">
         @yield('content')
     </main>
-
+    @extends('layouts.footer')
 
 </div>
 <script>

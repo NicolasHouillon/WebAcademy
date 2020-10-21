@@ -198,5 +198,3 @@
 </div>
 
 @endsection
-
-@extends('layouts.footer')
