@@ -674,6 +674,7 @@ a:hover{
 .content ul{
     list-style: none;
     padding: 0;
+    overflow: scroll;
 }
 
 .title{
@@ -715,6 +716,30 @@ a:hover{
 /*
     Liste profs
 */
+.liste-user{
+    text-align: center;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    border: 5px solid #22282c;
+}
+
+td {
+    text-align: left;
+    padding: 12px;
+}
+
+tr:nth-child(even) {background-color: #dedee5;}
+
+.liste-user a{
+    color: black;
+}
+
+.liste-user a:hover{
+    color: #CC0381;
+}
 
 /*
    Fin Liste profs
