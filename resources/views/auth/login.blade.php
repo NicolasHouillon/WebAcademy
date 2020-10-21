@@ -16,16 +16,16 @@
         <button class="popupB login" onclick="document.getElementById('overlayL').style.display='block'">Se connecter</button>
         <div id="overlayL" class="overlayL">
             <div class="popup">
-                <h2>
+                <h3>
                     Se connecter
                     <span class="btnClose" onclick="document.getElementById('overlayL').style.display='none'">&times;</span>
-                </h2>
+                </h3>
 
                 <div class="col-md-8">
                     <div class="card">
 
                         <div class="card-body">
-                            <form method="POST" action="{{ route('login') }}">
+                            <form method="POST" action="{{ route('login') }}" style="border: none;overflow: hidden">
                                 @csrf
 
                                 <div class="form-group row">
@@ -70,12 +70,12 @@
 
                                 <div class="form-group row mb-0">
                                     <div class="col-md-8 offset-md-4">
-                                        <button type="submit" class="btn btn-primary appButton">
+                                        <button type="submit" class="btn btn-primary appButton" style="border: 1px solid white;margin-top: 50px;float: left">
                                             {{ __('Login') }}
                                         </button>
 
                                         @if (Route::has('password.request'))
-                                            <a class="btn btn-link" href="{{ route('password.request') }}" style="float: right;">
+                                            <a class="btn btn-link" href="{{ route('password.request') }}" style="border: none;margin-top: 50px;float: right;width: auto">
                                                 {{ __('Forgot Your Password?') }}
                                             </a>
                                         @endif

@@ -13,9 +13,6 @@
                 </span>
             <a href="{{ route('courses.index', $sub->slug) }}">
                 <h2>{{ $sub->name }}</h2>
-                <div class="content">
-                    <p>Grâce à ce cours, tu saura compter jusqu'à au moins 1000 !</p>
-                </div>
             </a>
         </article>
     @endforeach

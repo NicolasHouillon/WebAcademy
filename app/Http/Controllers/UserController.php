@@ -102,7 +102,7 @@ class UserController extends Controller
             $user->save();
         }
 
-        return redirect()->route('edit_profile', $user->slugFullName());
+        return redirect()->back();
 
     }
 
