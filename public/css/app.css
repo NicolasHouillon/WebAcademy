@@ -366,7 +366,7 @@ a:hover{
 }
 
 #app .show{
-    position: relative;
+    margin-top: 5%;
     width: 100%;
     top:10em;
 }
@@ -637,12 +637,6 @@ a:hover{
     margin-top: 2px;
 }
 
-.footer {
-    position: absolute;
-    background-color: #22282c;
-    width: 100%;
-    height: 15%;
-}
 
 /*
     Messages
@@ -725,3 +719,7 @@ a:hover{
 /*
    Fin Liste profs
 */
+
+main {
+    margin-bottom: 10%;
+}

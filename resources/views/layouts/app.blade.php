@@ -19,6 +19,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/footer.css') }}" rel="stylesheet">
 
 </head>
 <body>
@@ -210,13 +211,20 @@
             </ul>
         </div>
     </div>
-
-    <main style="position: relative;">
+    @guest
+    <main style="position: relative; margin-bottom: 0">
         @yield('content')
     </main>
-    @extends('layouts.footer')
-
+    @endguest
+    @auth
+        <main style="position: relative;">
+            @yield('content')
+        </main>
+    @endauth
+    @include('layouts.footer')
 </div>
+
+
 <script>
     // Get the modal
     var modal = document.getElementById('id01');
