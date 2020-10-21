@@ -45,4 +45,6 @@
         @endforeach
         </table>
     @endif
+
 @endsection
+@extends('layouts.footer')

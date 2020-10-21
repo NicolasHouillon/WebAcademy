@@ -42,8 +42,6 @@ class UserController extends Controller
 
         $return = [
             'user' => $user,
-            'sended_messages' => $user->sendedMessages(),
-            'reveived_messages' => $user->reveivedMessages(),
             'children' => User::getStudents()
         ];
 
@@ -83,7 +81,7 @@ class UserController extends Controller
         return redirect()->route('user_profile', $user->slugFullName());
     }
 
-    public function destroy(Request $request, $id)
+    public function destroy($id)
     {
         $user = User::find($id);
         $this->authorize('delete', $user);
@@ -104,7 +102,7 @@ class UserController extends Controller
             $user->save();
         }
 
-        return redirect()->route('user_profile', $user->slugFullName());
+        return redirect()->back();
 
     }
 

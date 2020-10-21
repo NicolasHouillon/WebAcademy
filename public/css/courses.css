@@ -1,6 +1,12 @@
 .course {
+    height: 80%;
     position: relative;
     margin: 2% 4.5%;
+    overflow: scroll;
+    background-color: #e2e2e2;
+    border-right: 15px;
+    padding-top: 10px;
+    box-shadow: #b1b1b1 2px 2px 2px 2px;
 }
 
 .course .liste-cours {
@@ -14,7 +20,7 @@
 .course .prof {
     position: relative;
     width: calc(49% - 2.5em);
-    height: 34%;
+    height: 40%;
     margin: 2.5em 0 0 2.5em;
     background-color: #22282c;
     border: #CC0381 2px solid;

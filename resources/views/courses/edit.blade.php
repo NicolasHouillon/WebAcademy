@@ -108,4 +108,6 @@
             </div>
         </form>
     @endif
+
 @endsection
+@extends('layouts.footer')

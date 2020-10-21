@@ -63,4 +63,6 @@
         <button type="submit">Créer</button>
     </form>
     </div>
+
 @endsection
+@extends('layouts.footer')
