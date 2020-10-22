@@ -48,7 +48,7 @@
                 {{ $message }}
                 @enderror
                 <br>
-                <textarea name="contenu" id="contenu" required></textarea>
+                <textarea name="contenu" id="contenu" cols="100" rows="10"></textarea>
 
                 <button type="submit">Envoyer</button>
             </form>
