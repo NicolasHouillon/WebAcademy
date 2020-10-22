@@ -38,7 +38,7 @@
                                 <td>{{ $message }}</td>
                             @enderror
                             <td><label for="price">Prix du cours</label></td>
-                            <td><input type="number" name="price" id="price" value="{{ $course->price }}"></td>
+                            <td><input type="number" step="0.01" name="price" id="price" value="{{ $course->price }}"></td>
                         </tr>
                         <tr>
                             @error('subject_id')
