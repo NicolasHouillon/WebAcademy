@@ -321,3 +321,8 @@ div button{
     padding: 10px;
     margin: 10px 0 0 0;
 }
+
+.container-course{
+    position: relative;
+    min-height: 65%;
+}

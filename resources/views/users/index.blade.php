@@ -43,10 +43,10 @@
                             {{$user->firstname." ".$user->lastname}}
                         </td>
                         <td>
-                            <a href="{{route('user_profile', $user->slugFullName())}}">Voir le profil</a>
+                            <a href="{{route('user_profile', $user->slugFullName())}}" style="text-decoration: underline">Voir le profil</a>
                         </td>
                         <td>
-                            <a href="{{route('messages.show', $user->id)}}">Envoyer un message</a>
+                            <a href="{{route('messages.show', $user->id)}}" style="text-decoration: underline">Envoyer un message</a>
                         </td>
                     </tr>
 
