@@ -19,6 +19,10 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
+Route::get('/contact', [App\Http\Controllers\HomeController::class, 'contact'])->name('contact');
+Route::post('/contact', [App\Http\Controllers\HomeController::class, 'sendContact'])->name('sendContact');
+
 Route::middleware('auth')->group(function (){
     Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
 
@@ -41,7 +45,7 @@ Route::middleware('auth')->group(function (){
 
 
 
-// Paypal - NE PAS TOUCHER !
+    // Paypal - NE PAS TOUCHER !
     Route::get('/pay/{course}', [PaypalController::class, 'paymentHandle'])->name('make.payment');
     Route::get('payment-success', [PaypalController::class, 'paymentSuccess'])->name('success.payment');
 
@@ -75,4 +79,3 @@ Route::middleware('auth')->group(function (){
         Route::delete('/destroy/{child}', [ChildenController::class, 'destroy'])->name('destroy');
     });
 });
-
