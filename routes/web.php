@@ -48,6 +48,8 @@ Route::middleware('auth')->group(function (){
     // Paypal - NE PAS TOUCHER !
     Route::get('/pay/{course}', [PaypalController::class, 'paymentHandle'])->name('make.payment');
     Route::get('payment-success', [PaypalController::class, 'paymentSuccess'])->name('success.payment');
+    Route::get('payment-cancel', [PaypalController::class, 'paymentCancel'])->name('cancel.payment');
+
 
     Route::name('admin.')->middleware('admin')->prefix('admin')->group(function () {
         Route::get('/', [HomeController::class, 'index'])->name('home');

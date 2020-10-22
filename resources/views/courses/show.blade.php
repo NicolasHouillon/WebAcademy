@@ -25,8 +25,13 @@
                         {{$course->description}}
                     </p>
                 @endif
+                @if($course->valide)
                 @if(Auth::user()->payCourse($course->id) || (Auth::id()==$course->user_id && Auth::user()->group_id==2) || Auth::user()->group->id == "Administrateur" && $course->valide)
                     <p>
+
+                        @if($course->attachments->isEmpty())
+                            Pas de fichiers pour ce cours
+                        @else
                         <p><b>Liste des fichiers :</b></p>
                         <ul>
                             @foreach($course->attachments as $attachment)
@@ -37,17 +42,21 @@
                                 </li>
                             @endforeach
                         </ul>
+                        @endif
                     </p>
                 @endif
 
 
                 <p>
-                    @if(Auth::id()==$course->user_id && Auth::user()->group_id==2)
-                        <a href="{{ route('courses.edit', $course) }}">Modifier</a>
-                    @endif
                     @if((Auth::user()->group_id==3 || Auth::user()->group_id==4) && !Auth::user()->payCourse($course->id))
                         <a href="{{ route('make.payment', $course) }}">Payer {{ $course->price }}€</a>
                     @endif
+                        @endif
+                    @if(Auth::id()==$course->user_id && Auth::user()->group_id==2)
+                        <a href="{{ route('courses.edit', $course) }}">Modifier</a>
+                    @endif
+
+
                 </p>
 
             @endif

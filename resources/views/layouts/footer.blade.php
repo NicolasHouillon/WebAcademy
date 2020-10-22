@@ -1,7 +1,7 @@
 <footer class="footer">
     <div class="message">
         <a href="{{ route('contact') }}">
-            Envoyer un message
+            Contacter un admin
         </a>
     </div>
 

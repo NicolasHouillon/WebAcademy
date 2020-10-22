@@ -54,4 +54,9 @@ class PaypalController extends Controller
         return redirect()->route('courses.show', $order->course->id)->with('success', 'Le paiment a été pris en compte.');
     }
 
+    public function paymentCancel(Request $request)
+    {
+
+    }
+
 }
