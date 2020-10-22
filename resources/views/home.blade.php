@@ -22,6 +22,5 @@
 
 @endsection
 
-@extends('layouts.footer')
 
 

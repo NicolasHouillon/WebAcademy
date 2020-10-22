@@ -38,23 +38,22 @@
                         </li>
                     @endforeach
                 </ul>
-                <div class="zone-de-frappe">
-                    <form method="post" action="{{ route('message.store', $user) }}">
-                        @csrf
-                        @method('POST')
+        </div>
+        <div class="zone-de-frappe">
+            <form method="post" action="{{ route('message.store', $user) }}">
+                @csrf
+                @method('POST')
 
-                        @error('content')
-                        {{ $message }}
-                        @enderror
-                        <br>
-                        <textarea name="contenu" id="contenu" cols="100" rows="10"></textarea>
+                @error('content')
+                {{ $message }}
+                @enderror
+                <br>
+                <textarea name="contenu" id="contenu" cols="100" rows="10"></textarea>
 
-                        <button type="submit">Envoyer</button>
-                    </form>
-                    <a href="{{route('messages')}}">Retour</a>
-                </div>
+                <button type="submit">Envoyer</button>
+            </form>
+            <a href="{{route('messages')}}">Retour</a>
         </div>
         @endif
     </div>
 @endsection
-@extends('layouts.footer')

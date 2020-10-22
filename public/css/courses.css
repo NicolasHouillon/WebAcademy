@@ -110,6 +110,15 @@
     }
 }
 
+@media (min-width: 330px){
+    .course .li-img img {
+        height: 120px;
+        width: 120px;
+        top: calc(50% - 60px);
+        left: calc(50% - 60px);
+    }
+}
+
 @media (max-width: 700px) {
     .course .prof {
         width: 100%;
@@ -129,14 +138,12 @@
     .course .prof {
         margin: 2em 1em 0 1em;
     }
-
-
 }
 
 .filtre{
-    overflow: auto;
-    margin-right: 15%;
-    margin-left: 15%;
+    margin-right: 10%;
+    margin-left: 10%;
+    text-align: center;
 }
 
 .liste-prof{
@@ -157,20 +164,6 @@
     color: white;
 }
 
-.bouton-filtrer{
-    display: inline-block;
-    color:white;
-    width: auto;
-    margin: 0 0 0 2%;
-}
-
-.bouton-reinitialiser{
-    display: inline-block;
-    color:white;
-    width: auto;
-    margin: 0 0 0 2%;
-}
-
 .form{
     margin: 0;
 }
@@ -185,38 +178,7 @@ div button{
     width: auto;
 }
 
-.dropdown{
-    display: none;
-}
-
 @media screen and (max-width: 1200px) {
-    .filtre {
-        display: none;
-    }
-
-    .dropdown {
-        position: relative;
-        display: inline-block;
-        margin-right: 5%;
-        margin-left: 5%;
-        background-color: rgba(0,0,0,0.5);
-        padding: 10px 20px;
-    }
-
-    .dropdown-content {
-        display: none;
-        position: relative;
-        min-width: 160px;
-        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-        padding: 10px 20px;
-        z-index: 1;
-
-    }
-
-    .dropdown:hover .dropdown-content {
-        display: block;
-    }
-
     .liste-prof{
         display: block;
         width: auto;
@@ -232,20 +194,6 @@ div button{
         background-color: rgba(0,0,0,0.5);
         padding: 10px 20px;
         color: white;
-        margin: 0 0 5px;
-    }
-
-    .bouton-filtrer{
-        display: inline-block;
-        color:white;
-        width: auto;
-        margin: 0 0 5px;
-    }
-
-    .bouton-reinitialiser{
-        display: inline-block;
-        color:white;
-        width: auto;
         margin: 0 0 5px;
     }
 }
@@ -286,6 +234,13 @@ div button{
     border-radius: 5px;
 }
 
+.description {
+    padding: 5px;
+    border-radius: 5px;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
 .course-content a:hover {
     background-color: #CC0381;
     color: white;
@@ -295,47 +250,6 @@ div button{
 .course-content h1 {
     text-align: center;
 }
-
-/*
-@media screen and (max-width: 1024px){
-    .ajoutCours {
-        padding: 20px;
-        margin: 2em 0;
-        background-color: rgb(70, 79, 107);
-        border-radius: 5px;
-        color: #FFFFFF;
-    }
-}
-
-@media screen and (min-width: 800px){
-    .ajoutCours {
-        position: relative;
-        padding: 20px;
-        margin: 2em 3em;
-        background-color: rgb(70, 79, 107);
-        left: 79%;
-        border-radius: 5px;
-        color: #FFFFFF;
-    }
-}
-
-
-
-.ajoutCours:hover {
-    transform: scale(1.1);
-    transition: transform 0.3s ease;
-    color: #FFFFFF;
-}
-
-.ajoutCours:not(hover) {
-    transition: transform 0.3s ease;
-}
-
-.icon {
-    position: relative;
-    margin: 0 0 0 9px;
-}
-*/
 
 .course .ajout {
     position: relative;
@@ -366,4 +280,49 @@ div button{
 .course .icon {
     position: relative;
     margin: 0 0 0 9px;
+}
+
+.partie{
+    margin-bottom: 5px;
+}
+
+.partie button{
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    padding: 10px 15px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: auto;
+    text-align: center;
+}
+
+.partie button:hover{
+    background-color: #CC0381;
+    color: white;
+    padding: 10px 15px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: auto;
+}
+
+.partie a{
+    color: #000000;
+}
+.partie a:hover{
+    color: #CC0381;
+}
+
+.ajout-fichier{
+    border:1px solid black;
+    border-radius: 10%;
+    width: 250px;
+    padding: 10px;
+    margin: 10px 0 0 0;
+}
+
+.container-course{
+    position: relative;
+    min-height: 65%;
 }

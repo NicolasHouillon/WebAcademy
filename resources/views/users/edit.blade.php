@@ -54,20 +54,20 @@
             {{-- le nom  --}}
             <label for="lastname"><strong> Votre nom: </strong></label>
             <input type="text" name="lastname" id="lastname"
-                   value="{{ $user->lastname}}">
+                   value="{{ $user->lastname}}" required>
         </div>
 
         <div class="champs">
             {{-- le nom  --}}
             <label for="firstname"><strong> Votre Prénom: </strong></label>
             <input type="text" name="firstname" id="firstname"
-                   value="{{ $user->firstname}}">
+                   value="{{ $user->firstname}}" required>
         </div>
         <div class="champs">
             {{-- l'email  --}}
             <label for="email"><strong> Votre email: </strong></label>
             <input type="text" name="email" id="email"
-                   value="{{ $user->email}}">
+                   value="{{ $user->email}}" required>
         </div>
         <div class="champs">
             {{-- le mot de passe--}}
@@ -104,4 +104,3 @@
     </script>
 
 @endsection
-@extends('layouts.footer')
