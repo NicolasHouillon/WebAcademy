@@ -83,12 +83,13 @@ class MessageController extends Controller
      */
     public function store(Request $request, User $user)
     {
-        $message = new Message();
-        $message->content = $request->contenu;
-        $message->receiver_id = $user->id;
-        $message->sender_id = Auth::id();
-
-        $message->save();
+        if ($request->contenu){
+            $message = new Message();
+            $message->content = $request->contenu;
+            $message->receiver_id = $user->id;
+            $message->sender_id = Auth::id();
+            $message->save();
+        }
 
         return redirect(route('messages.show', $user->id));
     }
