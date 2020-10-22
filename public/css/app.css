@@ -534,7 +534,6 @@ a:hover{
     position: relative;
     margin-top: 1%;
     text-align: center;
-    overflow: auto;
 }
 
 #app .zone-de-frappe a{
