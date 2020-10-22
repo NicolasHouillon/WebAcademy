@@ -29,7 +29,7 @@
                                 @csrf
 
                                 <div class="form-group row">
-                                    <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                                    <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Adresse E-Mail') }}</label>
 
                                     <div class="col-md-6">
                                         <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
@@ -43,7 +43,7 @@
                                 </div>
 
                                 <div class="form-group row">
-                                    <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                                    <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Mot de passe') }}</label>
 
                                     <div class="col-md-6">
                                         <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
@@ -62,7 +62,7 @@
                                             <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
                                             <label class="form-check-label" for="remember">
-                                                {{ __('Remember Me') }}
+                                                {{ __('Se souvenir de moi') }}
                                             </label>
                                         </div>
                                     </div>
@@ -71,12 +71,12 @@
                                 <div class="form-group row mb-0">
                                     <div class="col-md-8 offset-md-4">
                                         <button type="submit" class="btn btn-primary appButton" style="border: 1px solid white;margin-top: 50px;float: left">
-                                            {{ __('Login') }}
+                                            {{ __('Connexion') }}
                                         </button>
 
                                         @if (Route::has('password.request'))
                                             <a class="btn btn-link" href="{{ route('password.request') }}" style="border: none;margin-top: 50px;float: right;width: auto">
-                                                {{ __('Forgot Your Password?') }}
+                                                {{ __('vous avez oublié votre mot de passe?') }}
                                             </a>
                                         @endif
                                     </div>
@@ -106,7 +106,7 @@
                                 @csrf
 
                                 <div class="form-group row">
-                                    <label for="firstname" class="col-md-4 col-form-label text-md-right">{{ __('Firstname') }}</label>
+                                    <label for="firstname" class="col-md-4 col-form-label text-md-right">{{ __('Prénom') }}</label>
 
                                     <div class="col-md-6">
                                         <input id="firstname" type="firstname" class="form-control @error('firstname') is-invalid @enderror" name="firstname" value="{{ old('firstname') }}" required autocomplete="firstname" autofocus>
@@ -120,7 +120,7 @@
                                 </div>
 
                                 <div class="form-group row">
-                                    <label for="lastname" class="col-md-4 col-form-label text-md-right">{{ __('Lastame') }}</label>
+                                    <label for="lastname" class="col-md-4 col-form-label text-md-right">{{ __('Nom') }}</label>
 
                                     <div class="col-md-6">
                                         <input id="lastname" type="lastname" class="form-control @error('lastname') is-invalid @enderror" name="lastname" value="{{ old('lastname') }}" required autocomplete="lastname" autofocus>
@@ -134,7 +134,7 @@
                                 </div>
 
                                 <div class="form-group row">
-                                    <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                                    <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Adresse E-Mail') }}</label>
 
                                     <div class="col-md-6">
                                         <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
@@ -148,7 +148,7 @@
                                 </div>
 
                                 <div class="form-group row">
-                                    <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                                    <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Mot de passe') }}</label>
 
                                     <div class="col-md-6">
                                         <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
@@ -162,7 +162,7 @@
                                 </div>
 
                                 <div class="form-group row">
-                                    <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+                                    <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirmer Mot de passe') }}</label>
 
                                     <div class="col-md-6">
                                         <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
@@ -175,16 +175,20 @@
                                         <input type="radio" id="group_id" name="group_id" value="4" checked>
                                         <label for="group_id">Etudiant</label><br>
                                     </div>
-                                    <div >
+                                    <div style="margin-right: 5em">
                                         <input type="radio" id="group_id" name="group_id" value="2">
                                         <label for="group_id">Prof</label><br>
+                                    </div>
+                                    <div >
+                                        <input type="radio" id="group_id" name="group_id" value="3">
+                                        <label for="group_id">Parent</label><br>
                                     </div>
                                 </div>
 
                                 <div class="form-group row mb-0">
                                     <div class="col-md-6 offset-md-4">
                                         <button type="submit" class="btn btn-primary appButton">
-                                            {{ __('Register') }}
+                                            {{ __('Enregistrer') }}
                                         </button>
                                     </div>
                                 </div>

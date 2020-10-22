@@ -163,9 +163,13 @@
                                             <input type="radio" id="group_id" name="group_id" value="4" checked>
                                             <label for="group_id">Etudiant</label><br>
                                         </div>
-                                        <div>
+                                        <div style="margin-right: 5em">
                                             <input type="radio" id="group_id" name="group_id" value="2">
                                             <label for="group_id">Prof</label><br>
+                                        </div>
+                                        <div >
+                                            <input type="radio" id="group_id" name="group_id" value="3">
+                                            <label for="group_id">Parent</label><br>
                                         </div>
                                     </div>
 

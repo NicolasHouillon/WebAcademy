@@ -69,16 +69,20 @@
                             <div class="message card">
                                 <div class="message-title">Mes enfants</div>
                                 <div class="message-content">
-                                    @foreach($user->children as $child)
-                                        <li>
-                                            <a href="{{ route('user_profile', $child->slugFullName()) }}">{{ $child->fullName() }}</a>
-                                            <form action="{{ route('children.destroy', $child) }}" method="post">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit">Supprimer</button>
-                                            </form>
-                                        </li>
-                                    @endforeach
+                                    @if(!$user->children->isEmpty())
+                                        @foreach($user->children as $child)
+                                            <li>
+                                                <a href="{{ route('user_profile', $child->slugFullName()) }}">{{ $child->fullName() }}</a>
+                                                <form action="{{ route('children.destroy', $child) }}" method="post">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit">Supprimer</button>
+                                                </form>
+                                            </li>
+                                        @endforeach
+                                    @else
+                                        <p>Vous n'avez pas encore d'enfant</p>
+                                    @endif
                                     <hr>
                                     <h3>Ajouter un enfant</h3>
                                     <form action="{{ route('children.store') }}" method="post">
@@ -133,7 +137,7 @@
                     @endif
 
                     {{--        LES COURS ACHETES        --}}
-                    @if($user->group->name == "Etudiant")
+                    @if($user->group->name == "Etudiant" or Auth::user()->children->contains($user))
                         <div class="card">
                             <div class="message-title">
                                 Cours achetés
