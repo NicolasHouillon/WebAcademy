@@ -727,18 +727,18 @@ a:hover{
     text-align: center;
 }
 
-table {
+.liste-user table {
     border-collapse: collapse;
     width: 100%;
     border: 5px solid #22282c;
 }
 
-td {
+.liste-user td {
     text-align: left;
     padding: 12px;
 }
 
-tr:nth-child(even) {background-color: #dedee5;}
+.liste-user tr:nth-child(even) {background-color: #dedee5;}
 
 .liste-user a{
     color: black;

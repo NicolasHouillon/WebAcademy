@@ -132,7 +132,7 @@ class CourseController extends Controller
     {
         $this->authorize('update', $course);
         $course = $this->storeCourse($request, $course);
-        return redirect()->route('courses.index', $course->subject->slug);
+        return redirect()->route('courses.show', $course->id);
     }
 
     /**

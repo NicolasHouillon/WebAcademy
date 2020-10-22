@@ -234,6 +234,13 @@ div button{
     border-radius: 5px;
 }
 
+.description {
+    padding: 5px;
+    border-radius: 5px;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
 .course-content a:hover {
     background-color: #CC0381;
     color: white;
@@ -273,4 +280,44 @@ div button{
 .course .icon {
     position: relative;
     margin: 0 0 0 9px;
+}
+
+.partie{
+    margin-bottom: 5px;
+}
+
+.partie button{
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    padding: 10px 15px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: auto;
+    text-align: center;
+}
+
+.partie button:hover{
+    background-color: #CC0381;
+    color: white;
+    padding: 10px 15px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: auto;
+}
+
+.partie a{
+    color: #000000;
+}
+.partie a:hover{
+    color: #CC0381;
+}
+
+.ajout-fichier{
+    border:1px solid black;
+    border-radius: 10%;
+    width: 250px;
+    padding: 10px;
+    margin: 10px 0 0 0;
 }

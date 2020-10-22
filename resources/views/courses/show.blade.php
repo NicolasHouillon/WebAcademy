@@ -20,21 +20,22 @@
             </h1>
 
             @if($course->valide)
-                <p>
+                <p class="description">
                     {{$course->description}}
                 </p>
             @endif
             @if(Auth::user()->payCourse($course->id) || (Auth::id()==$course->user_id && Auth::user()->group_id==2) || Auth::user()->group->id == "Administrateur" && $course->valide)
                 <p>
-                <ul>
-                    @foreach($course->attachments as $attachment)
-                        <li>
-                            <a href="{{asset('storage/'.$attachment->file)}}">
-                                {{$attachment->name}}
-                            </a>
-                        </li>
-                    @endforeach
-                </ul>
+                    <p><b>Liste des fichiers :</b></p>
+                    <ul>
+                        @foreach($course->attachments as $attachment)
+                            <li style="margin-bottom: 10px">
+                                <a href="{{asset('storage/'.$attachment->file)}}">
+                                    {{$attachment->name}}
+                                </a>
+                            </li>
+                        @endforeach
+                    </ul>
                 </p>
             @endif
 
