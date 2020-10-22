@@ -5,4 +5,52 @@
     color: white;
     background-color: #22282c;
     bottom: 0;
+    display: inline-flex;
+}
+
+.message {
+    position: relative;
+    top: 50px;
+    padding: 10px;
+    color: white;
+    border-radius: 5px;
+    height: fit-content;
+}
+
+.message:hover {
+    background-color: #CC0381;
+    transition: background-color 0.5s ease;
+}
+
+.message:not(hover) {
+    transition: background-color 0.5s ease;
+}
+
+.createur {
+    position: relative;
+    left: 37%;
+    top: -15px;
+}
+
+
+.createur li {
+    list-style: none;
+    display: inline;
+    padding-right: 10px;
+}
+
+.liens {
+    list-style: none;
+    position: relative;
+    left: 20%;
+    top: -10px;
+}
+
+.liens li {
+    display: inline;
+    padding-right: 10px;
+}
+
+.liens a:hover {
+    text-decoration: underline;
 }
